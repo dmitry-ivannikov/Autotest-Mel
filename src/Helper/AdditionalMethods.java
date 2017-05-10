@@ -2,12 +2,9 @@ package Helper;
 
 import TestClasses.LogoutTest;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 
 public class AdditionalMethods {
@@ -27,6 +24,10 @@ public class AdditionalMethods {
     public String driverGetStr() {
         String str = "http://pablo-mel.qa.lan/";
         return str;
+    }
+
+    public void driverGetCurrentUrl(String str) {
+        driver.get("http://pablo-mel.qa.lan/"+str);
     }
 
     public void Wait() {

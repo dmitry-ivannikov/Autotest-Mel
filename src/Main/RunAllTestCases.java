@@ -2,6 +2,8 @@ package Main;
 
 import Helper.AdditionalMethods;
 import TestClasses.*;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.internal.TextListener;
 import org.junit.runner.JUnitCore;
 import org.openqa.selenium.By;
@@ -36,6 +38,7 @@ public class RunAllTestCases {
     private SharingArticleTest sharingArticle;
     private SubscribeNewsLetterTest subscribeNewsLetter;
     private ProfileTest profile;
+    private DirectiveTest directiveTest;
 
 
     public void setup() throws IOException {
@@ -44,10 +47,18 @@ public class RunAllTestCases {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
     }
+    @Before
+    public void BeforeTests() throws IOException {
+        setup();
+    }
+
+    @After
+    public void AfterTests(){
+        driver.quit();
+    }
 
     @Test
     public  void Authorisation() throws IOException {
-        setup();
         methods = new AdditionalMethods(driver);
         autoLogin = new LoginTest(driver);
         methods.driverGet();
@@ -59,12 +70,10 @@ public class RunAllTestCases {
         }
         Assert.assertEquals(autoLogin.getHomePageDashboardName(), "Vladimir Petrov");
         //Assert.assertEquals(logout.CheckEnterButton(), "ВХОД");
-        driver.quit();
     }
 
     @Test
     public void Registration() throws IOException {
-        setup();
         methods = new AdditionalMethods(driver);
         registration = new RegistrationTest(driver);
         methods.driverGet();
@@ -86,12 +95,10 @@ public class RunAllTestCases {
         Assert.assertEquals(registration.GetHeaderUserName(), "FirstName LastName");
         methods.Exit();
         //Assert.assertEquals(logout.CheckEnterButton(), "ВХОД");
-        driver.quit();
     }
 
     @Test
     public void AddAndDeleteComment() throws  IOException {
-        setup();
         methods = new AdditionalMethods(driver);
         comment = new AddCommentTest(driver);
         autoLogin = new LoginTest(driver);
@@ -106,12 +113,10 @@ public class RunAllTestCases {
         methods.Exit();
         methods.Wait();
        // Assert.assertEquals(logout.CheckEnterButton(), "ВХОД");
-        driver.quit();
     }
 
     @Test
     public void AuthorisationSocial() throws  IOException {
-        setup();
         methods = new AdditionalMethods(driver);
         authorisationSocial = new SocialNetworksAuthorisationTest(driver);
         methods.driverGet();
@@ -128,7 +133,6 @@ public class RunAllTestCases {
         methods.OutputFromAnAccountSocialLogin();
         methods.Wait();
        // Assert.assertEquals(logout.CheckEnterButton(), "ВХОД");
-        driver.quit();
         // Google+
         //        driver.get("http://qa.mel.fm/");
         //        // Wait();
@@ -152,7 +156,6 @@ public class RunAllTestCases {
 
     @Test
     public void MoreArticle() throws  IOException {
-        setup();
         article = new DownloadArticlesTest(driver);
         methods = new AdditionalMethods(driver);
         methods.driverGet();
@@ -170,12 +173,10 @@ public class RunAllTestCases {
             Assert.assertTrue(driver.findElement(article.Articles).isDisplayed());
             driver.navigate().back();
         }
-        driver.quit();
     }
 
     @Test
     public void SendMessageInBlog() throws  IOException {
-        setup();
         methods = new AdditionalMethods(driver);
         message = new SendMessageInBlogTest(driver);
         methods.driverGet();
@@ -192,12 +193,10 @@ public class RunAllTestCases {
         Assert.assertEquals(message.GetImageClass(), "img");
         methods.Wait();
         methods.Exit();
-        driver.quit();
     }
 
     @Test
     public void SharingArticle() throws IOException, InterruptedException {
-        setup();
         methods = new AdditionalMethods(driver);
         sharingArticle = new SharingArticleTest(driver);
         //Sharing Fb
@@ -231,7 +230,6 @@ public class RunAllTestCases {
 //        JavascriptExecutor jse2 = (JavascriptExecutor) driver;
 //        jse2.executeScript("scroll(0,500)", "");
         // Assert.assertEquals(sharingArticle.getTextVk(), "9 фраз, которые мы напрасно не говорим детям");
-        driver.quit();
 
             // NOT WORK
 
@@ -250,7 +248,6 @@ public class RunAllTestCases {
 
     @Test
     public void SubscribeNewsLetter() throws  IOException {
-        setup();
         methods = new AdditionalMethods(driver);
         subscribeNewsLetter = new SubscribeNewsLetterTest(driver);
         methods.driverGet();
@@ -290,23 +287,19 @@ public class RunAllTestCases {
         org.testng.Assert.assertEquals(subscribeNewsLetter.getConfirmPageName(), "Рассылка mel.fm");
         subscribeNewsLetter.PressInContinueButton();
         org.testng.Assert.assertEquals(driver.getCurrentUrl(), "http://mel.fm/");
-        driver.quit();
     }
 
     @Test
     public void Footer() throws IOException {
-        setup();
         methods = new AdditionalMethods(driver);
         footer = new FooterTest(driver);
         methods.driverGet();
         methods.Wait();
         footer.CheckFooter();
-        driver.quit();
     }
 
     @Test
     public void Profile() throws IOException {
-        setup();
         methods = new AdditionalMethods(driver);
         methods.driverGet();
         registration = new RegistrationTest(driver);
@@ -370,7 +363,43 @@ public class RunAllTestCases {
         Assert.assertEquals(profile.getFbUrl(),"facebook");
         Assert.assertEquals(profile.getVkUrl(),"вконтакте");
         Assert.assertEquals(profile.getTwitterUrl(),"twitter");
-        driver.quit();
+    }
+
+    @Test
+    public void DirectiveTest(){
+       directiveTest = new DirectiveTest(driver);
+       methods = new AdditionalMethods(driver);
+
+       methods.driverGetCurrentUrl("sitemap");
+       Assert.assertTrue(driver.findElement(directiveTest.SiteMapText).isDisplayed());
+       Assert.assertEquals(directiveTest.GetSiteMapText(), "This XML file does not appear to have any style information associated with it. The document tree is shown below.");
+
+       methods.driverGetCurrentUrl("rss/default-all");
+       Assert.assertTrue(driver.findElement(directiveTest.RSSText).isDisplayed());
+
+       methods.driverGetCurrentUrl("robots.txt");
+       Assert.assertTrue(driver.findElement(directiveTest.RobotTxtText).isDisplayed());
+       Assert.assertEquals(directiveTest.GetRobotTxtText(), "User-agent: Yandex\n" +
+               "Disallow: /*?amp\n" +
+               "Disallow: /*?nomr\n" +
+               "Disallow: /*?ext\n" +
+               "Disallow: /*&amp\n" +
+               "Disallow: /*&nomr\n" +
+               "Disallow: /*&ext\n" +
+               "Disallow: /*?ogimage\n" +
+               "Clean-param: #!\n" +
+               "Crawl-delay: 1\n" +
+               "Host: mel.fm\n" +
+               "\n" +
+               "User-agent:*\n" +
+               "Disallow: /*?amp\n" +
+               "Disallow: /*?nomr\n" +
+               "Disallow: /*?ext\n" +
+               "Disallow: /*&amp\n" +
+               "Disallow: /*&nomr\n" +
+               "Disallow: /*&ext\n" +
+               "Disallow: /*?ogimage\n" +
+               "Sitemap: http://mel.fm/sitemap");
     }
 
     public static void main(String[] args) throws IOException {
