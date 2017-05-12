@@ -1,5 +1,8 @@
 package Main;
 
+import AdminTestClasses.AdminAddingPublicationTest;
+import AdminTestClasses.AdminAddingUserTest;
+import AdminTestClasses.AdminLoginTest;
 import Helper.AdditionalMethods;
 import TestClasses.*;
 import org.junit.After;
@@ -10,6 +13,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.junit.Test;
 
@@ -18,6 +23,7 @@ import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import static org.testng.AssertJUnit.assertEquals;
@@ -40,7 +46,9 @@ public class RunAllTestCases {
     private ProfileTest profile;
     private DirectiveTest directiveTest;
     private SearchTest search;
-
+    private AdminAddingPublicationTest addingPublication;
+    private AdminLoginTest adminLogin;
+    private AdminAddingUserTest addingUser;
 
     public void setup() throws IOException {
         System.setProperty("webdriver.chrome.driver" , "C:\\chromedriver.exe");
@@ -402,6 +410,7 @@ public class RunAllTestCases {
                "Disallow: /*?ogimage\n" +
                "Sitemap: http://mel.fm/sitemap");
     }
+
     @Test
     public void Search() throws IOException {
         setup();
@@ -421,6 +430,59 @@ public class RunAllTestCases {
         Assert.assertEquals(search.GetClassSearchBarHidden(),"i-layout__search-bar-container i-layout__search-bar-container_transition i-utils__hidden");
         // Assert.assertTrue(driver.findElement(search.SearchBarHidden).isDisplayed());
         driver.quit();
+    }
+
+    @Test
+    public void AddingAdminUser(){
+        methods = new AdditionalMethods(driver);
+        addingUser = new AdminAddingUserTest(driver);
+        adminLogin = new AdminLoginTest(driver);
+
+        String UserEmail = methods.GenerateStr();
+        methods.driverGetAdminUrl();
+        adminLogin.AdminAuthorisation("test@example.com", "123qwe");
+        addingUser.AddingNewUser("Name", "SurName",UserEmail);
+        driver.get("https://mail.ru/");
+        addingUser.EmailAuthorisation("test153153153@mail.ru", "Qa123_000");
+
+        final Set<String> oldWindowsSet = driver.getWindowHandles();
+        addingUser.RegistrateUser();
+        String newWindos = (new WebDriverWait(driver, 10)).until(new ExpectedCondition<String>()
+        {
+            @Override
+            public String apply(WebDriver webDriver) {
+                Set<String> newWindosSet = webDriver.getWindowHandles();
+                newWindosSet.removeAll(oldWindowsSet);
+                return newWindosSet.size() > 0 ?
+                        newWindosSet.iterator().next() : null;
+            }
+        });
+        driver.switchTo().window(newWindos);
+        methods.Wait();
+
+        Assert.assertEquals(addingUser.getRegistrationName(), "Name");
+        Assert.assertEquals(addingUser.getRegistrationSurname(), "SurName");
+        Assert.assertEquals(addingUser.getRegistrationEmail(), UserEmail);
+        Assert.assertEquals(driver.getTitle(), "Регистрация пользователя");
+
+        addingUser.EnterPasswordAndConfirm("12345678","12345678");
+        methods.Wait();
+        Assert.assertEquals(driver.getTitle(), "Публикации");
+    }
+
+    @Test
+    public void AddingPublication(){
+        addingPublication = new AdminAddingPublicationTest(driver);
+        methods = new AdditionalMethods(driver);
+        adminLogin = new AdminLoginTest(driver);
+
+        methods.driverGetAdminUrl();
+        adminLogin.AdminAuthorisation("test@example.com", "123qwe");
+        addingPublication.FillingFields("Title", "Subtitle", "Author", "Annoucement", "Covertag","Addingtag","TText in block");
+        Assert.assertEquals(driver.getTitle(), "Новая публикация");
+        addingPublication.AddingCovers();
+        addingPublication.ShowPreviewPublication();
+
     }
 
     public static void main(String[] args) throws IOException {

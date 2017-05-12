@@ -30,6 +30,9 @@ public class AdditionalMethods {
         driver.get("http://pablo-mel.qa.lan/"+str);
     }
 
+    public void driverGetAdminUrl(){
+        driver.get("http://admin.pablo-mel.qa.lan/");
+    }
     public void Wait() {
         try {
             Thread.sleep(4000);
