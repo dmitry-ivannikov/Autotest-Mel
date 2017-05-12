@@ -39,6 +39,7 @@ public class RunAllTestCases {
     private SubscribeNewsLetterTest subscribeNewsLetter;
     private ProfileTest profile;
     private DirectiveTest directiveTest;
+    private SearchTest search;
 
 
     public void setup() throws IOException {
@@ -400,6 +401,26 @@ public class RunAllTestCases {
                "Disallow: /*&ext\n" +
                "Disallow: /*?ogimage\n" +
                "Sitemap: http://mel.fm/sitemap");
+    }
+    @Test
+    public void Search() throws IOException {
+        setup();
+        methods = new AdditionalMethods(driver);
+        search = new SearchTest(driver);
+        methods.driverGet();
+        search.SendValidSearchQuery("новости");
+        search.CheckArticlesInListSearchResult();
+        methods.driverGet();
+        search.SendInvalidSearchQuery("!#$%&'*+-/=?^_`{|}~");
+        Assert.assertEquals(search.getEmptySearchTitle(),"Ничего не найдено");
+        search.CheckDeleteInSearchResultInput("мяу");
+        Assert.assertEquals(search.GetTextInSearchResultInput(),"мяу");
+        methods.driverGet();
+        search.CheckCloseSearch();
+        methods.Wait();
+        Assert.assertEquals(search.GetClassSearchBarHidden(),"i-layout__search-bar-container i-layout__search-bar-container_transition i-utils__hidden");
+        // Assert.assertTrue(driver.findElement(search.SearchBarHidden).isDisplayed());
+        driver.quit();
     }
 
     public static void main(String[] args) throws IOException {
