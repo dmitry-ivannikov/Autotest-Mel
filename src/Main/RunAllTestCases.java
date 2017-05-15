@@ -49,6 +49,7 @@ public class RunAllTestCases {
     private AdminAddingPublicationTest addingPublication;
     private AdminLoginTest adminLogin;
     private AdminAddingUserTest addingUser;
+    private TagSubscribeTest tagSubscribe;
 
     public void setup() throws IOException {
         System.setProperty("webdriver.chrome.driver" , "C:\\chromedriver.exe");
@@ -483,6 +484,35 @@ public class RunAllTestCases {
         addingPublication.AddingCovers();
         addingPublication.ShowPreviewPublication();
 
+    }
+    @Test
+    public void TagSubscribe() throws IOException {
+        setup();
+        methods = new AdditionalMethods(driver);
+        tagSubscribe = new TagSubscribeTest(driver);
+        methods.driverGet();
+
+        tagSubscribe.subscribeOnTagGuest();
+        registration = new RegistrationTest(driver);
+        registration.FirstUserRegistration("FirstName", "LastName", methods.GenerateStr(), "12345678");
+        methods.Wait();
+
+        tagSubscribe.subscribeOnTagUser();
+        Assert.assertEquals(tagSubscribe.getTagNameFromMySubscribers(), "Новости");
+
+        tagSubscribe.unsubscribeFromTagUser();
+        methods.Wait();
+        Assert.assertEquals(tagSubscribe.getTagNameButton(), "Подписаться");
+
+        tagSubscribe.checkUnsubscribe();
+        Assert.assertEquals(tagSubscribe.getTextSubscribePage(),"Мой Мел – ваша персональная лента материалов об образовании");
+
+        String str1 = tagSubscribe.getTextFirstButton();
+        tagSubscribe.checkTagUpdate();
+        methods.Wait();
+        String str2 = tagSubscribe.getTextSecondButton();
+        tagSubscribe.isStringEquals(str1, str2);
+        driver.quit();
     }
 
     public static void main(String[] args) throws IOException {

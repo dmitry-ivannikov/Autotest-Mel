@@ -74,11 +74,7 @@ public class TagSubscribeTest {
     }
     //function to compare text between two tag buttons
     public void isStringEquals(String str1, String str2){
-        if(str1 != str2) {
-            System.out.println("Строки неравны");
-        }
-        else {
-            System.out.println("Строки равны");
+        if(str1 == str2) {
             driver.quit();
         }
     }
