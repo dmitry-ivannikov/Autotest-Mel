@@ -41,10 +41,11 @@ public class AdminTestCases {
     public void AfterTests(){
         driver.quit();
     }
-
+    
     @Test
     public void AddingAdminUser(){
         methods = new AdditionalMethods(driver);
+        getUrl = new GetUrl(driver);
         addingUser = new AdminAddingUserTest(driver);
         adminLogin = new AdminLoginTest(driver);
 
@@ -70,10 +71,12 @@ public class AdminTestCases {
         Assert.assertEquals(driver.getTitle(), "Публикации");
     }
 
+
     @Test
     public void AddingPublication(){
         addingPublication = new AdminAddingPublicationTest(driver);
         methods = new AdditionalMethods(driver);
+        getUrl = new GetUrl(driver);
         adminLogin = new AdminLoginTest(driver);
 
         getUrl.driverGetAdminUrl();
@@ -106,7 +109,5 @@ public class AdminTestCases {
         String publicationUrl = getUrl.driverGetStr()+addingPublication.getPublicationUrl()+"title";
         System.out.println(publicationUrl);
         driver.get(publicationUrl);
-        methods.Wait();
-        methods.Wait();
     }
 }

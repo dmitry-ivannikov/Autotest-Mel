@@ -2,9 +2,12 @@ package Helper;
 
 import TestClasses.LogoutTest;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.util.Set;
 
 
 public class AdditionalMethods {
@@ -14,20 +17,6 @@ public class AdditionalMethods {
 
     public AdditionalMethods(WebDriver driver) {
         this.driver = driver;
-    }
-
-    // to select the test stand
-    public void driverGet() {
-        driver.get("http://pablo-mel.qa.lan/");
-    }
-
-    public String driverGetStr() {
-        String str = "http://pablo-mel.qa.lan/";
-        return str;
-    }
-
-    public void driverGetCurrentUrl(String str) {
-        driver.get("http://pablo-mel.qa.lan/"+str);
     }
 
     public void Wait() {
@@ -98,4 +87,17 @@ public class AdditionalMethods {
         r.keyRelease(KeyEvent.VK_ENTER);
     }
 
+    public void MoveFocucToTheNewWindow(final Set<String> oldWindowsSet){
+        String newWindos = (new WebDriverWait(driver, 10)).until(new ExpectedCondition<String>()
+        {
+            @Override
+            public String apply(WebDriver webDriver) {
+                Set<String> newWindosSet = webDriver.getWindowHandles();
+                newWindosSet.removeAll(oldWindowsSet);
+                return newWindosSet.size() > 0 ?
+                        newWindosSet.iterator().next() : null;
+            }
+        });
+        driver.switchTo().window(newWindos);
+    }
 }

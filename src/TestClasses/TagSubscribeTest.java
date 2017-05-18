@@ -1,3 +1,4 @@
+
 package TestClasses;
 
 import Helper.AdditionalMethods;
@@ -38,6 +39,7 @@ public class TagSubscribeTest {
     public void clickOnSubscribeButtonOff() {
         driver.findElement(tagSubscribeButtonOff).click();
     }
+
     /*
        public void ThreadSleep()
         {
@@ -72,9 +74,10 @@ public class TagSubscribeTest {
         String str = driver.findElement(firstTagButton).getText();
         return str;
     }
+
     //function to compare text between two tag buttons
-    public void isStringEquals(String str1, String str2){
-        if(str1 == str2) {
+    public void isStringEquals(String str1, String str2) {
+        if (str1 == str2) {
             driver.quit();
         }
     }
@@ -96,11 +99,12 @@ public class TagSubscribeTest {
         driver.findElement(mySubscribersTagName).click();
         driver.findElement(tagSubscribeButtonOn).click();
     }
+
     public void checkUnsubscribe() {
         driver.findElement(mySubscribers).click();
     }
 
-    public void checkTagUpdate(){
+    public void checkTagUpdate() {
         methods = new AdditionalMethods(driver);
         getTextFirstButton();
         methods.Wait();
@@ -108,8 +112,4 @@ public class TagSubscribeTest {
         getTextSecondButton();
 
     }
-
-
-
-
 }
