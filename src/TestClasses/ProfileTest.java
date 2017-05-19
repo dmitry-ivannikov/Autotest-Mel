@@ -54,6 +54,7 @@ public class ProfileTest {
     public ProfileTest(WebDriver driver) {
         this.driver = driver;
     }
+
     private void ClickOnHeaderDropdownIcon() {
         driver.findElement(HeaderDropdownIcon).click();
     }

@@ -306,7 +306,24 @@ public class SiteTestCases {
 
         getUrl.driverGet();
         methods.Wait();
-        footer.CheckFooter();
+        footer.CheckFooterRubric(getUrl.driverGetStr()+"rubric/school",
+                                 getUrl.driverGetStr()+"rubric/highschool",
+                                 getUrl.driverGetStr()+"rubric/fun",
+                                 getUrl.driverGetStr()+"rubric/family",
+                                 getUrl.driverGetStr()+"rubric/games",
+                                 getUrl.driverGetStr()+"blogs",
+                                 getUrl.driverGetStr()+"author/afisha-mela");
+        footer.CheckFooterContacts(getUrl.driverGetStr()+"page/contacts",
+                                   "Контакты",
+                                   getUrl.driverGetStr()+"page/advertising-proposal",
+                                   "Реклама");
+        footer.CheckFooterMediakit("https://www.dropbox.com/s/p2rizp286zu7kcm/Mel_Mediakit.pdf?dl=0","https://www.dropbox.com/s/zm1jzitag2umqc5/Mel_Pricelist.pdf?dl=0");
+        footer.CheckFooterLinks(getUrl.driverGetStr()+"page/terms-of-use",
+                                "Пользовательское соглашение",
+                                "https://www.facebook.com/melfmru",
+                                "https://vk.com/melfmru",
+                                "https://twitter.com/melfmru",
+                                "https://ok.ru/group/57557432139808");
     }
 
     @Test

@@ -57,40 +57,64 @@ public class FooterTest {
     }
 
 
-    public void CheckFooter() {
+    public void CheckFooterRubric(String school, String hightschool, String fun, String family, String games, String blogs, String afisha) {
         methods = new AdditionalMethods(driver);
-//check rubric
+        getUrl = new GetUrl(driver);
+
+        //check rubric
         driver.findElement(RubricSchool).click();
-        Assert.assertEquals(driver.getCurrentUrl(),getUrl.driverGetStr()+"rubric/school" );
+        Assert.assertEquals(driver.getCurrentUrl(), school);
+        //Assert.assertEquals(driver.getCurrentUrl(),getUrl.driverGetStr()+"rubric/school" );
 
         driver.findElement(RubricHighschool).click();
-        Assert.assertEquals(driver.getCurrentUrl(), getUrl.driverGetStr()+"rubric/highschool");
+        //Assert.assertEquals(driver.getCurrentUrl(), getUrl.driverGetStr()+"rubric/highschool");
+        Assert.assertEquals(driver.getCurrentUrl(), hightschool);
 
         driver.findElement(RubricFun).click();
-        Assert.assertEquals(driver.getCurrentUrl(), getUrl.driverGetStr()+"rubric/fun");
+        //Assert.assertEquals(driver.getCurrentUrl(), getUrl.driverGetStr()+"rubric/fun");
+        Assert.assertEquals(driver.getCurrentUrl(), fun);
 
         driver.findElement(RubricFamily).click();
-        Assert.assertEquals(driver.getCurrentUrl(), getUrl.driverGetStr()+"rubric/family");
+        //Assert.assertEquals(driver.getCurrentUrl(), getUrl.driverGetStr()+"rubric/family");
+        Assert.assertEquals(driver.getCurrentUrl(), family);
 
         driver.findElement(RubricGames).click();
-        Assert.assertEquals(driver.getCurrentUrl(), getUrl.driverGetStr()+"rubric/games");
+        //Assert.assertEquals(driver.getCurrentUrl(), getUrl.driverGetStr()+"rubric/games");
+        Assert.assertEquals(driver.getCurrentUrl(), games);
 
         driver.findElement(RubricBlogs).click();
-        Assert.assertEquals(driver.getCurrentUrl(), getUrl.driverGetStr()+"blogs");
+        //Assert.assertEquals(driver.getCurrentUrl(), getUrl.driverGetStr()+"blogs");
+        Assert.assertEquals(driver.getCurrentUrl(), blogs);
 
         driver.findElement(RubricAfisha).click();
-        Assert.assertEquals(driver.getCurrentUrl(), getUrl.driverGetStr()+"author/afisha-mela");
-//check another links and social-buttons in footer
+        //Assert.assertEquals(driver.getCurrentUrl(), getUrl.driverGetStr()+"author/afisha-mela");
+        Assert.assertEquals(driver.getCurrentUrl(), afisha);
+    }
+
+    public void CheckFooterContacts(String urlContacts, String contacts, String urlAdvertising, String advertising) {
+        methods = new AdditionalMethods(driver);
+        getUrl = new GetUrl(driver);
+
+        //check another links and social-buttons in footer
         driver.findElement(LinkContacts).click();
-        Assert.assertEquals(driver.getCurrentUrl(), getUrl.driverGetStr()+"page/contacts");
-        Assert.assertEquals(getTitleContacts(),"Контакты");
+        //Assert.assertEquals(driver.getCurrentUrl(), getUrl.driverGetStr()+"page/contacts");
+        //Assert.assertEquals(getTitleContacts(),"Контакты");
+
+        Assert.assertEquals(driver.getCurrentUrl(), urlContacts);
+        Assert.assertEquals(getTitleContacts(), contacts);
 
         driver.findElement(LinkAdvertising).click();
-        Assert.assertEquals(driver.getCurrentUrl(), getUrl.driverGetStr()+"page/advertising-proposal");
-        Assert.assertEquals(getTitleAdvertising(),"Реклама");
+        //Assert.assertEquals(driver.getCurrentUrl(), getUrl.driverGetStr()+"page/advertising-proposal");
+        //Assert.assertEquals(getTitleAdvertising(),"Реклама");
+        Assert.assertEquals(driver.getCurrentUrl(), urlAdvertising);
+        Assert.assertEquals(getTitleAdvertising(), advertising);
+    }
+
+    public void CheckFooterMediakit(String firstMediakid, String lastMediakid) {
+        methods = new AdditionalMethods(driver);
+        getUrl = new GetUrl(driver);
 
         driver.findElement(MediakitButton).click();
-
         driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
 
         String parentHandle = driver.getWindowHandle();
@@ -99,64 +123,61 @@ public class FooterTest {
                 driver.switchTo().window(childHandle);
             }
         }
+
         driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.dropbox.com/s/p2rizp286zu7kcm/Mel_Mediakit.pdf?dl=0");
+        //Assert.assertEquals(driver.getCurrentUrl(), "https://www.dropbox.com/s/p2rizp286zu7kcm/Mel_Mediakit.pdf?dl=0");
+        Assert.assertEquals(driver.getCurrentUrl(), firstMediakid);
 
         driver.close();
         driver.switchTo().window(parentHandle);
 
         driver.findElement(PricelistButton).click();
-        try {
-            Thread.sleep(4000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
+        methods.Wait();
         String parentHandle2 = driver.getWindowHandle();
         for (String childHandle : driver.getWindowHandles()) {
             if (!childHandle.equals(parentHandle2)) {
                 driver.switchTo().window(childHandle);
             }
         }
-        try {
-            Thread.sleep(4000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.dropbox.com/s/zm1jzitag2umqc5/Mel_Pricelist.pdf?dl=0");
+        methods.Wait();
+        //Assert.assertEquals(driver.getCurrentUrl(), "https://www.dropbox.com/s/zm1jzitag2umqc5/Mel_Pricelist.pdf?dl=0");
+        Assert.assertEquals(driver.getCurrentUrl(), lastMediakid);
 
         driver.close();
         driver.switchTo().window(parentHandle);
-        try {
-            Thread.sleep(4000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        methods.Wait();
+    }
+
+    public void CheckFooterLinks(String termsOfUse, String userAgreement, String facebook, String vk, String twitter, String ok){
+        methods = new AdditionalMethods(driver);
+        getUrl = new GetUrl(driver);
 
         driver.findElement(LinkTermsOfUse).click();
-        Assert.assertEquals(driver.getCurrentUrl(), getUrl.driverGetStr()+"page/terms-of-use");
-        Assert.assertEquals(getTitleTermsOfUse(),"Пользовательское соглашение");
+        //Assert.assertEquals(driver.getCurrentUrl(), getUrl.driverGetStr()+"page/terms-of-use");
+        //Assert.assertEquals(getTitleTermsOfUse(),"Пользовательское соглашение");
+
+        Assert.assertEquals(driver.getCurrentUrl(), termsOfUse);
+        Assert.assertEquals(getTitleTermsOfUse(),userAgreement);
 
         driver.findElement(FbButton).click();
-        try {
-            Thread.sleep(4000);} catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.facebook.com/melfmru");
+        methods.Wait();
+        //Assert.assertEquals(driver.getCurrentUrl(), "https://www.facebook.com/melfmru");
+        Assert.assertEquals(driver.getCurrentUrl(), facebook);
 
         getUrl.driverGet();
         driver.findElement(VkButton).click();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://vk.com/melfmru");
+       // Assert.assertEquals(driver.getCurrentUrl(), "https://vk.com/melfmru");
+        Assert.assertEquals(driver.getCurrentUrl(), vk);
 
         getUrl.driverGet();
         driver.findElement(TwitterButton).click();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://twitter.com/melfmru");
+        //Assert.assertEquals(driver.getCurrentUrl(), "https://twitter.com/melfmru");
+        Assert.assertEquals(driver.getCurrentUrl(), twitter);
 
         getUrl.driverGet();
         driver.findElement(OkButton).click();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://ok.ru/group/57557432139808");
+        //Assert.assertEquals(driver.getCurrentUrl(), "https://ok.ru/group/57557432139808");
+        Assert.assertEquals(driver.getCurrentUrl(), ok);
 
     }
 }

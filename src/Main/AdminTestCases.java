@@ -41,7 +41,7 @@ public class AdminTestCases {
     public void AfterTests(){
         driver.quit();
     }
-    
+
     @Test
     public void AddingAdminUser(){
         methods = new AdditionalMethods(driver);
