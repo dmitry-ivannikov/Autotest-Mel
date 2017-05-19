@@ -3,6 +3,7 @@ package Main;
 import AdminTestClasses.AdminAddingPublicationTest;
 import AdminTestClasses.AdminAddingUserTest;
 import AdminTestClasses.AdminLoginTest;
+import AdminTestClasses.AdminRubricatorTest;
 import Helper.AdditionalMethods;
 import Helper.GetUrl;
 import org.junit.After;
@@ -24,6 +25,7 @@ public class AdminTestCases {
     private AdminAddingUserTest addingUser;
     private AdminAddingPublicationTest addingPublication;
     private GetUrl getUrl;
+    private AdminRubricatorTest rubricator;
 
     public void setup() throws IOException {
         System.setProperty("webdriver.chrome.driver" , "C:\\chromedriver.exe");
@@ -109,5 +111,67 @@ public class AdminTestCases {
         String publicationUrl = getUrl.driverGetStr()+addingPublication.getPublicationUrl()+"title";
         System.out.println(publicationUrl);
         driver.get(publicationUrl);
+    }
+    @Test
+    public void Rubricator() throws IOException {
+        methods = new AdditionalMethods(driver);
+        rubricator = new AdminRubricatorTest(driver);
+        getUrl = new GetUrl(driver);
+
+        getUrl.driverGetAdminUrl();
+        adminLogin = new AdminLoginTest(driver);
+        adminLogin.AdminAuthorisation("test@example.com", "123qwe");
+        rubricator.ClickOnRubricatorTab();
+        //add new rubric
+        rubricator.AddNewRubric("Test");
+        methods.Wait();
+        // check new rubric
+        Assert.assertEquals(rubricator.getNameNewRubric(),"Test");
+        getUrl.driverGet();
+        Assert.assertEquals(rubricator.getNameNewRubricOnWebsite(),"TEST");
+        rubricator.CheckNewRubricOnWebsite();
+        Assert.assertEquals(driver.getCurrentUrl(), getUrl.driverGetStr()+"rubric/test");
+        Assert.assertEquals(driver.getTitle(),"Test | Мел");
+        Assert.assertEquals(rubricator.MetaNameSeoTitleRubric(),"Test | Мел");
+        getUrl.driverGetAdminUrl();
+        rubricator.CheckNewRubricOnAddPublicationPage();
+        Assert.assertEquals(rubricator.getRubricInInput(),"Test");
+        methods.Wait();
+        //edit rubric
+        rubricator.ClickOnRubricatorTab();
+        rubricator.EditRubric("2","TestTitleSeo","TestDescriptionSeo");
+        methods.Wait();
+        // check edit rubric
+        Assert.assertEquals(rubricator.getNameNewRubric(),"Test2");
+        getUrl.driverGet();
+        Assert.assertEquals(rubricator.getNameNewRubricOnWebsite(),"TEST2");
+        rubricator.CheckNewRubricOnWebsite();
+        Assert.assertEquals(driver.getCurrentUrl(), getUrl.driverGetStr()+"rubric/test");
+        Assert.assertEquals(driver.getTitle(),"TestTitleSeo");
+        Assert.assertEquals(rubricator.MetaNameSeoTitleRubric(),"TestTitleSeo");
+        Assert.assertEquals(rubricator.MetaNameSeoDescriptionRubric(),"TestDescriptionSeo");
+        //check close popup
+        getUrl.driverGetAdminUrl();
+        rubricator.ClickOnRubricatorTab();
+        rubricator.CheckCloseEditRubricPopup();
+        methods.Wait();
+        //check dragging rubric
+        rubricator.DragUpRubric();
+        Assert.assertEquals(rubricator.getNameDragUpRubric(),"Test2");
+        rubricator.DragDownRubric();
+        Assert.assertEquals(rubricator.getNameNewRubric(),"Test2");
+        //check delete rubric
+        rubricator.DeleteRubric();
+        Assert.assertTrue(driver.findElement(rubricator.RubricHidden).isDisplayed());
+        methods.Wait();
+        getUrl.driverGetCurrentUrl("rubric/test");
+        Assert.assertEquals(driver.getTitle(),"Страница не найдена");
+        getUrl.driverGet();
+        Assert.assertEquals(rubricator.getNameNewRubricOnWebsite(),"БЛОГИ");
+        driver.quit();
+
+
+
+
     }
 }
