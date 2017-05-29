@@ -6,49 +6,49 @@ import org.openqa.selenium.WebDriver;
 import java.util.concurrent.TimeUnit;
 
 public class LoginTest {
-
     private WebDriver driver;
-    private By HeaderLoginButton = By.cssSelector(".b-header__login-button");
-    private By EmailLoginButton = By.cssSelector(".g-auth-social__email-button");
-    private By LoginEmainInput = By.cssSelector(".b-auth-email__login-email-input > div > input");
-    private By LoginPasswordInput = By.cssSelector(".b-auth-email__login-password-input > div > input");
-    private By LoginEnterButton = By.cssSelector(".b-auth-email__login-button");
-    private By HeaderUserName = By.cssSelector(".b-header__user-name");
+
+    private By headerLoginButton = By.cssSelector(".b-header__login-button");
+    private By emailLoginButton = By.cssSelector(".g-auth-social__email-button");
+    private By loginEmainInput = By.cssSelector(".b-auth-email__login-email-input > div > input");
+    private By loginPasswordInput = By.cssSelector(".b-auth-email__login-password-input > div > input");
+    private By loginEnterButton = By.cssSelector(".b-auth-email__login-button");
+    private By headerUserName = By.cssSelector(".b-header__user-name");
 
     public LoginTest(WebDriver driver) {
         this.driver = driver;
     }
 
-    private void InsertEmailInLoginWindow(String DataInEmailInputString) {
-        driver.findElement(LoginEmainInput).sendKeys(DataInEmailInputString);
+    private void insertEmailInLoginWindow(String dataInEmailInputString) {
+        driver.findElement(loginEmainInput).sendKeys(dataInEmailInputString);
     }
 
-    private void InsertPasswordInLoginWindow(String DataInPasswordInputString) {
-        driver.findElement(LoginPasswordInput).sendKeys(DataInPasswordInputString);
+    private void insertPasswordInLoginWindow(String dataInPasswordInputString) {
+        driver.findElement(loginPasswordInput).sendKeys(dataInPasswordInputString);
     }
 
-    private void PressInLoginButton() {
-        driver.findElement(LoginEnterButton).click();
+    private void pressInLoginButton() {
+        driver.findElement(loginEnterButton).click();
     }
 
-    public void Authorisation(String DataInEmailInputString, String DataInPasswordInputString) {
-        driver.findElement(HeaderLoginButton).click();
+    public void authorisation(String dataInEmailInputString, String dataInPasswordInputString) {
+        driver.findElement(headerLoginButton).click();
         try {
             Thread.sleep(4000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        driver.findElement(EmailLoginButton).click();
+        driver.findElement(emailLoginButton).click();
         // Insert text in email input
-        InsertEmailInLoginWindow(DataInEmailInputString);
+        insertEmailInLoginWindow(dataInEmailInputString);
         // Insert text in password input
-        InsertPasswordInLoginWindow(DataInPasswordInputString);
+        insertPasswordInLoginWindow(dataInPasswordInputString);
         // Tap in LoginEnter button
-        PressInLoginButton();
+        pressInLoginButton();
     }
 
     public String getHomePageDashboardName() {
-        String str = driver.findElement(HeaderUserName).getText();
+        String str = driver.findElement(headerUserName).getText();
         return str;
     }
 }

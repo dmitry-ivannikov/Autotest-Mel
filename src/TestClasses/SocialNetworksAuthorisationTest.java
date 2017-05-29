@@ -7,29 +7,27 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Set;
 
-/**
- * Created by user on 05.04.2017.
- */
 public class SocialNetworksAuthorisationTest {
     WebDriver driver;
+
     // Button Enter on main
-    private By HeaderLoginButton = By.cssSelector(".g-button_border_large");
+    private By headerLoginButton = By.cssSelector(".g-button_border_large");
     // Button Facebook
-    private By FacebookLoginButton = By.cssSelector(".g-button_fb");
+    private By facebookLoginButton = By.cssSelector(".g-button_fb");
     // Button Vk
-    private By VkLoginButton = By.cssSelector(".g-button_vk");
+    private By vkLoginButton = By.cssSelector(".g-button_vk");
     // Button Google+
    // private By GoogleLoginButton = By.cssSelector(".g-button_gp");
 
     // Fields for FB:
-    private By FacebookEmailInput = By.cssSelector("#email");
-    private By FacebookPasswordInput = By.cssSelector("#pass");
-    private By FacebookEnterLoginButton = By.cssSelector("#u_0_2");
+    private By facebookEmailInput = By.cssSelector("#email");
+    private By facebookPasswordInput = By.cssSelector("#pass");
+    private By facebookEnterLoginButton = By.cssSelector("#u_0_2");
 
     // Fields for VK:
-    private By VkEmailInput = By.cssSelector("#login_submit > div > div > input:nth-child(7)");
-    private By VkPasswordInput = By.cssSelector("#login_submit > div > div > input:nth-child(9)");
-    private By VkEnterLoginButton = By.cssSelector("#install_allow");
+    private By vkEmailInput = By.cssSelector("#login_submit > div > div > input:nth-child(7)");
+    private By vkPasswordInput = By.cssSelector("#login_submit > div > div > input:nth-child(9)");
+    private By vkEnterLoginButton = By.cssSelector("#install_allow");
 
     // Fields for Google+:
 //    private By GoogleEmailInput = By.cssSelector("#Email");
@@ -44,16 +42,16 @@ public class SocialNetworksAuthorisationTest {
         this.driver = driver;
     }
 
-    public void PressInLoginButton() {
-        driver.findElement(HeaderLoginButton).click();
+    public void pressInLoginButton() {
+        driver.findElement(headerLoginButton).click();
     }
 
-    public void PressInFbLoginButton() {
-        driver.findElement(FacebookLoginButton).click();
+    public void pressInFbLoginButton() {
+        driver.findElement(facebookLoginButton).click();
     }
 
-    public void PressInVkLoginButton() {
-        driver.findElement(VkLoginButton).click();
+    public void pressInVkLoginButton() {
+        driver.findElement(vkLoginButton).click();
     }
 
    // public void PressInGoogleLoginButton() {
@@ -61,29 +59,29 @@ public class SocialNetworksAuthorisationTest {
   //  }
 
     // FB:
-    public void InsertEmailLoginInFbInput(String FacebookEmailText) {
-        driver.findElement(FacebookEmailInput).sendKeys(FacebookEmailText);
+    public void insertEmailLoginInFbInput(String facebookEmailText) {
+        driver.findElement(facebookEmailInput).sendKeys(facebookEmailText);
     }
 
-    public void InsertPasswordInFbInput(String FacebookPasswordText) {
-        driver.findElement(FacebookPasswordInput).sendKeys(FacebookPasswordText);
+    public void insertPasswordInFbInput(String facebookPasswordText) {
+        driver.findElement(facebookPasswordInput).sendKeys(facebookPasswordText);
     }
 
-    public void PressInFbButton() {
-        driver.findElement(FacebookEnterLoginButton).click();
+    public void pressInFbButton() {
+        driver.findElement(facebookEnterLoginButton).click();
     }
 
     // Vk:
-    public void InsertEmailLoginInVkInput(String VkEmailText) {
-        driver.findElement(VkEmailInput).sendKeys(VkEmailText);
+    public void insertEmailLoginInVkInput(String vkEmailText) {
+        driver.findElement(vkEmailInput).sendKeys(vkEmailText);
     }
 
-    public void InsertPasswordInVkInput(String VkPasswordText) {
-        driver.findElement(VkPasswordInput).sendKeys(VkPasswordText);
+    public void insertPasswordInVkInput(String vkPasswordText) {
+        driver.findElement(vkPasswordInput).sendKeys(vkPasswordText);
     }
 
     public void PressInVkButton() {
-        driver.findElement(VkEnterLoginButton).click();
+        driver.findElement(vkEnterLoginButton).click();
     }
 
     // Google+
@@ -104,13 +102,13 @@ public class SocialNetworksAuthorisationTest {
 //    }
 
 
-    public void FacebookAuthorisation(String FacebookEmailText, String FacebookPasswordText) {
-        PressInLoginButton();
+    public void facebookAuthorisation(String textInEmail, String textInPassword) {
+        pressInLoginButton();
 
         String parentWindowId = driver.getWindowHandle();
         final Set<String> oldWindowsSet = driver.getWindowHandles();
 
-        PressInFbLoginButton();
+        pressInFbLoginButton();
 
         String newWindos = (new WebDriverWait(driver, 10)).until(new ExpectedCondition<String>()
         {
@@ -125,19 +123,19 @@ public class SocialNetworksAuthorisationTest {
 
         driver.switchTo().window(newWindos);
 
-        InsertEmailLoginInFbInput(FacebookEmailText);
-        InsertPasswordInFbInput(FacebookPasswordText);
-        PressInFbButton();
+        insertEmailLoginInFbInput(textInEmail);
+        insertPasswordInFbInput(textInPassword);
+        pressInFbButton();
         driver.switchTo().window(parentWindowId);
     }
 
-    public void VkAuthorisation(String strVkEmailInput, String strVkPasswordInput) {
-        PressInLoginButton();
+    public void vkAuthorisation(String textInEmail, String textInPassword) {
+        pressInLoginButton();
 
         String parentWindowId = driver.getWindowHandle();
         final Set <String> oldWindowsSet = driver.getWindowHandles();
 
-        PressInVkLoginButton();
+        pressInVkLoginButton();
 
         String newWindos = (new WebDriverWait(driver, 10)).until(new ExpectedCondition<String>() {
             @Override
@@ -151,8 +149,8 @@ public class SocialNetworksAuthorisationTest {
 
         driver.switchTo().window(newWindos);
 
-        InsertEmailLoginInVkInput(strVkEmailInput);
-        InsertPasswordInVkInput(strVkPasswordInput);
+        insertEmailLoginInVkInput(textInEmail);
+        insertPasswordInVkInput(textInPassword);
         PressInVkButton();
         driver.switchTo().window(parentWindowId);
     }

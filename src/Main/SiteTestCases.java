@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.logging.LogEntry;
 import org.testng.Assert;
 import org.junit.Test;
 
@@ -16,6 +17,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+
 import static org.testng.AssertJUnit.assertEquals;
 
 public class SiteTestCases {
@@ -46,96 +49,93 @@ public class SiteTestCases {
     }
 
     @Before
-    public void BeforeTests() throws IOException {
+    public void beforeTests() throws IOException {
         setup();
     }
 
     @After
-    public void AfterTests(){
+    public void afterTests(){
         driver.quit();
     }
 
     @Test
-    public  void Authorisation() throws IOException {
+    public void authorisation() throws IOException {
         methods = new AdditionalMethods(driver);
         getUrl = new GetUrl(driver);
         autoLogin = new LoginTest(driver);
         getUrl.driverGet();
-        autoLogin.Authorisation("estendr@gmail.com", "12345678");
+        autoLogin.authorisation("estendr@gmail.com", "12345678");
         try {
-            Thread.sleep(1000);
+            Thread.sleep(4000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         Assert.assertEquals(autoLogin.getHomePageDashboardName(), "Vladimir Petrov");
         //Assert.assertEquals(logout.CheckEnterButton(), "ВХОД");
+
     }
 
     @Test
-    public void Registration() throws IOException {
+    public void registration() throws IOException {
         methods = new AdditionalMethods(driver);
         getUrl = new GetUrl(driver);
         registration = new RegistrationTest(driver);
         getUrl.driverGet();
 
         //Invalid registration
-        registration.FirstUserRegistration("!#$%&'*+-/=?^_`{|}~", "LastName", methods.GenerateStr(), "12345678");
-        registration.PressInRegistrationButton();
-        registration.RegistrationWithInvalidData("FirstName", "!#$%&'*+-/=?^_`{|}~", methods.GenerateStr(), "12345678");
-        registration.RegistrationWithInvalidData("FirstName", "LastName", "ab(c)d,e:f;g<h>i[jk]l@example.com", "12345678");
+        registration.firstUserRegistration("!#$%&'*+-/=?^_`{|}~", "LastName", methods.generateStr(), "12345678");
+        registration.pressInRegistrationButton();
+        registration.registrationWithInvalidData("FirstName", "!#$%&'*+-/=?^_`{|}~", methods.generateStr(), "12345678");
+        registration.registrationWithInvalidData("FirstName", "LastName", "ab(c)d,e:f;g<h>i[jk]l@example.com", "12345678");
 
         // Valid registration
-        registration.RegistrationWithValidData("FirstName", "LastName", methods.GenerateStr(), "12345678");
-
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        Assert.assertEquals(registration.GetHeaderUserName(), "FirstName LastName");
-        methods.Exit();
+        registration.registrationWithValidData("FirstName", "LastName", methods.generateStr(), "12345678");
+        methods.Wait(4000);
+        Assert.assertEquals(registration.getHeaderUserName(), "FirstName LastName");
+        methods.exit();
         //Assert.assertEquals(logout.CheckEnterButton(), "ВХОД");
+        //methods.getBrowserLogs();
     }
 
     @Test
-    public void AddAndDeleteComment() throws  IOException {
+    public void addAndDeleteComment() throws  IOException {
         methods = new AdditionalMethods(driver);
         getUrl = new GetUrl(driver);
         comment = new AddCommentTest(driver);
         autoLogin = new LoginTest(driver);
 
         getUrl.driverGet();
-        autoLogin.Authorisation("estendr@gmail.com", "12345678");
-        methods.Wait();
+        autoLogin.authorisation("estendr@gmail.com", "12345678");
+        methods.Wait(4000);
         Assert.assertEquals(autoLogin.getHomePageDashboardName(), "Vladimir Petrov");
         //driver.get("http://pablo-mel.qa.lan/olimpiady/2790854-sirius");
-        comment.InsertAndAddComment("TestComment", "TestAnswer");
-        comment.DeleteComment();
-        methods.Wait();
-        methods.Exit();
-        methods.Wait();
+        comment.insertAndAddComment("TestComment", "TestAnswer");
+        comment.deleteComment();
+        methods.Wait(4000);
+        methods.exit();
         // Assert.assertEquals(logout.CheckEnterButton(), "ВХОД");
+        //methods.getBrowserLogs();
     }
 
     @Test
-    public void AuthorisationSocial() throws  IOException {
+    public void authorisationSocial() throws  IOException {
         methods = new AdditionalMethods(driver);
         authorisationSocial = new SocialNetworksAuthorisationTest(driver);
         getUrl = new GetUrl(driver);
 
         getUrl.driverGet();
         //Facebook
-        authorisationSocial.FacebookAuthorisation("easy2rider2@gmail.com", "knock705b");
-        methods.Wait();
+        authorisationSocial.facebookAuthorisation("easy2rider2@gmail.com", "knock705b");
+        methods.Wait(4000);
         Assert.assertEquals(authorisationSocial.getHomePageDashboardName(), "Eero Ettala");
-        methods.OutputFromAnAccountSocialLogin();
+        methods.outputFromAnAccountSocialLogin();
         //Vk
-        methods.Wait();
-        authorisationSocial.VkAuthorisation("89164948378", "123qwe");
+        methods.Wait(4000);
+        authorisationSocial.vkAuthorisation("89164948378", "123qwe");
         Assert.assertEquals(authorisationSocial.getHomePageDashboardName(), "Ваня");
-        methods.Wait();
-        methods.OutputFromAnAccountSocialLogin();
-        methods.Wait();
+        methods.Wait(4000);
+        methods.outputFromAnAccountSocialLogin();
+        methods.Wait(4000);
         // Assert.assertEquals(logout.CheckEnterButton(), "ВХОД");
         // Google+
         //        driver.get("http://qa.mel.fm/");
@@ -156,111 +156,77 @@ public class SiteTestCases {
         //            secondaryFunctions.text("\nНе удалось выполнить выход из аккаунта Google+");
         //        }
         //        secondaryFunctions.Wait();
+        //methods.getBrowserLogs();
     }
 
     @Test
-    public void MoreArticle() throws  IOException {
+    public void moreArticle() throws  IOException {
         article = new DownloadArticlesTest(driver);
         methods = new AdditionalMethods(driver);
         getUrl = new GetUrl(driver);
 
         getUrl.driverGet();
         ArrayList articles = new ArrayList();
-        articles.add(article.Article1);
-        articles.add(article.Article2);
-        articles.add(article.Article3);
-        articles.add(article.Article4);
-        articles.add(article.Article5);
+        articles.add(article.article1);
+        articles.add(article.article2);
+        articles.add(article.article3);
+        articles.add(article.article4);
 
         for(int i=0; i<articles.size(); i++) {
-            article.PressInArticleMore();
-            article.PressInArticle((By) articles.get(i));
-            Assert.assertTrue(driver.findElement(article.Articles).isDisplayed());
+            article.pressInArticleMore();
+            methods.Wait(4000);
+            article.pressInArticle((By) articles.get(i));
+            Assert.assertTrue(driver.findElement(article.articles).isDisplayed());
             driver.navigate().back();
         }
+        //methods.getBrowserLogs();
     }
 
     @Test
-    public void SendMessageInBlog() throws  IOException {
+    public void sendMessageInBlog() throws  IOException {
         methods = new AdditionalMethods(driver);
         message = new SendMessageInBlogTest(driver);
         getUrl = new GetUrl(driver);
         registration = new RegistrationTest(driver);
 
         getUrl.driverGet();
-        registration.FirstUserRegistration("FirstName", "LastName", methods.GenerateStr(), "12345678");
-        methods.Wait();
-        message.EnterBlogText("FirstMessage", "SecondMessage", "ThirdMessage", "TTextMessage", "TagMessage");
-        Assert.assertEquals(message.GetTitleText(), "FirstMessage");
-        Assert.assertEquals(message.GetSubtitleText(), "SecondMessage");
-        Assert.assertEquals(message.GetText(), "TextMessage");
+        registration.firstUserRegistration("FirstName", "LastName", methods.generateStr(), "12345678");
+        methods.Wait(4000);
+        message.enterBlogText("FirstMessage", "SecondMessage", "ThirdMessage", "TTextMessage", "TagMessage");
+        Assert.assertEquals(message.getTitleText(), "FirstMessage");
+        Assert.assertEquals(message.getSubtitleText(), "SecondMessage");
+        Assert.assertEquals(message.getText(), "TextMessage");
 
-        message.CheckImage();
-        Assert.assertEquals(message.GetImageClass(), "img");
-        methods.Wait();
-        methods.Exit();
+        message.checkImage();
+        Assert.assertEquals(message.getImageClass(), "img");
+        methods.Wait(4000);
+        methods.exit();
+       // methods.getBrowserLogs();
     }
 
     @Test
-    public void SharingArticle() throws IOException, InterruptedException {
+    public void sharingArticle() throws IOException, InterruptedException {
         methods = new AdditionalMethods(driver);
         sharingArticle = new SharingArticleTest(driver);
         getUrl = new GetUrl(driver);
+
         //Sharing Fb
         driver.get(getUrl.driverGetStr()+"2016/04/26/9_phrase");
-        //driver.get("http://pablo-mel2.qa.lan/2016/04/26/9_phrase");
-        sharingArticle.FbSharing("easy2rider2@gmail.com", "knock705b");
+        sharingArticle.fbSharing("easy2rider2@gmail.com", "knock705b","9 фраз, которые мы напрасно не говорим детям");
 
-//        driver.get("https://www.facebook.com/eero.ettala.1");
-//
-//        Robot robot = null;
-//        try {
-//            robot = new Robot();
-//        } catch (AWTException e) {
-//            e.printStackTrace();
-//        }
-//        robot.keyPress(KeyEvent.VK_TAB);
-//        robot.keyRelease(KeyEvent.VK_TAB);
-//        robot.keyPress(KeyEvent.VK_ENTER);
-//        robot.keyRelease(KeyEvent.VK_ENTER);
-//
-//        JavascriptExecutor jse1 = (JavascriptExecutor) driver;
-//        jse1.executeScript("scroll(0,550)", "");
-        //Assert.assertEquals(sharingArticle.getTextFb(), "9 фраз, которые мы напрасно не говорим детям");
+        // Sharing Vk
         driver.get(getUrl.driverGetStr()+"2016/04/26/9_phrase");
-
-
-        // Sharing Vk. Sharing without picture ( 25.01 )
-        sharingArticle.VkSharing("89164948378", "123qwe");
-//        driver.get("https://vk.com/id365295131");
-//
-//        JavascriptExecutor jse2 = (JavascriptExecutor) driver;
-//        jse2.executeScript("scroll(0,500)", "");
-        // Assert.assertEquals(sharingArticle.getTextVk(), "9 фраз, которые мы напрасно не говорим детям");
-
-        // NOT WORK
-
-        //Sharing twitter
-        //        driver.get("http://pablo-mel.qa.lan/2016/04/26/9_phrase");
-        //        secondaryFunctions.Wait();
-        //        TwitterSharing("test153153153@gmail.com", "123qwe");
-        //        secondaryFunctions.Wait();
-        //
-        //        // Sharing Ok
-        //        driver.get("http://pablo-mel.qa.lan/2016/04/26/9_phrase");
-        //        secondaryFunctions.Wait();
-        //        OkSharing("89161604481","123qwe");
-
+        sharingArticle.vkSharing("89164948378", "123qwe","9 фраз, которые мы напрасно не говорим детям");
     }
 
     @Test
-    public void SubscribeNewsLetter() throws  IOException {
+    public void subscribeNewsLetter() throws  IOException {
         methods = new AdditionalMethods(driver);
         subscribeNewsLetter = new SubscribeNewsLetterTest(driver);
         getUrl = new GetUrl(driver);
 
         getUrl.driverGet();
-        methods.Wait();
+        methods.Wait(4000);
 
         String str1 = "testpablo";
         String str2 = "@binka.me";
@@ -271,31 +237,32 @@ public class SiteTestCases {
         String str3 = w + str1 + q + str2;
         String str4 = w + str1 + q;
 
-        subscribeNewsLetter.Subscribe(str3);
+        subscribeNewsLetter.subscribe(str3);
         assertEquals(driver.getTitle(), "Рассылка mel.fm");
-        subscribeNewsLetter.PressInReturnButton();
-        methods.Wait();
+        subscribeNewsLetter.pressInReturnButton();
+        methods.Wait(4000);
         org.testng.Assert.assertEquals(driver.getCurrentUrl(), "http://mel.fm/");
-        methods.Wait();
+        methods.Wait(4000);
         driver.get("https://temp-mail.ru/option/change");
-        methods.Wait();
-        subscribeNewsLetter.ConfirmSubscribe(str4);
-        methods.Wait();
+        methods.Wait(1000);
+        subscribeNewsLetter.confirmSubscribe(str4);
+        methods.Wait(4000);
         org.testng.Assert.assertEquals(subscribeNewsLetter.getSubjectName(), "Рассылка mel.fm: Подтверждение подписки");
         org.testng.Assert.assertEquals(subscribeNewsLetter.getTitleName(), "Рассылка mel.fm");
-        methods.Wait();
-        subscribeNewsLetter.Confirm();
-        methods.Wait();
+        methods.Wait(4000);
+        subscribeNewsLetter.confirm();
+        methods.Wait(4000);
         String parentHandle = driver.getWindowHandle();
         for (String childHandle : driver.getWindowHandles()) {
             if (!childHandle.equals(parentHandle)) {
                 driver.switchTo().window(childHandle);
             }
         }
-        methods.Wait();
+        methods.Wait(4000);
         org.testng.Assert.assertEquals(subscribeNewsLetter.getConfirmPageName(), "Рассылка mel.fm");
-        subscribeNewsLetter.PressInContinueButton();
+        subscribeNewsLetter.pressInContinueButton();
         org.testng.Assert.assertEquals(driver.getCurrentUrl(), "http://mel.fm/");
+       // methods.getBrowserLogs();
     }
 
     @Test
@@ -305,25 +272,26 @@ public class SiteTestCases {
         getUrl = new GetUrl(driver);
 
         getUrl.driverGet();
-        methods.Wait();
-        footer.CheckFooterRubric(getUrl.driverGetStr()+"rubric/school",
+        methods.Wait(4000);
+        footer.checkFooterRubric(getUrl.driverGetStr()+"rubric/school",
                                  getUrl.driverGetStr()+"rubric/highschool",
                                  getUrl.driverGetStr()+"rubric/fun",
                                  getUrl.driverGetStr()+"rubric/family",
                                  getUrl.driverGetStr()+"rubric/games",
                                  getUrl.driverGetStr()+"blogs",
                                  getUrl.driverGetStr()+"author/afisha-mela");
-        footer.CheckFooterContacts(getUrl.driverGetStr()+"page/contacts",
+        footer.checkFooterContacts(getUrl.driverGetStr()+"page/contacts",
                                    "Контакты",
                                    getUrl.driverGetStr()+"page/advertising-proposal",
                                    "Реклама");
-        footer.CheckFooterMediakit("https://www.dropbox.com/s/p2rizp286zu7kcm/Mel_Mediakit.pdf?dl=0","https://www.dropbox.com/s/zm1jzitag2umqc5/Mel_Pricelist.pdf?dl=0");
-        footer.CheckFooterLinks(getUrl.driverGetStr()+"page/terms-of-use",
+        footer.checkFooterMediakit("https://www.dropbox.com/s/p2rizp286zu7kcm/Mel_Mediakit.pdf?dl=0","https://www.dropbox.com/s/zm1jzitag2umqc5/Mel_Pricelist.pdf?dl=0");
+        footer.checkFooterLinks(getUrl.driverGetStr()+"page/terms-of-use",
                                 "Пользовательское соглашение",
                                 "https://www.facebook.com/melfmru",
                                 "https://vk.com/melfmru",
                                 "https://twitter.com/melfmru",
                                 "https://ok.ru/group/57557432139808");
+        //methods.getBrowserLogs();
     }
 
     @Test
@@ -333,66 +301,68 @@ public class SiteTestCases {
 
         getUrl.driverGet();
         registration = new RegistrationTest(driver);
-        registration.FirstUserRegistration("testname", "testlastname", methods.GenerateStr() , "12345678");
+        registration.firstUserRegistration("testname", "testlastname", methods.generateStr() , "12345678");
         profile = new ProfileTest(driver);
-        methods.Wait();
-        profile.OpenProfile();
+        methods.Wait(4000);
+        profile.openProfile();
         Assert.assertEquals(profile.getFirstname(),"testname");
         Assert.assertEquals(profile.getLastname(),"testlastname");
-        profile.EditFirstnameLastname("newtestname", "newtestlastname");
-        methods.Wait();
+        profile.editFirstnameLastname("newtestname", "newtestlastname");
+        methods.Wait(4000);
         Assert.assertEquals(profile.getFirstname(),"newtestname");
         Assert.assertEquals(profile.getLastname(),"newtestlastname");
-        methods.Wait();
+        methods.Wait(4000);
         Assert.assertEquals(profile.getHeaderUserName(),"newtestname newtestlastname");
-        profile.OpenBlog();
+        profile.openBlog();
         Assert.assertEquals(profile.getAuthorNameInBlog(),"newtestname newtestlastname");
-        profile.OpenProfile();
-        profile.EditUserNameAndAbout("username","Люблю читать мел");
-        methods.Wait();
+        profile.openProfile();
+        profile.editUserNameAndAbout("username","Люблю читать мел");
+        methods.Wait(4000);
         Assert.assertEquals(profile.getHeaderUserName(),"username");
-        profile.OpenBlog();
+        profile.openBlog();
         Assert.assertEquals(profile.getAuthorNameInBlog(),"username");
         Assert.assertEquals(profile.getAuthorQuoteInBlog(),"Люблю читать мел");
-        profile.OpenProfile();
+        profile.openProfile();
 
         String str5 = profile.getEmail();
-        profile.ChangeEmail(methods.GenerateStr());
+        profile.changeEmail(methods.generateStr());
         String str6 = profile.getEmail();
-        methods.Wait();
-        profile.Logout();
+        methods.Wait(4000);
+        profile.logout();
         autoLogin = new LoginTest(driver);
-        methods.Wait();
-        autoLogin.Authorisation(str5,"12345678");
-        profile.ClickOnCloseButton();
-        autoLogin.Authorisation(str6, "12345678");
-        methods.Wait();
-        profile.OpenProfile();
+        methods.Wait(4000);
+        autoLogin.authorisation(str5,"12345678");
+        profile.clickOnCloseButton();
+        autoLogin.authorisation(str6, "12345678");
+        methods.Wait(4000);
+        profile.openProfile();
 
-        profile.EditPhoneAndBirthdate("89165554433","01.01.1990");
+        profile.editPhoneAndBirthdate("89165554433","01.01.1990");
         Assert.assertEquals(profile.getPhone(),"89165554433");
         Assert.assertEquals(profile.getBirthdate(),"01.01.1990");
-        methods.Wait();
-        profile.SelectRoleAndGender();
-        methods.Wait();
+        methods.Wait(4000);
+        profile.selectRoleAndGender();
+        methods.Wait(4000);
         Assert.assertEquals(profile.getRoleInput(),"Учитель");
         Assert.assertEquals(profile.getGenderInput(),"Женский");
 
-        profile.DownloadAvatar();
-        Assert.assertEquals(profile.GetImageClass(), "img");
-        profile.DeleteAvatar();
-        methods.Wait();
-        Assert.assertEquals(profile.CheckDeleteAvatar(),"Загрузить фото");
+        profile.downloadAvatar();
+        Assert.assertEquals(profile.getImageClass(), "img");
+        profile.deleteAvatar();
+        methods.Wait(4000);
+        Assert.assertEquals(profile.checkDeleteAvatar(),"Загрузить фото");
 
-        methods.Wait();
-        profile.AddLinkInProfile("mel.fm","facebook.com","vk.com","twitter.com");
-        methods.Wait();
-        profile.OpenBlog();
+        methods.Wait(4000);
+        profile.addLinkInProfile("mel.fm","facebook.com","vk.com","twitter.com");
+        methods.Wait(4000);
+        profile.openBlog();
 
         Assert.assertEquals(profile.getSiteUrl(),"mel.fm");
         Assert.assertEquals(profile.getFbUrl(),"facebook");
         Assert.assertEquals(profile.getVkUrl(),"вконтакте");
         Assert.assertEquals(profile.getTwitterUrl(),"twitter");
+
+        //methods.getBrowserLogs();
     }
 
     @Test
@@ -402,15 +372,15 @@ public class SiteTestCases {
         getUrl = new GetUrl(driver);
 
         getUrl.driverGetCurrentUrl("sitemap");
-        Assert.assertTrue(driver.findElement(directiveTest.SiteMapText).isDisplayed());
-        Assert.assertEquals(directiveTest.GetSiteMapText(), "This XML file does not appear to have any style information associated with it. The document tree is shown below.");
+        Assert.assertTrue(driver.findElement(directiveTest.siteMapText).isDisplayed());
+        Assert.assertEquals(directiveTest.getSiteMapText(), "This XML file does not appear to have any style information associated with it. The document tree is shown below.");
 
         getUrl.driverGetCurrentUrl("rss/default-all");
-        Assert.assertTrue(driver.findElement(directiveTest.RSSText).isDisplayed());
+        Assert.assertTrue(driver.findElement(directiveTest.rssText).isDisplayed());
 
         getUrl.driverGetCurrentUrl("robots.txt");
-        Assert.assertTrue(driver.findElement(directiveTest.RobotTxtText).isDisplayed());
-        Assert.assertEquals(directiveTest.GetRobotTxtText(), "User-agent: Yandex\n" +
+        Assert.assertTrue(driver.findElement(directiveTest.robotTxtText).isDisplayed());
+        Assert.assertEquals(directiveTest.getRobotTxtText(), "User-agent: Yandex\n" +
                 "Disallow: /*?amp\n" +
                 "Disallow: /*?nomr\n" +
                 "Disallow: /*?ext\n" +
@@ -431,6 +401,7 @@ public class SiteTestCases {
                 "Disallow: /*&ext\n" +
                 "Disallow: /*?ogimage\n" +
                 "Sitemap: http://mel.fm/sitemap");
+       // methods.getBrowserLogs();
     }
 
     @Test
@@ -440,23 +411,23 @@ public class SiteTestCases {
         getUrl = new GetUrl(driver);
 
         getUrl.driverGet();
-        search.SendValidSearchQuery("новости");
-        search.CheckArticlesInListSearchResult();
+        search.sendValidSearchQuery("новости");
+        search.checkArticlesInListSearchResult();
         getUrl.driverGet();
-        search.SendInvalidSearchQuery("!#$%&'*+-/=?^_`{|}~");
-        Assert.assertEquals(search.getEmptySearchTitle(),"Ничего не найдено");
-        search.CheckDeleteInSearchResultInput("мяу");
-        Assert.assertEquals(search.GetTextInSearchResultInput(),"мяу");
+        search.sendInvalidSearchQuery("!#$%&'*+-/=?^_`{|}~");
+        Assert.assertEquals(search.getEmptySearchTitle(),"Ничего не найдено, повторите запрос или посмотрите три наших самых свежих материала:");
+        search.checkDeleteInSearchResultInput("мяу");
+        Assert.assertEquals(search.getTextInSearchResultInput(),"мяу");
         getUrl.driverGet();
-        search.CheckCloseSearch();
-        methods.Wait();
-        Assert.assertEquals(search.GetClassSearchBarHidden(),"i-layout__search-bar-container i-layout__search-bar-container_transition i-utils__hidden");
+        search.checkCloseSearch();
+        methods.Wait(4000);
+        Assert.assertEquals(search.getClassSearchBarHidden(),"i-layout__search-bar-container i-layout__search-bar-container_transition i-utils__hidden");
         // Assert.assertTrue(driver.findElement(search.SearchBarHidden).isDisplayed());
+        //methods.getBrowserLogs();
     }
 
     @Test
     public void TagSubscribe() throws IOException {
-        setup();
         methods = new AdditionalMethods(driver);
         tagSubscribe = new TagSubscribeTest(driver);
         getUrl = new GetUrl(driver);
@@ -464,14 +435,14 @@ public class SiteTestCases {
         getUrl.driverGet();
         tagSubscribe.subscribeOnTagGuest();
         registration = new RegistrationTest(driver);
-        registration.FirstUserRegistration("FirstName", "LastName", methods.GenerateStr(), "12345678");
-        methods.Wait();
+        registration.firstUserRegistration("FirstName", "LastName", methods.generateStr(), "12345678");
+        methods.Wait(4000);
 
         tagSubscribe.subscribeOnTagUser();
         Assert.assertEquals(tagSubscribe.getTagNameFromMySubscribers(), "Новости");
 
         tagSubscribe.unsubscribeFromTagUser();
-        methods.Wait();
+        methods.Wait(4000);
         Assert.assertEquals(tagSubscribe.getTagNameButton(), "Подписаться");
 
         tagSubscribe.checkUnsubscribe();
@@ -479,9 +450,10 @@ public class SiteTestCases {
 
         String str1 = tagSubscribe.getTextFirstButton();
         tagSubscribe.checkTagUpdate();
-        methods.Wait();
+        methods.Wait(4000);
         String str2 = tagSubscribe.getTextSecondButton();
         tagSubscribe.isStringEquals(str1, str2);
-        driver.quit();
+        //methods.getBrowserLogs();
     }
+
 }

@@ -20,20 +20,20 @@ public class SharingArticleTest
     WebDriver driver;
     AdditionalMethods methods;
     // Sharing buttons
-    private By FbSharing = By.cssSelector(".b-pb-article__sharing-panel > div > div > a.g-share__share.g-share__share_fb");
-    private By VkSharing = By.cssSelector(".b-pb-article__sharing-panel > div > div > a.g-share__share.g-share__share_vk");
-    private By TwitterSharing = By.cssSelector(".g-share__share.g-share__share_tw > div > div");
+    private By fbSharingButton = By.cssSelector(".b-pb-article__sharing-panel > div > div > a.g-share__share.g-share__share_fb");
+    private By vkSharingButton = By.cssSelector(".b-pb-article__sharing-panel > div > div > a.g-share__share.g-share__share_vk");
+    private By twitterSharingButton = By.cssSelector(".g-share__share.g-share__share_tw > div > div");
     //private By OkSharing = By.xpath("/html/body/div[2]/div[3]/div/div[3]/div/div[2]/div[1]/div[3]/div[5]/div/div/a[4]");
     //Fb
-    private By FbEmailInput = By.cssSelector("#email");
-    private By FbPasswordInput = By.cssSelector("#pass");
-    private By FbLoginButton = By.cssSelector("#u_0_2");
+    private By fbEmailInput = By.cssSelector("#email");
+    private By fbPasswordInput = By.cssSelector("#pass");
+    private By fbLoginButton = By.cssSelector("#u_0_2");
     private By FbPublicButton = By.cssSelector("#u_0_1v");
 
     //VK
-    private By VkEmailInput = By.cssSelector("#login_submit > div > div > input:nth-child(7)");
-    private By VkPasswordInput = By.cssSelector("#login_submit > div > div > input:nth-child(9)");
-    private By VkLoginButton = By.cssSelector("#install_allow");
+    private By vkEmailInput = By.cssSelector("#login_submit > div > div > input:nth-child(7)");
+    private By vkPasswordInput = By.cssSelector("#login_submit > div > div > input:nth-child(9)");
+    private By vkLoginButton = By.cssSelector("#install_allow");
     private By VkPublicButton = By.cssSelector("#post_button");
 
     //Twitter
@@ -47,18 +47,18 @@ public class SharingArticleTest
 //    private By OkEnterButton = By.cssSelector("#mainW > div.sharing_c > div > div > form > div.form-actions > input");
 //    private By OkPublicButton =By.cssSelector("#preview_form > div.form-actions > div.jcol-r > button");
 
-    private By TextFb = By.cssSelector("._5s6c");
-    private By TextVk = By.cssSelector("#share_title");
+    private By textFb = By.cssSelector("._5s6c");
+    private By textVk = By.cssSelector("#share_title");
 
     public SharingArticleTest(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void FbSharing(String strFbEmailInput, String strFbPasswordInput) {
+    public void fbSharing(String textInEmail, String textInPassword, String article) {
         String parentWindowId = driver.getWindowHandle();
         final Set<String> oldWindowsSet = driver.getWindowHandles();
 
-        driver.findElement(FbSharing).click();
+        driver.findElement(fbSharingButton).click();
 
         String newWindos = (new WebDriverWait(driver, 10)).until(new ExpectedCondition<String>()
         {
@@ -72,33 +72,18 @@ public class SharingArticleTest
         });
 
         driver.switchTo().window(newWindos);
-        driver.findElement(FbEmailInput).sendKeys(strFbEmailInput);
-        driver.findElement(FbPasswordInput).sendKeys(strFbPasswordInput);
-        driver.findElement(FbLoginButton).click();
-        Assert.assertEquals(getTextFb(), "9 фраз, которые мы напрасно не говорим детям");
-//        Robot robot = null;
-//        try {
-//            robot = new Robot();
-//        } catch (AWTException e) {
-//            e.printStackTrace();
-//        }
-//        robot.keyPress(KeyEvent.VK_TAB);
-//        robot.keyRelease(KeyEvent.VK_TAB);
-//        robot.keyPress(KeyEvent.VK_ENTER);
-//        robot.keyRelease(KeyEvent.VK_ENTER);
-
-//        robot.keyPress(KeyEvent.VK_ENTER);
-//        robot.keyRelease(KeyEvent.VK_ENTER);
-
-       // driver.findElement(FbPublicButton).click();
+        driver.findElement(fbEmailInput).sendKeys(textInEmail);
+        driver.findElement(fbPasswordInput).sendKeys(textInPassword);
+        driver.findElement(fbLoginButton).click();
+        Assert.assertEquals(getTextFb(), article);
        driver.switchTo().window(parentWindowId);
     }
 
-    public void VkSharing(String strVkEmailInput, String strVkPasswordInput) {
+    public void vkSharing(String textInEmail, String textInPassword, String article) {
 //        String parentWindowId = driver.getWindowHandle();
         final Set<String> oldWindowsSet = driver.getWindowHandles();
 
-        driver.findElement(VkSharing).click();
+        driver.findElement(vkSharingButton).click();
 
         String newWindos = (new WebDriverWait(driver, 10)).until(new ExpectedCondition<String>()
         {
@@ -112,10 +97,10 @@ public class SharingArticleTest
         });
 
         driver.switchTo().window(newWindos);
-        driver.findElement(VkEmailInput).sendKeys(strVkEmailInput);
-        driver.findElement(VkPasswordInput).sendKeys(strVkPasswordInput);
-        driver.findElement(VkLoginButton).click();
-        Assert.assertEquals(getTextVk(), "9 фраз, которые мы напрасно не говорим детям");
+        driver.findElement(vkEmailInput).sendKeys(textInEmail);
+        driver.findElement(vkPasswordInput).sendKeys(textInPassword);
+        driver.findElement(vkLoginButton).click();
+        Assert.assertEquals(getTextVk(), article);
         driver.quit();
         //driver.findElement(VkPublicButton).click();
        // driver.switchTo().window(parentWindowId);
@@ -186,12 +171,12 @@ public class SharingArticleTest
 //    }
 
     public String getTextFb() {
-        String str = driver.findElement(TextFb).getText();
+        String str = driver.findElement(textFb).getText();
         return str;
     }
 
     public String getTextVk() {
-        String str = driver.findElement(TextVk).getText();
+        String str = driver.findElement(textVk).getText();
         return str;
     }
 }

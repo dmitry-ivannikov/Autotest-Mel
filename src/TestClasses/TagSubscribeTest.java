@@ -1,13 +1,8 @@
-
 package TestClasses;
 
 import Helper.AdditionalMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
-/**
- * Created by kelta on 10.05.2017.
- */
 
 public class TagSubscribeTest {
     private WebDriver driver;
@@ -86,7 +81,7 @@ public class TagSubscribeTest {
         methods = new AdditionalMethods(driver);
         driver.findElement(newsButton).click();
         clickOnSubscribeButtonOff();
-        methods.Wait();
+        methods.Wait(4000);
         driver.findElement(socialModalCloseButton).click();
     }
 
@@ -107,9 +102,8 @@ public class TagSubscribeTest {
     public void checkTagUpdate() {
         methods = new AdditionalMethods(driver);
         getTextFirstButton();
-        methods.Wait();
+        methods.Wait(4000);
         driver.findElement(moreTags).click();
         getTextSecondButton();
-
     }
 }

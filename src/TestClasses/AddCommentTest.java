@@ -5,37 +5,38 @@ import org.openqa.selenium.WebDriver;
 
 public class AddCommentTest {
     WebDriver driver;
+
     // Main page
-    private By HeaderMainButton = By.cssSelector(".g-list__value");
+    private By headerMainButton = By.cssSelector(".g-list__value");
     // Article
-    private By Article = By.cssSelector(".b-pb-cover__title");
+    private By article = By.cssSelector(".b-pb-cover__title");
     // Comment field
-    private By FieldForComment = By.cssSelector(".g-textarea__textarea");
+    private By fieldForComment = By.cssSelector(".g-textarea__textarea");
     // Public Button
-    private By CommentPublicButton = By.cssSelector(".b-reply-form__send-button");
+    private By commentPublicButton = By.cssSelector(".b-reply-form__send-button");
     // Answer Button
-    private By AnswerButton = By.cssSelector(".b-simple-comment__replier");
+    private By answerButton = By.cssSelector(".b-simple-comment__replier");
     // Field Answer on comment
-    private By FieldAnswerComment = By.cssSelector(".b-reply-form__input > div > textarea");
+    private By fieldAnswerComment = By.cssSelector(".b-reply-form__input > div > textarea");
     // Button public answer on comment
-    private By AnswerPublicButton = By.cssSelector(".b-reply-form__send-button");
+    private By answerPublicButton = By.cssSelector(".b-reply-form__send-button");
     // Button delete answer
-    private By DeleteAnswerComment = By.cssSelector(".b-simple-comment__remover");
+    private By deleteAnswerComment = By.cssSelector(".b-simple-comment__remover");
     // Button delete comment
-    private By DeleteComment = By.cssSelector(".b-simple-comment__remover");
+    private By deleteComment = By.cssSelector(".b-simple-comment__remover");
 
     public AddCommentTest(WebDriver driver) {
         this.driver = driver;
     }
 
-    private void InsertComment(String strComment) {
-        driver.findElement(FieldForComment).click();
-        driver.findElement(FieldForComment).sendKeys(strComment);
+    private void insertComment(String comment) {
+        driver.findElement(fieldForComment).click();
+        driver.findElement(fieldForComment).sendKeys(comment);
     }
 
-    private void InsertAnswerComment(String strAnswerComment) {
-        driver.findElement(FieldAnswerComment).click();
-        driver.findElement(FieldAnswerComment).sendKeys(strAnswerComment);
+    private void insertAnswerComment(String answerComment) {
+        driver.findElement(fieldAnswerComment).click();
+        driver.findElement(fieldAnswerComment).sendKeys(answerComment);
     }
 
     public void Wait() {
@@ -46,23 +47,22 @@ public class AddCommentTest {
         }
     }
 
-    public void InsertAndAddComment(String strComment, String strAnswerComment) {
-        driver.findElement(HeaderMainButton).click();
-        driver.findElement(Article).click();
-        InsertComment(strComment);
-        driver.findElement(CommentPublicButton).click();
+    public void insertAndAddComment(String comment, String answerComment) {
+        driver.findElement(headerMainButton).click();
+        driver.findElement(article).click();
+        insertComment(comment);
+        driver.findElement(commentPublicButton).click();
         Wait();
-        driver.findElement(AnswerButton).click();
+        driver.findElement(answerButton).click();
        // Wait();
        // InsertAnswerComment(strAnswerComment);
        // Wait();
       //  driver.findElement(AnswerPublicButton).click();
       //  Wait();
-
     }
 
-    public void DeleteComment() {
+    public void deleteComment() {
       //  driver.findElement(DeleteAnswerComment).click();
-        driver.findElement(DeleteComment).click();
+        driver.findElement(deleteComment).click();
     }
 }

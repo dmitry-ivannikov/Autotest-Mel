@@ -6,21 +6,21 @@ import org.openqa.selenium.WebDriver;
 public class DirectiveTest {
     WebDriver driver;
 
-    public By SiteMapText = By.cssSelector(".header > span");
-    public By RobotTxtText = By.cssSelector("pre");
-    public By RSSText = By.cssSelector("pre");
+    public By siteMapText = By.cssSelector(".header > span");
+    public By robotTxtText = By.cssSelector("pre");
+    public By rssText = By.cssSelector("pre");
 
     public DirectiveTest(WebDriver driver) {
         this.driver = driver;
     }
 
-    public String GetSiteMapText() {
-        String str = driver.findElement(SiteMapText).getText();
+    public String getSiteMapText() {
+        String str = driver.findElement(siteMapText).getText();
         return str;
     }
 
-    public String GetRobotTxtText() {
-        String str = driver.findElement(RobotTxtText).getText();
+    public String getRobotTxtText() {
+        String str = driver.findElement(robotTxtText).getText();
         return str;
     }
 }

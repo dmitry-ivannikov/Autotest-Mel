@@ -2,16 +2,18 @@ package Helper;
 
 import TestClasses.LogoutTest;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.util.Set;
+import java.util.*;
+import java.util.logging.Level;
 
 
 public class AdditionalMethods {
-
     WebDriver driver;
     LogoutTest logout;
 
@@ -19,25 +21,25 @@ public class AdditionalMethods {
         this.driver = driver;
     }
 
-    public void Wait() {
+    public void Wait(int millis) {
         try {
-            Thread.sleep(4000);
+            Thread.sleep(millis);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
     // function logout
-    public void Exit() {
+    public void exit() {
         logout = new LogoutTest(driver);
-        logout.ExitFromAccount();
+        logout.exitFromAccount();
     }
 
-    public void OutputFromAnAccountSocialLogin() {
+    public void outputFromAnAccountSocialLogin() {
         logout = new LogoutTest(driver);
-        logout.ExitToAuthorisationSocial();
+        logout.exitToAuthorisationSocial();
     }
 
-    public String GenerateStr(){
+    public String generateStr(){
         String str1 = "testpablo";
         String str2 = "@rootfest.net";
 
@@ -50,44 +52,38 @@ public class AdditionalMethods {
         return str3;
     }
 
-    public void ImgageDownload() {
+    public void imgageDownload() {
         Robot r = null;
         try {
             r = new Robot();
         } catch (AWTException e) {
             e.printStackTrace();
         }
-        r.keyPress(KeyEvent.VK_C);        // C
+
+        r.keyPress(KeyEvent.VK_C);
         r.keyRelease(KeyEvent.VK_C);
 
-        r.keyPress(KeyEvent.VK_SHIFT);      // :
+        r.keyPress(KeyEvent.VK_SHIFT);
         r.keyPress(KeyEvent.VK_SEMICOLON);
         r.keyRelease(KeyEvent.VK_SEMICOLON);
         r.keyRelease(KeyEvent.VK_SHIFT);
 
-        r.keyPress(KeyEvent.VK_BACK_SLASH);    // / (slash)
-        r.keyRelease(KeyEvent.VK_BACK_SLASH);
+        ArrayList<Integer> robots = new ArrayList();
+        robots.add(KeyEvent.VK_BACK_SLASH);
+        robots.add(KeyEvent.VK_1);
+        robots.add(KeyEvent.VK_PERIOD);
+        robots.add(KeyEvent.VK_J);
+        robots.add(KeyEvent.VK_P);
+        robots.add(KeyEvent.VK_G);
+        robots.add(KeyEvent.VK_ENTER);
 
-        r.keyPress(KeyEvent.VK_1);    // 1
-        r.keyRelease(KeyEvent.VK_1);
-
-        r.keyPress(KeyEvent.VK_PERIOD);    // .
-        r.keyRelease(KeyEvent.VK_PERIOD);
-
-        r.keyPress(KeyEvent.VK_J);    // j
-        r.keyRelease(KeyEvent.VK_J);
-
-        r.keyPress(KeyEvent.VK_P);    // p
-        r.keyRelease(KeyEvent.VK_P);
-
-        r.keyPress(KeyEvent.VK_G);    // g
-        r.keyRelease(KeyEvent.VK_G);
-
-        r.keyPress(KeyEvent.VK_ENTER);    // confirm by pressing Enter in the end
-        r.keyRelease(KeyEvent.VK_ENTER);
+        for (int i=0; i< robots.size(); i++) {
+            r.keyPress(robots.get(i));
+            r.keyRelease(robots.get(i));
+        }
     }
 
-    public void MoveFocucToTheNewWindow(final Set<String> oldWindowsSet){
+    public void moveFocucToTheNewWindow(final Set<String> oldWindowsSet){
         String newWindos = (new WebDriverWait(driver, 10)).until(new ExpectedCondition<String>()
         {
             @Override
@@ -99,5 +95,12 @@ public class AdditionalMethods {
             }
         });
         driver.switchTo().window(newWindos);
+    }
+
+    public void getBrowserLogs(){
+        for (LogEntry logEntry : driver.manage().logs().get("browser").filter(Level.SEVERE)) {
+            System.out.println(logEntry);
+            Assert.fail();
+        }
     }
 }

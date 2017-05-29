@@ -2,13 +2,57 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="157000c9-3364-4f63-8bbe-abb827f4fcf6" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/AdminTestClasses/AdminAddingPublicationTest.class" afterPath="$PROJECT_DIR$/target/classes/AdminTestClasses/AdminAddingPublicationTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/AdminTestClasses/AdminAddingUserTest.class" afterPath="$PROJECT_DIR$/target/classes/AdminTestClasses/AdminAddingUserTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/AdminTestClasses/AdminLoginTest.class" afterPath="$PROJECT_DIR$/target/classes/AdminTestClasses/AdminLoginTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/AdminTestClasses/AdminLogoutTest.class" afterPath="$PROJECT_DIR$/target/classes/AdminTestClasses/AdminLogoutTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/AdminTestClasses/AdminRubricatorTest.class" afterPath="$PROJECT_DIR$/target/classes/AdminTestClasses/AdminRubricatorTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Helper/AdditionalMethods$1.class" afterPath="$PROJECT_DIR$/target/classes/Helper/AdditionalMethods$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Helper/AdditionalMethods.class" afterPath="$PROJECT_DIR$/target/classes/Helper/AdditionalMethods.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Main/AdminTestCases.class" afterPath="$PROJECT_DIR$/target/classes/Main/AdminTestCases.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Main/RunAllTestCases.class" afterPath="$PROJECT_DIR$/target/classes/Main/RunAllTestCases.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Main/SiteTestCases.class" afterPath="$PROJECT_DIR$/target/classes/Main/SiteTestCases.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/AddCommentTest.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/AddCommentTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/DirectiveTest.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/DirectiveTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/DownloadArticlesTest.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/DownloadArticlesTest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/FooterTest.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/FooterTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/LoginTest.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/LoginTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/LogoutTest.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/LogoutTest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/ProfileTest.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/ProfileTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/RegistrationTest.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/RegistrationTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/SearchTest.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/SearchTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/SendMessageInBlogTest.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/SendMessageInBlogTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/SharingArticleTest$1.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/SharingArticleTest$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/SharingArticleTest$2.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/SharingArticleTest$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/SharingArticleTest.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/SharingArticleTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/SocialNetworksAuthorisationTest$1.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/SocialNetworksAuthorisationTest$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/SocialNetworksAuthorisationTest$2.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/SocialNetworksAuthorisationTest$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/SocialNetworksAuthorisationTest.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/SocialNetworksAuthorisationTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/SubscribeNewsLetterTest.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/SubscribeNewsLetterTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/TagSubscribeTest.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/TagSubscribeTest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminTestClasses/AdminAddingPublicationTest.java" afterPath="$PROJECT_DIR$/src/AdminTestClasses/AdminAddingPublicationTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminTestClasses/AdminAddingUserTest.java" afterPath="$PROJECT_DIR$/src/AdminTestClasses/AdminAddingUserTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminTestClasses/AdminLoginTest.java" afterPath="$PROJECT_DIR$/src/AdminTestClasses/AdminLoginTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminTestClasses/AdminLogoutTest.java" afterPath="$PROJECT_DIR$/src/AdminTestClasses/AdminLogoutTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminTestClasses/AdminRubricatorTest.java" afterPath="$PROJECT_DIR$/src/AdminTestClasses/AdminRubricatorTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Helper/AdditionalMethods.java" afterPath="$PROJECT_DIR$/src/Helper/AdditionalMethods.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main/AdminTestCases.java" afterPath="$PROJECT_DIR$/src/Main/AdminTestCases.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main/SiteTestCases.java" afterPath="$PROJECT_DIR$/src/Main/SiteTestCases.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestClasses/AddCommentTest.java" afterPath="$PROJECT_DIR$/src/TestClasses/AddCommentTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestClasses/DirectiveTest.java" afterPath="$PROJECT_DIR$/src/TestClasses/DirectiveTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestClasses/DownloadArticlesTest.java" afterPath="$PROJECT_DIR$/src/TestClasses/DownloadArticlesTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestClasses/FooterTest.java" afterPath="$PROJECT_DIR$/src/TestClasses/FooterTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestClasses/LoginTest.java" afterPath="$PROJECT_DIR$/src/TestClasses/LoginTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestClasses/LogoutTest.java" afterPath="$PROJECT_DIR$/src/TestClasses/LogoutTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestClasses/ProfileTest.java" afterPath="$PROJECT_DIR$/src/TestClasses/ProfileTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestClasses/RegistrationTest.java" afterPath="$PROJECT_DIR$/src/TestClasses/RegistrationTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestClasses/SearchTest.java" afterPath="$PROJECT_DIR$/src/TestClasses/SearchTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestClasses/SendMessageInBlogTest.java" afterPath="$PROJECT_DIR$/src/TestClasses/SendMessageInBlogTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestClasses/SharingArticleTest.java" afterPath="$PROJECT_DIR$/src/TestClasses/SharingArticleTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestClasses/SocialNetworksAuthorisationTest.java" afterPath="$PROJECT_DIR$/src/TestClasses/SocialNetworksAuthorisationTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestClasses/SubscribeNewsLetterTest.java" afterPath="$PROJECT_DIR$/src/TestClasses/SubscribeNewsLetterTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestClasses/TagSubscribeTest.java" afterPath="$PROJECT_DIR$/src/TestClasses/TagSubscribeTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -34,53 +78,9 @@
       <file leaf-file-name="RunAllTestCases.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main/RunAllTestCases.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdminRubricatorTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AdminTestClasses/AdminRubricatorTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4946#4947#0" expanded="true" />
-                <element signature="e#5010#5011#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FooterTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TestClasses/FooterTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="986">
-              <caret line="65" column="43" lean-forward="false" selection-start-line="65" selection-start-column="43" selection-end-line="65" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#2552#2553#0" expanded="false" />
-                <element signature="e#2588#2589#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LogoutTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TestClasses/LogoutTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="23" column="41" lean-forward="false" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#424#425#0" expanded="false" />
-                <element signature="e#460#461#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="136">
+              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -88,50 +88,9 @@
       <file leaf-file-name="SiteTestCases.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main/SiteTestCases.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1513">
-              <caret line="308" column="69" lean-forward="false" selection-start-line="308" selection-start-column="69" selection-end-line="308" selection-end-column="69" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1596#1597#0" expanded="true" />
-                <element signature="e#1625#1626#0" expanded="true" />
-                <element signature="method#Authorisation#0;class#SiteTestCases#0" expanded="false" />
-                <element signature="method#Registration#0;class#SiteTestCases#0" expanded="false" />
-                <element signature="method#AddAndDeleteComment#0;class#SiteTestCases#0" expanded="false" />
-                <element signature="method#AuthorisationSocial#0;class#SiteTestCases#0" expanded="false" />
-                <element signature="method#MoreArticle#0;class#SiteTestCases#0" expanded="false" />
-                <element signature="method#SendMessageInBlog#0;class#SiteTestCases#0" expanded="false" />
-                <element signature="method#SharingArticle#0;class#SiteTestCases#0" expanded="false" />
-                <element signature="method#SubscribeNewsLetter#0;class#SiteTestCases#0" expanded="false" />
-                <element signature="method#Profile#0;class#SiteTestCases#0" expanded="false" />
-                <element signature="method#DirectiveTest#0;class#SiteTestCases#0" expanded="false" />
-                <element signature="method#Search#0;class#SiteTestCases#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DownloadArticlesTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TestClasses/DownloadArticlesTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="21" column="20" lean-forward="false" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#834#835#0" expanded="false" />
-                <element signature="e#870#871#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdminTestCases.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main/AdminTestCases.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="115" column="15" lean-forward="false" selection-start-line="115" selection-start-column="15" selection-end-line="115" selection-end-column="15" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="559">
+              <caret line="417" column="65" lean-forward="true" selection-start-line="417" selection-start-column="65" selection-end-line="417" selection-end-column="65" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -139,14 +98,74 @@
       <file leaf-file-name="ProfileTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TestClasses/ProfileTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="884">
-              <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+            <state relative-caret-position="74">
+              <caret line="204" column="0" lean-forward="false" selection-start-line="204" selection-start-column="0" selection-end-line="204" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SocialNetworksAuthorisationTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/TestClasses/SocialNetworksAuthorisationTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="74">
+              <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#5213#5214#0" expanded="false" />
-                <element signature="e#5280#5281#0" expanded="false" />
-                <element signature="e#8386#8387#0" expanded="false" />
-                <element signature="e#8448#8449#0" expanded="false" />
+                <element signature="e#1929#1930#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminAutosaveTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AdminTestClasses/AdminAutosaveTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="298">
+              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminTestCases.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main/AdminTestCases.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="926">
+              <caret line="227" column="72" lean-forward="false" selection-start-line="227" selection-start-column="72" selection-end-line="227" selection-end-column="72" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminBlogs.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AdminTestClasses/AdminBlogs.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="705">
+              <caret line="67" column="35" lean-forward="true" selection-start-line="67" selection-start-column="35" selection-end-line="67" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminSearchTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AdminTestClasses/AdminSearchTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminAddingPublicationTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AdminTestClasses/AdminAddingPublicationTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="603">
+              <caret line="123" column="22" lean-forward="false" selection-start-line="123" selection-start-column="22" selection-end-line="123" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -156,17 +175,7 @@
         <entry file="file://$PROJECT_DIR$/src/Helper/AdditionalMethods.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="59">
-              <caret line="26" column="9" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="26" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GetUrl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Helper/GetUrl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+              <caret line="23" column="31" lean-forward="false" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -180,6 +189,13 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>assertt</find>
+      <find>settings</find>
+      <find>directi</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -201,29 +217,36 @@
         <option value="$PROJECT_DIR$/src/test/RunAllTestCases.java" />
         <option value="$PROJECT_DIR$/src/TestClasses/RunAllTestCases.java" />
         <option value="$PROJECT_DIR$/src/TestClasses/SocialNetworksAuthorisation.java" />
-        <option value="$PROJECT_DIR$/src/TestClasses/SocialNetworksAuthorisationTest.java" />
-        <option value="$PROJECT_DIR$/src/TestClasses/LoginTest.java" />
-        <option value="$PROJECT_DIR$/src/TestClasses/SubscribeNewsLetterTest.java" />
-        <option value="$PROJECT_DIR$/src/TestClasses/RegistrationTest.java" />
-        <option value="$PROJECT_DIR$/src/TestClasses/SharingArticleTest.java" />
-        <option value="$PROJECT_DIR$/src/TestClasses/SendMessageInBlogTest.java" />
-        <option value="$PROJECT_DIR$/src/TestClasses/AddCommentTest.java" />
-        <option value="$PROJECT_DIR$/src/TestClasses/LogoutTest.java" />
-        <option value="$PROJECT_DIR$/src/TestClasses/DownloadArticlesTest.java" />
-        <option value="$PROJECT_DIR$/src/TestClasses/DirectiveTest.java" />
-        <option value="$PROJECT_DIR$/src/TestClasses/SearchTest.java" />
         <option value="$PROJECT_DIR$/src/AdminTestClasses/AdminAddingUser.java" />
+        <option value="$PROJECT_DIR$/src/AdminTestClasses/AdminAutosaveTest.java" />
         <option value="$PROJECT_DIR$/src/AdminTestClasses/AdminLoginTest.java" />
         <option value="$PROJECT_DIR$/src/AdminTestClasses/AdminLogoutTest.java" />
-        <option value="$PROJECT_DIR$/src/TestClasses/TagSubscribeTest.java" />
-        <option value="$PROJECT_DIR$/src/Helper/AdditionalMethods.java" />
-        <option value="$PROJECT_DIR$/src/AdminTestClasses/AdminAddingPublicationTest.java" />
+        <option value="$PROJECT_DIR$/src/AdminTestClasses/AdminPublicationFrontPageTest.java" />
+        <option value="$PROJECT_DIR$/src/AdminTestClasses/AdminSearchTest.java" />
+        <option value="$PROJECT_DIR$/src/Helper/GetUrl.java" />
+        <option value="$PROJECT_DIR$/src/TestClasses/AddCommentTest.java" />
+        <option value="$PROJECT_DIR$/src/TestClasses/DirectiveTest.java" />
+        <option value="$PROJECT_DIR$/src/TestClasses/LoginTest.java" />
+        <option value="$PROJECT_DIR$/src/TestClasses/PagePublishing.java" />
         <option value="$PROJECT_DIR$/src/TestClasses/ProfileTest.java" />
-        <option value="$PROJECT_DIR$/src/TestClasses/FooterTest.java" />
-        <option value="$PROJECT_DIR$/src/Main/SiteTestCases.java" />
+        <option value="$PROJECT_DIR$/src/TestClasses/RegistrationTest.java" />
+        <option value="$PROJECT_DIR$/src/TestClasses/SendMessageInBlogTest.java" />
+        <option value="$PROJECT_DIR$/src/TestClasses/SocialNetworksAuthorisationTest.java" />
+        <option value="$PROJECT_DIR$/src/TestClasses/SubscribeNewsLetterTest.java" />
+        <option value="$PROJECT_DIR$/src/TestClasses/SharingArticleTest.java" />
+        <option value="$PROJECT_DIR$/src/TestClasses/LogoutTest.java" />
+        <option value="$PROJECT_DIR$/src/Helper/AdditionalMethods.java" />
+        <option value="$PROJECT_DIR$/src/TestClasses/SearchTest.java" />
+        <option value="$PROJECT_DIR$/src/AdminTestClasses/AdminBlogs.java" />
+        <option value="$PROJECT_DIR$/src/AdminTestClasses/AdminAddingUserTest.java" />
+        <option value="$PROJECT_DIR$/src/AdminTestClasses/AdminAddingPublicationTest.java" />
         <option value="$PROJECT_DIR$/src/AdminTestClasses/AdminRubricatorTest.java" />
-        <option value="$PROJECT_DIR$/src/Main/AdminTestCases.java" />
+        <option value="$PROJECT_DIR$/src/TestClasses/TagSubscribeTest.java" />
+        <option value="$PROJECT_DIR$/src/TestClasses/FooterTest.java" />
+        <option value="$PROJECT_DIR$/src/TestClasses/DownloadArticlesTest.java" />
         <option value="$PROJECT_DIR$/src/Main/RunAllTestCases.java" />
+        <option value="$PROJECT_DIR$/src/Main/AdminTestCases.java" />
+        <option value="$PROJECT_DIR$/src/Main/SiteTestCases.java" />
       </list>
     </option>
   </component>
@@ -231,7 +254,7 @@
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
-    <option name="height" value="1176" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -251,6 +274,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -337,9 +361,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -742,8 +765,8 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -755,12 +778,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.56130266" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44820297" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17324094" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17291667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -784,7 +807,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="9" />
+      <option name="time" value="10" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -793,62 +816,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/TestClasses/SocialNetworksAuthorisationTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="39" column="46" lean-forward="false" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="46" />
-          <folding>
-            <element signature="e#1970#1971#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TestClasses/SharingArticleTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="48" column="52" lean-forward="false" selection-start-line="48" selection-start-column="52" selection-end-line="48" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TestClasses/SendMessageInBlogTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="32" column="38" lean-forward="false" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TestClasses/FooterTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="20" column="92" lean-forward="true" selection-start-line="20" selection-start-column="92" selection-end-line="20" selection-end-column="92" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2552#2553#0" expanded="false" />
-            <element signature="e#2588#2589#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Helper/AdditionalMethods.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="23" column="36" lean-forward="false" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/RunAllTestCases.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="25" lean-forward="false" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
     <entry file="file://$PROJECT_DIR$/src/TestClasses/LoginTest.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -870,7 +837,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1970#1971#0" expanded="false" />
+            <element signature="e#1929#1930#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -896,9 +863,7 @@
         <state relative-caret-position="85">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#834#835#0" expanded="false" />
-            <element signature="e#870#871#0" expanded="false" />
+            <element signature="e#881#882#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -915,11 +880,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2552#2553#0" expanded="false" />
-            <element signature="e#2588#2589#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -927,9 +888,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -982,40 +941,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java.java" />
     <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
-    <entry file="file://$PROJECT_DIR$/src/TestClasses/SubscribeNewsLetterTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1156">
-          <caret line="87" column="31" lean-forward="false" selection-start-line="87" selection-start-column="31" selection-end-line="87" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TestClasses/SharingArticleTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="78" column="29" lean-forward="false" selection-start-line="78" selection-start-column="29" selection-end-line="78" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TestClasses/SendMessageInBlogTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1105">
-          <caret line="77" column="31" lean-forward="false" selection-start-line="77" selection-start-column="31" selection-end-line="77" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TestClasses/SocialNetworksAuthorisationTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding>
-            <element signature="e#1970#1971#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
@@ -1025,216 +950,259 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AutoTest-Mel.iml" />
-    <entry file="file://$PROJECT_DIR$/src/TestClasses/AddCommentTest.java">
+    <entry file="file://$PROJECT_DIR$/src/AdminTestClasses/AdminLoginTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="41" column="13" lean-forward="false" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+        <state relative-caret-position="255">
+          <caret line="18" column="19" lean-forward="true" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminTestClasses/AdminLogoutTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="10" column="34" lean-forward="true" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminTestClasses/AdminPublicationFrontPageTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="41" column="9" lean-forward="true" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="500" column="22" lean-forward="false" selection-start-line="500" selection-start-column="22" selection-end-line="500" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Helper/GetUrl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <element signature="e#205#206#0" expanded="false" />
+            <element signature="e#259#260#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TestClasses/DirectiveTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TestClasses/LoginTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="52" column="5" lean-forward="false" selection-start-line="49" selection-start-column="4" selection-end-line="52" selection-end-column="5" />
+        <state relative-caret-position="714">
+          <caret line="49" column="30" lean-forward="false" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TestClasses/DirectiveTest.java">
+    <entry file="file://$PROJECT_DIR$/src/TestClasses/PagePublishing.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="24" column="5" lean-forward="false" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#349#350#0" expanded="false" />
-            <element signature="e#385#386#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TestClasses/SearchTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="13" column="16" lean-forward="false" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+        <state relative-caret-position="705">
+          <caret line="60" column="27" lean-forward="false" selection-start-line="60" selection-start-column="27" selection-end-line="60" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminTestClasses/AdminLoginTest.java">
+    <entry file="file://$PROJECT_DIR$/src/TestClasses/SendMessageInBlogTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#496#497#0" expanded="false" />
-            <element signature="e#532#533#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="722">
+          <caret line="109" column="9" lean-forward="true" selection-start-line="109" selection-start-column="9" selection-end-line="109" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TestClasses/TagSubscribeTest.java">
+    <entry file="file://$PROJECT_DIR$/src/TestClasses/SubscribeNewsLetterTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="51" column="6" lean-forward="true" selection-start-line="51" selection-start-column="6" selection-end-line="51" selection-end-column="6" />
+        <state relative-caret-position="674">
+          <caret line="89" column="16" lean-forward="false" selection-start-line="89" selection-start-column="16" selection-end-line="89" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TestClasses/RegistrationTest.java">
+    <entry file="file://$PROJECT_DIR$/src/TestClasses/SharingArticleTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminTestClasses/AdminAddingUserTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminTestClasses/AdminLogoutTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminTestClasses/AdminAddingPublicationTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="20" column="153" lean-forward="false" selection-start-line="20" selection-start-column="153" selection-end-line="20" selection-end-column="153" />
+        <state relative-caret-position="314">
+          <caret line="81" column="83" lean-forward="false" selection-start-line="81" selection-start-column="83" selection-end-line="81" selection-end-column="83" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TestClasses/LogoutTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="23" column="41" lean-forward="false" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#424#425#0" expanded="false" />
-            <element signature="e#460#461#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="323">
+          <caret line="22" column="12" lean-forward="false" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TestClasses/ProfileTest.java">
+    <entry file="file://$PROJECT_DIR$/src/TestClasses/AddCommentTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+        <state relative-caret-position="59">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TestClasses/RegistrationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="95" column="29" lean-forward="false" selection-start-line="95" selection-start-column="29" selection-end-line="95" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TestClasses/SearchTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="722">
+          <caret line="69" column="25" lean-forward="false" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminTestClasses/AdminAddingUserTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="49" column="25" lean-forward="false" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminTestClasses/AdminRubricatorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="119" column="27" lean-forward="false" selection-start-line="119" selection-start-column="27" selection-end-line="119" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TestClasses/TagSubscribeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="104" column="27" lean-forward="false" selection-start-line="104" selection-start-column="27" selection-end-line="104" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TestClasses/FooterTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="142" column="27" lean-forward="false" selection-start-line="142" selection-start-column="27" selection-end-line="142" selection-end-column="27" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#5213#5214#0" expanded="false" />
-            <element signature="e#5280#5281#0" expanded="false" />
-            <element signature="e#8386#8387#0" expanded="false" />
-            <element signature="e#8448#8449#0" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TestClasses/DownloadArticlesTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="21" column="20" lean-forward="false" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+        <state relative-caret-position="204">
+          <caret line="13" column="86" lean-forward="false" selection-start-line="13" selection-start-column="86" selection-end-line="13" selection-end-column="86" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#834#835#0" expanded="false" />
-            <element signature="e#870#871#0" expanded="false" />
+            <element signature="e#829#830#0" expanded="true" />
+            <element signature="e#881#882#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/SiteTestCases.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1513">
-          <caret line="308" column="69" lean-forward="false" selection-start-line="308" selection-start-column="69" selection-end-line="308" selection-end-column="69" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1596#1597#0" expanded="true" />
-            <element signature="e#1625#1626#0" expanded="true" />
-            <element signature="method#Authorisation#0;class#SiteTestCases#0" expanded="false" />
-            <element signature="method#Registration#0;class#SiteTestCases#0" expanded="false" />
-            <element signature="method#AddAndDeleteComment#0;class#SiteTestCases#0" expanded="false" />
-            <element signature="method#AuthorisationSocial#0;class#SiteTestCases#0" expanded="false" />
-            <element signature="method#MoreArticle#0;class#SiteTestCases#0" expanded="false" />
-            <element signature="method#SendMessageInBlog#0;class#SiteTestCases#0" expanded="false" />
-            <element signature="method#SharingArticle#0;class#SiteTestCases#0" expanded="false" />
-            <element signature="method#SubscribeNewsLetter#0;class#SiteTestCases#0" expanded="false" />
-            <element signature="method#Profile#0;class#SiteTestCases#0" expanded="false" />
-            <element signature="method#DirectiveTest#0;class#SiteTestCases#0" expanded="false" />
-            <element signature="method#Search#0;class#SiteTestCases#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TestClasses/FooterTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="65" column="43" lean-forward="false" selection-start-line="65" selection-start-column="43" selection-end-line="65" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2552#2553#0" expanded="false" />
-            <element signature="e#2588#2589#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/AdminTestCases.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="115" column="15" lean-forward="false" selection-start-line="115" selection-start-column="15" selection-end-line="115" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminTestClasses/AdminRubricatorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4946#4947#0" expanded="true" />
-            <element signature="e#5010#5011#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Helper/GetUrl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Helper/AdditionalMethods.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="59">
-          <caret line="26" column="9" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="26" selection-end-column="9" />
+          <caret line="23" column="31" lean-forward="false" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminTestClasses/AdminSearchTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminTestClasses/AdminAddingPublicationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="603">
+          <caret line="123" column="22" lean-forward="false" selection-start-line="123" selection-start-column="22" selection-end-line="123" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TestClasses/SocialNetworksAuthorisationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding>
+            <element signature="e#1929#1930#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TestClasses/ProfileTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="204" column="0" lean-forward="false" selection-start-line="204" selection-start-column="0" selection-end-line="204" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminTestClasses/AdminAutosaveTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminTestClasses/AdminBlogs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="67" column="35" lean-forward="true" selection-start-line="67" selection-start-column="35" selection-end-line="67" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/AdminTestCases.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="926">
+          <caret line="227" column="72" lean-forward="false" selection-start-line="227" selection-start-column="72" selection-end-line="227" selection-end-column="72" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/SiteTestCases.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="559">
+          <caret line="417" column="65" lean-forward="true" selection-start-line="417" selection-start-column="65" selection-end-line="417" selection-end-column="65" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/RunAllTestCases.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="136">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

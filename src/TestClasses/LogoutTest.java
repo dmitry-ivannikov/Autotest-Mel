@@ -7,22 +7,24 @@ public class LogoutTest
 {
     WebDriver driver;
 
-    public By HeaderDropdown = By.cssSelector(".g-dropdown__opener");
-    private By ExitButtonInDropdown = By.cssSelector(".b-header__logout-button");
-    private By ExitWindowToAuthorisationSocial = By.cssSelector(".b-header__user-photo");
+    public By headerDropdown = By.cssSelector(".g-dropdown__opener");
+    private By exitButtonInDropdown = By.cssSelector(".b-header__logout-button");
+    private By exitWindowToAuthorisationSocial = By.cssSelector(".b-header__user-photo");
 
     public LogoutTest(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void ExitFromAccount() {
-        driver.findElement(HeaderDropdown).click();
-        driver.findElement(ExitButtonInDropdown).click();
+    public void exitFromAccount() {
+        driver.findElement(headerDropdown).click();
+        driver.findElement(exitButtonInDropdown).click();
     }
 
-    public void ExitToAuthorisationSocial() {
-        driver.findElement(HeaderDropdown).click();
-        driver.findElement(ExitButtonInDropdown).click();
+    public void exitToAuthorisationSocial() {
+        driver.findElement(headerDropdown).click();
+        driver.findElement(exitButtonInDropdown).click();
 
     }
+
+
 }

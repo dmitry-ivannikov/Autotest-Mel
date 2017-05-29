@@ -3,230 +3,229 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import Helper.AdditionalMethods;
 
-/**
- * Created by Mary on 16.04.2017.
- */
 public class ProfileTest {
     private WebDriver driver;
     private AdditionalMethods methods;
+
     //HeaderDropdown
-    private By HeaderDropdownIcon = By.cssSelector(".b-header__dropdown-icon");
-    private By ProfileButtonInList = By.cssSelector(".g-list_dropdown-menu-theme > a:nth-child(1)");
-    private By BlogButtonInList = By.cssSelector(".g-list_pablo.g-list_dropdown-menu-theme > a:nth-child(3)");
-    private By LogoutButtonInList = By.cssSelector(".b-header__logout-button");
+    private By headerDropdownIcon = By.cssSelector(".b-header__dropdown-icon");
+    private By profileButtonInList = By.cssSelector(".g-list_dropdown-menu-theme > a:nth-child(1)");
+    private By blogButtonInList = By.cssSelector(".g-list_pablo.g-list_dropdown-menu-theme > a:nth-child(3)");
+    private By logoutButtonInList = By.cssSelector(".b-header__logout-button");
     //ProfileTab
-    private By FirstnameInput = By.cssSelector(".b-profile__input-firstname .g-input__input");
-    private By LastnameInput = By.cssSelector(".b-profile__input-lastname > input");
-    private By SaveButton = By.cssSelector(".b-profile__save");
-    private By HeaderUserName = By.cssSelector(".b-header__user-name");
-    private By UserNameInput = By.cssSelector(".b-profile__input-displayname > input");
-    private By AboutTextarea = By.cssSelector(".b-profile__about > div > textarea");
-    private By EmailInput = By.cssSelector(".b-profile__input-email > input");
-    private By PhoneInput = By.cssSelector(".b-profile__input-phone > input");
-    private By BirthdateInput = By.cssSelector(".b-profile__input-birthdate > input");
-    private By SelectRoleDropdownIcon = By.cssSelector(".b-profile__select-role> .g-dropdown__opener");
-    private By SelectGenderDropdownIcon = By.cssSelector(".b-profile__select-gender> .g-dropdown__opener");
-    private By RoleInList = By.xpath("/html/body/div[1]/div[4]/div/div/div[1]/div/div[2]/div[2]/div[7]/div[2]/div[2]/div/div[2]");
-    private By GenderInList = By.xpath("/html/body/div[1]/div[4]/div/div/div[1]/div/div[2]/div[2]/div[9]/div[2]/div[2]/div/div[2]");
-    private By RoleInput = By.cssSelector(".b-profile__select-role >.g-dropdown__opener");
-    private By GenderInput = By.cssSelector(".b-profile__select-gender >.g-dropdown__opener");
+    private By firstnameInput = By.cssSelector(".b-profile__input-firstname .g-input__input");
+    private By lastnameInput = By.cssSelector(".b-profile__input-lastname > input");
+    private By saveButton = By.cssSelector(".b-profile__save");
+    private By headerUserName = By.cssSelector(".b-header__user-name");
+    private By userNameInput = By.cssSelector(".b-profile__input-displayname > input");
+    private By aboutTextarea = By.cssSelector(".b-profile__about > div > textarea");
+    private By emailInput = By.cssSelector(".b-profile__input-email > input");
+    private By phoneInput = By.cssSelector(".b-profile__input-phone > input");
+    private By birthdateInput = By.cssSelector(".b-profile__input-birthdate > input");
+    private By selectRoleDropdownIcon = By.cssSelector(".b-profile__select-role> .g-dropdown__opener");
+    private By selectGenderDropdownIcon = By.cssSelector(".b-profile__select-gender> .g-dropdown__opener");
+    private By roleInList = By.xpath("/html/body/div[2]/div[4]/div/div/div[1]/div/div[2]/div[2]/div[7]/div[2]/div[2]/div/div[2]");
+    private By genderInList = By.xpath("/html/body/div[2]/div[4]/div/div/div[1]/div/div[2]/div[2]/div[9]/div[2]/div[2]/div/div[2]");
+    private By roleInput = By.cssSelector(".b-profile__select-role >.g-dropdown__opener");
+    private By genderInput = By.cssSelector(".b-profile__select-gender >.g-dropdown__opener");
     //Blog
-    private By AuthorNameInBlog = By.cssSelector(".b-pb-author__name");
-    private By AuthorQuoteInBlog = By.cssSelector(".b-pb-author__quote");
+    private By authorNameInBlog = By.cssSelector(".b-pb-author__name");
+    private By authorQuoteInBlog = By.cssSelector(".b-pb-author__quote");
     //Avatar
-    private By DownloadAvatarButton = By.cssSelector(".b-profile__avatar >.b-profile__avatar-control-btn");
-    private By ImageClass = By.cssSelector(".b-profile__avatar > img");
-    private By DeleteAvatarButton = By.cssSelector(".b-profile__avatar > div");
-    private By CloseButtonInLoginPopup= By.cssSelector(".g-modal__close-icon > div");
+    private By downloadAvatarButton = By.cssSelector(".b-profile__avatar >.b-profile__avatar-control-btn");
+    private By imageClass = By.cssSelector(".b-profile__avatar > img");
+    private By deleteAvatarButton = By.cssSelector(".b-profile__avatar > div");
+    private By closeButtonInLoginPopup= By.cssSelector(".g-modal__close-icon > div");
     //SocialNetworksTab
-    private By SocialNetworksTab = By.cssSelector(".g-tab__tabs > div:nth-child(2)");
-    private By SiteUrlInput = By.cssSelector(".b-profile__input-siteurl > input");
-    private By FbInput = By.cssSelector(".b-profile__input-fb > input");
-    private By VkInput = By.cssSelector(".b-profile__input-vk > input");
-    private By TwitterInput = By.cssSelector(".b-profile__input-tw > input");
-    private By SaveButtonInSocialNetworksTab = By.cssSelector(".b-profile__save");
-    private By SiteUrlInBlog = By.cssSelector(".b-pb-author__sites > a:nth-child(1)");
-    private By FbUrlInBlog = By.cssSelector(".b-pb-author__sites > a:nth-child(2)");
-    private By VkUrlInBlog = By.cssSelector(".b-pb-author__sites > a:nth-child(3)");
-    private By TwitterUrlInBlog = By.cssSelector(".b-pb-author__sites > a:nth-child(4)");
+    private By socialNetworksTab = By.cssSelector(".g-tab__tabs > div:nth-child(2)");
+    private By siteUrlInput = By.cssSelector(".b-profile__input-siteurl > input");
+    private By fbInput = By.cssSelector(".b-profile__input-fb > input");
+    private By vkInput = By.cssSelector(".b-profile__input-vk > input");
+    private By twitterInput = By.cssSelector(".b-profile__input-tw > input");
+    private By saveButtonInSocialNetworksTab = By.cssSelector(".b-profile__save");
+    private By siteUrlInBlog = By.cssSelector(".b-pb-author__sites > a:nth-child(1)");
+    private By fbUrlInBlog = By.cssSelector(".b-pb-author__sites > a:nth-child(2)");
+    private By vkUrlInBlog = By.cssSelector(".b-pb-author__sites > a:nth-child(3)");
+    private By twitterUrlInBlog = By.cssSelector(".b-pb-author__sites > a:nth-child(4)");
 
 
     public ProfileTest(WebDriver driver) {
         this.driver = driver;
     }
 
-    private void ClickOnHeaderDropdownIcon() {
-        driver.findElement(HeaderDropdownIcon).click();
+    private void clickOnHeaderDropdownIcon() {
+        driver.findElement(headerDropdownIcon).click();
     }
 
-    private void ClickOnProfileButtonInList() {
-        driver.findElement(ProfileButtonInList).click();
+    private void clickOnProfileButtonInList() {
+        driver.findElement(profileButtonInList).click();
     }
 
     public String getFirstname() {
-        String str = driver.findElement(FirstnameInput).getAttribute("value");
+        String str = driver.findElement(firstnameInput).getAttribute("value");
         return str;
     }
 
     public String getLastname() {
-        String str = driver.findElement(LastnameInput).getAttribute("value");
+        String str = driver.findElement(lastnameInput).getAttribute("value");
         return str;
     }
 
-    private void ClickOnSaveButton(){
-        driver.findElement(SaveButton).click();
+    private void clickOnSaveButton(){
+        driver.findElement(saveButton).click();
     }
 
     public  String getHeaderUserName() {
-        String str = driver.findElement(HeaderUserName).getText();
+        String str = driver.findElement(headerUserName).getText();
         return str;
     }
 
     public String getAuthorNameInBlog(){
-        String str = driver.findElement(AuthorNameInBlog).getText();
+        String str = driver.findElement(authorNameInBlog).getText();
         return str;
     }
 
     public String getAuthorQuoteInBlog(){
-        String str = driver.findElement(AuthorQuoteInBlog).getText();
+        String str = driver.findElement(authorQuoteInBlog).getText();
         return str;
     }
     public String getEmail() {
-        String str = driver.findElement(EmailInput).getAttribute("value");
+        String str = driver.findElement(emailInput).getAttribute("value");
         return str;
     }
 
     public String getPhone() {
-        String str = driver.findElement(PhoneInput).getAttribute("value");
+        String str = driver.findElement(phoneInput).getAttribute("value");
         return str;
     }
     public  String getBirthdate() {
-        String str = driver.findElement(BirthdateInput).getAttribute("value");
+        String str = driver.findElement(birthdateInput).getAttribute("value");
         return str;
     }
 
     public String getRoleInput() {
-        String str = driver.findElement(RoleInput).getText();
+        String str = driver.findElement(roleInput).getText();
         return str;
     }
 
     public String getGenderInput() {
-        String str = driver.findElement(GenderInput).getText();
+        String str = driver.findElement(genderInput).getText();
         return str;
     }
 
-    public void ClickOnCloseButton(){
-        driver.findElement(CloseButtonInLoginPopup).click();
+    public void clickOnCloseButton(){
+        driver.findElement(closeButtonInLoginPopup).click();
     }
 
-    private void ClearInputs() {
-        driver.findElement(FirstnameInput).clear();
-        driver.findElement(LastnameInput).clear();
+    private void clearInputs() {
+        driver.findElement(firstnameInput).clear();
+        driver.findElement(lastnameInput).clear();
     }
 
-    public  String getSiteUrl() {
-        String str = driver.findElement(SiteUrlInBlog).getText();
+    public String getSiteUrl() {
+        String str = driver.findElement(siteUrlInBlog).getText();
         return str;
     }
-    public  String getFbUrl() {
-        String str = driver.findElement(FbUrlInBlog).getText();
+    public String getFbUrl() {
+        String str = driver.findElement(fbUrlInBlog).getText();
         return str;
     }
-    public  String getVkUrl() {
-        String str = driver.findElement(VkUrlInBlog).getText();
+    public String getVkUrl() {
+        String str = driver.findElement(vkUrlInBlog).getText();
         return str;
     }
-    public  String getTwitterUrl() {
-        String str = driver.findElement(TwitterUrlInBlog).getText();
+    public String getTwitterUrl() {
+        String str = driver.findElement(twitterUrlInBlog).getText();
         return str;
     }
 
-    public void OpenProfile(){
-        driver.findElement(HeaderDropdownIcon).click();
-        ClickOnProfileButtonInList();
+    public void openProfile(){
+        driver.findElement(headerDropdownIcon).click();
+        clickOnProfileButtonInList();
     }
 
-    public void EditFirstnameLastname(String strFirstnameInput, String strLastnameInput){
-        ClearInputs();
-        driver.findElement(FirstnameInput).click();
-        driver.findElement(FirstnameInput).sendKeys(strFirstnameInput);
-        driver.findElement(LastnameInput).click();
-        driver.findElement(LastnameInput).sendKeys(strLastnameInput);
-        ClickOnSaveButton();}
-
-    public void OpenBlog(){
-        ClickOnHeaderDropdownIcon();
-        driver.findElement(BlogButtonInList).click();
+    public void editFirstnameLastname(String firstname, String lastname){
+        clearInputs();
+        driver.findElement(firstnameInput).click();
+        driver.findElement(firstnameInput).sendKeys(firstname);
+        driver.findElement(lastnameInput).click();
+        driver.findElement(lastnameInput).sendKeys(lastname);
+        clickOnSaveButton();
     }
 
-    public void EditUserNameAndAbout(String strUserNameInput, String strAboutTextarea){
-        driver.findElement(UserNameInput).click();
-        driver.findElement(UserNameInput).sendKeys(strUserNameInput);
-        driver.findElement(AboutTextarea).click();
-        driver.findElement(AboutTextarea).sendKeys(strAboutTextarea);
-        ClickOnSaveButton();
+    public void openBlog(){
+        clickOnHeaderDropdownIcon();
+        driver.findElement(blogButtonInList).click();
     }
 
-    public void ChangeEmail(String strEmailInput){
-        driver.findElement(EmailInput).click();
-        driver.findElement(EmailInput).clear();
-        driver.findElement(EmailInput).sendKeys(strEmailInput);
-        ClickOnSaveButton();
+    public void editUserNameAndAbout(String userName, String Textarea){
+        driver.findElement(userNameInput).click();
+        driver.findElement(userNameInput).sendKeys(userName);
+        driver.findElement(aboutTextarea).click();
+        driver.findElement(aboutTextarea).sendKeys(Textarea);
+        clickOnSaveButton();
     }
 
-    public void Logout(){
-        ClickOnHeaderDropdownIcon();
-        driver.findElement(LogoutButtonInList).click();
+    public void changeEmail(String email){
+        driver.findElement(emailInput).click();
+        driver.findElement(emailInput).clear();
+        driver.findElement(emailInput).sendKeys(email);
+        clickOnSaveButton();
     }
 
-    public void EditPhoneAndBirthdate(String strPhoneInput, String strBirthdateInput){
-        driver.findElement(PhoneInput).click();
-        driver.findElement(PhoneInput).sendKeys(strPhoneInput);
-        driver.findElement(BirthdateInput).click();
-        driver.findElement(BirthdateInput).sendKeys(strBirthdateInput);
-        ClickOnSaveButton();
+    public void logout(){
+        clickOnHeaderDropdownIcon();
+        driver.findElement(logoutButtonInList).click();
     }
 
-    public void SelectRoleAndGender(){
-        driver.findElement(SelectRoleDropdownIcon).click();
-        driver.findElement(RoleInList).click();
-        driver.findElement(SelectGenderDropdownIcon).click();
-        driver.findElement(GenderInList).click();
-        ClickOnSaveButton();
+    public void editPhoneAndBirthdate(String phone, String birthdate){
+        driver.findElement(phoneInput).click();
+        driver.findElement(phoneInput).sendKeys(phone);
+        driver.findElement(birthdateInput).click();
+        driver.findElement(birthdateInput).sendKeys(birthdate);
+        clickOnSaveButton();
     }
 
-    public void DownloadAvatar() {
+    public void selectRoleAndGender(){
+        driver.findElement(selectRoleDropdownIcon).click();
+        driver.findElement(roleInList).click();
+        driver.findElement(selectGenderDropdownIcon).click();
+        driver.findElement(genderInList).click();
+        clickOnSaveButton();
+    }
+
+    public void downloadAvatar() {
         methods = new AdditionalMethods(driver);
-        driver.findElement(DownloadAvatarButton).click();
-        methods.ImgageDownload();
-        driver.findElement(DeleteAvatarButton);
+        driver.findElement(downloadAvatarButton).click();
+        methods.imgageDownload();
+        driver.findElement(deleteAvatarButton);
     }
     //check download avatar
-    public String GetImageClass() {
-        String str = driver.findElement(ImageClass).getTagName();
+    public String getImageClass() {
+        String str = driver.findElement(imageClass).getTagName();
         return str;
     }
 
-    public void DeleteAvatar(){
-        driver.findElement(DeleteAvatarButton).click();
+    public void deleteAvatar(){
+        driver.findElement(deleteAvatarButton).click();
     }
 
-    public String CheckDeleteAvatar(){
-        String str = driver.findElement(DownloadAvatarButton).getText();
+    public String checkDeleteAvatar(){
+        String str = driver.findElement(downloadAvatarButton).getText();
         return str;
     }
 
-    public void AddLinkInProfile(String strSiteUrlInput,String strFbInput,String strVkInput,String strTwitterInput){
-        driver.findElement(SocialNetworksTab).click();
-        driver.findElement(SiteUrlInput).click();
-        driver.findElement(SiteUrlInput).sendKeys(strSiteUrlInput);
-        driver.findElement(FbInput).click();
-        driver.findElement(FbInput).sendKeys(strFbInput);
-        driver.findElement(VkInput).click();
-        driver.findElement(VkInput).sendKeys(strVkInput);
-        driver.findElement(TwitterInput).click();
-        driver.findElement(TwitterInput).sendKeys(strTwitterInput);
-        driver.findElement(SaveButtonInSocialNetworksTab).click();
+    public void addLinkInProfile(String SiteUrl,String fbText,String vkText,String twitterText){
+        driver.findElement(socialNetworksTab).click();
+        driver.findElement(siteUrlInput).click();
+        driver.findElement(siteUrlInput).sendKeys(SiteUrl);
+        driver.findElement(fbInput).click();
+        driver.findElement(fbInput).sendKeys(fbText);
+        driver.findElement(vkInput).click();
+        driver.findElement(vkInput).sendKeys(vkText);
+        driver.findElement(twitterInput).click();
+        driver.findElement(twitterInput).sendKeys(twitterText);
+        driver.findElement(saveButtonInSocialNetworksTab).click();
     }
 
 }
