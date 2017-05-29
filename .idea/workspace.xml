@@ -2,57 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="157000c9-3364-4f63-8bbe-abb827f4fcf6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/AdminTestClasses/AdminAddingPublicationTest.class" afterPath="$PROJECT_DIR$/target/classes/AdminTestClasses/AdminAddingPublicationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/AdminTestClasses/AdminAddingUserTest.class" afterPath="$PROJECT_DIR$/target/classes/AdminTestClasses/AdminAddingUserTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/AdminTestClasses/AdminLoginTest.class" afterPath="$PROJECT_DIR$/target/classes/AdminTestClasses/AdminLoginTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/AdminTestClasses/AdminLogoutTest.class" afterPath="$PROJECT_DIR$/target/classes/AdminTestClasses/AdminLogoutTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/AdminTestClasses/AdminRubricatorTest.class" afterPath="$PROJECT_DIR$/target/classes/AdminTestClasses/AdminRubricatorTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Helper/AdditionalMethods$1.class" afterPath="$PROJECT_DIR$/target/classes/Helper/AdditionalMethods$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Helper/AdditionalMethods.class" afterPath="$PROJECT_DIR$/target/classes/Helper/AdditionalMethods.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Main/AdminTestCases.class" afterPath="$PROJECT_DIR$/target/classes/Main/AdminTestCases.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Main/RunAllTestCases.class" afterPath="$PROJECT_DIR$/target/classes/Main/RunAllTestCases.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Main/SiteTestCases.class" afterPath="$PROJECT_DIR$/target/classes/Main/SiteTestCases.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/AddCommentTest.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/AddCommentTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/DirectiveTest.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/DirectiveTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/DownloadArticlesTest.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/DownloadArticlesTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/FooterTest.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/FooterTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/LoginTest.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/LoginTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/LogoutTest.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/LogoutTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/ProfileTest.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/ProfileTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/RegistrationTest.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/RegistrationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/SearchTest.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/SearchTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/SendMessageInBlogTest.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/SendMessageInBlogTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/SharingArticleTest$1.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/SharingArticleTest$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/SharingArticleTest$2.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/SharingArticleTest$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/SharingArticleTest.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/SharingArticleTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/SocialNetworksAuthorisationTest$1.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/SocialNetworksAuthorisationTest$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/SocialNetworksAuthorisationTest$2.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/SocialNetworksAuthorisationTest$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/SocialNetworksAuthorisationTest.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/SocialNetworksAuthorisationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/SubscribeNewsLetterTest.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/SubscribeNewsLetterTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestClasses/TagSubscribeTest.class" afterPath="$PROJECT_DIR$/target/classes/TestClasses/TagSubscribeTest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminTestClasses/AdminAddingPublicationTest.java" afterPath="$PROJECT_DIR$/src/AdminTestClasses/AdminAddingPublicationTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminTestClasses/AdminAddingUserTest.java" afterPath="$PROJECT_DIR$/src/AdminTestClasses/AdminAddingUserTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminTestClasses/AdminLoginTest.java" afterPath="$PROJECT_DIR$/src/AdminTestClasses/AdminLoginTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminTestClasses/AdminLogoutTest.java" afterPath="$PROJECT_DIR$/src/AdminTestClasses/AdminLogoutTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminTestClasses/AdminRubricatorTest.java" afterPath="$PROJECT_DIR$/src/AdminTestClasses/AdminRubricatorTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Helper/AdditionalMethods.java" afterPath="$PROJECT_DIR$/src/Helper/AdditionalMethods.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main/AdminTestCases.java" afterPath="$PROJECT_DIR$/src/Main/AdminTestCases.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main/SiteTestCases.java" afterPath="$PROJECT_DIR$/src/Main/SiteTestCases.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestClasses/AddCommentTest.java" afterPath="$PROJECT_DIR$/src/TestClasses/AddCommentTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestClasses/DirectiveTest.java" afterPath="$PROJECT_DIR$/src/TestClasses/DirectiveTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestClasses/DownloadArticlesTest.java" afterPath="$PROJECT_DIR$/src/TestClasses/DownloadArticlesTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestClasses/FooterTest.java" afterPath="$PROJECT_DIR$/src/TestClasses/FooterTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestClasses/LoginTest.java" afterPath="$PROJECT_DIR$/src/TestClasses/LoginTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestClasses/LogoutTest.java" afterPath="$PROJECT_DIR$/src/TestClasses/LogoutTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestClasses/ProfileTest.java" afterPath="$PROJECT_DIR$/src/TestClasses/ProfileTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestClasses/RegistrationTest.java" afterPath="$PROJECT_DIR$/src/TestClasses/RegistrationTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestClasses/SearchTest.java" afterPath="$PROJECT_DIR$/src/TestClasses/SearchTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestClasses/SendMessageInBlogTest.java" afterPath="$PROJECT_DIR$/src/TestClasses/SendMessageInBlogTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestClasses/SharingArticleTest.java" afterPath="$PROJECT_DIR$/src/TestClasses/SharingArticleTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestClasses/SocialNetworksAuthorisationTest.java" afterPath="$PROJECT_DIR$/src/TestClasses/SocialNetworksAuthorisationTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestClasses/SubscribeNewsLetterTest.java" afterPath="$PROJECT_DIR$/src/TestClasses/SubscribeNewsLetterTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestClasses/TagSubscribeTest.java" afterPath="$PROJECT_DIR$/src/TestClasses/TagSubscribeTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -78,8 +28,8 @@
       <file leaf-file-name="RunAllTestCases.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main/RunAllTestCases.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="204">
+              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -766,7 +716,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -778,12 +728,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44820297" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44820297" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17291667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17291667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1200,8 +1150,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/RunAllTestCases.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="204">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
       </provider>
