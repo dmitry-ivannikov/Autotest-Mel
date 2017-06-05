@@ -25,15 +25,15 @@ public class AdminAddingPublicationTest {
     private By publicationCovers = By.cssSelector(".g-tab__tabs > div:nth-child(2)");
     private By publicationCoverInArticle = By.cssSelector(".b-cover-uploader__content");
     private By publicationCoverOnTheMainPage = By.cssSelector(".b-tile__click-receiver");
-    private By publicationCoverAdditionalFormats = By.cssSelector(".b-cover-manager__mobile-format > div.b-cover-manager__format-preview > div > div.b-cover-uploader__content");
+    public By publicationCoverAdditionalFormats = By.cssSelector(".b-cover-manager__mobile-format > div.b-cover-manager__format-preview > div > div.b-cover-uploader__content");
     private By publicationShowPreviewButton = By.cssSelector(".b-control-panel-draft__middle-column > div > div");
     // Preview page
     private By publicationPreviewTitle = By.cssSelector(".b-pb-cover__content > div > h1");
     private By publicationPreviewSubtitle = By.cssSelector(".b-pb-cover__subtitle");
     private By publicationPreviewText = By.cssSelector(".b-pb-publication-body_pablo > p");
     // Publication buttons
-    private By publicationButtion = By.cssSelector(".b-control-panel-draft__publish-button > div");
-    private By publicationConfirmButton = By.cssSelector(".b-confirm-modal__confirm-button > div");
+    private By publicationButtion = By.cssSelector("body > div.i-layout__content > div > div > div.b-publication__control-panel > div > div > div > div.b-control-panel-draft__right-column > div.b-control-panel-draft__publish-button > div");
+    private By publicationConfirmButton = By.cssSelector("body > div:nth-child(17) > div.g-modal__content > div.b-confirm-modal__confirm-actions > div.b-confirm-modal__confirm-button");
     // Tab Settings
     private By publicationSettings = By.cssSelector(".g-tab__tabs > div:nth-child(3)");
     private By publicationUrl = By.cssSelector(".b-publication-settings__address-site-input > div > span");
@@ -60,7 +60,7 @@ public class AdminAddingPublicationTest {
         }
         r.keyPress(KeyEvent.VK_ENTER);
         r.keyRelease(KeyEvent.VK_ENTER);
-        methods.Wait(4000);
+        //methods.Wait(4000);
         driver.findElement(publicationTextBlock).click();
         driver.findElement(publicationTextBlock).sendKeys(textblock);
 
@@ -73,18 +73,18 @@ public class AdminAddingPublicationTest {
         JavascriptExecutor jse1 = (JavascriptExecutor) driver;
         jse1.executeScript("scroll(0,-550)", "");
         driver.findElement(publicationCovers).click();
-        methods.Wait(4000);
+        //methods.Wait(4000);
         driver.findElement(publicationCoverInArticle).click();
-        methods.Wait(4000);
+        methods.Wait(200);
         methods.imgageDownload();
-        methods.Wait(4000);
+        methods.Wait(200);
         driver.findElement(publicationCoverOnTheMainPage).click();
-        methods.Wait(4000);
+        methods.Wait(200);
         methods.imgageDownload();
-        methods.Wait(4000);
+        methods.Wait(200);
         jse1.executeScript("scroll(0,550)", "");
         driver.findElement(publicationCoverAdditionalFormats).click();
-        methods.Wait(4000);
+        methods.Wait(200);
         methods.imgageDownload();
     }
 
@@ -119,9 +119,11 @@ public class AdminAddingPublicationTest {
         return str;
     }
 
-    public void clickInPublicButtons() {
+    public void clickInPublicButton() {
         driver.findElement(publicationButtion).click();
-        methods.Wait(4000);
+    }
+
+    public void clickInConfirmPublicButtons() {
         driver.findElement(publicationConfirmButton).click();
     }
 

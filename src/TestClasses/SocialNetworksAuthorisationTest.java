@@ -5,10 +5,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import Helper.AdditionalMethods;
+
 import java.util.Set;
 
 public class SocialNetworksAuthorisationTest {
     WebDriver driver;
+    AdditionalMethods methods;
 
     // Button Enter on main
     private By headerLoginButton = By.cssSelector(".g-button_border_large");
@@ -17,7 +20,7 @@ public class SocialNetworksAuthorisationTest {
     // Button Vk
     private By vkLoginButton = By.cssSelector(".g-button_vk");
     // Button Google+
-   // private By GoogleLoginButton = By.cssSelector(".g-button_gp");
+    private By googleLoginButton = By.cssSelector(".g-button_gp");
 
     // Fields for FB:
     private By facebookEmailInput = By.cssSelector("#email");
@@ -30,10 +33,10 @@ public class SocialNetworksAuthorisationTest {
     private By vkEnterLoginButton = By.cssSelector("#install_allow");
 
     // Fields for Google+:
-//    private By GoogleEmailInput = By.cssSelector("#Email");
-//    private By GoogleNextButton = By.cssSelector("#next");
-//    private By GooglePasswordInput = By.cssSelector("#Passwd");
-//    private By GoogleEnterLoginButton = By.cssSelector("#signIn");
+    private By googleEmailInput = By.cssSelector("#identifierId");
+    private By googleNextButton = By.cssSelector("#identifierNext");
+    private By googlePasswordInput = By.cssSelector("#password > div.aCsJod.oJeWuf > div > div.Xb9hP > input");
+    private By googleEnterLoginButton = By.cssSelector("#passwordNext");
 
     private By homePageName = By.cssSelector(".b-header__user-name");
 
@@ -54,9 +57,9 @@ public class SocialNetworksAuthorisationTest {
         driver.findElement(vkLoginButton).click();
     }
 
-   // public void PressInGoogleLoginButton() {
-  //      driver.findElement(GoogleLoginButton).click();
-  //  }
+    public void pressInGoogleLoginButton() {
+        driver.findElement(googleLoginButton).click();
+    }
 
     // FB:
     public void insertEmailLoginInFbInput(String facebookEmailText) {
@@ -80,26 +83,26 @@ public class SocialNetworksAuthorisationTest {
         driver.findElement(vkPasswordInput).sendKeys(vkPasswordText);
     }
 
-    public void PressInVkButton() {
+    public void pressInVkButton() {
         driver.findElement(vkEnterLoginButton).click();
     }
 
     // Google+
-//    public void InsertInGEmailInput(String GoogleEmailText) {
-//        driver.findElement(GoogleEmailInput).sendKeys(GoogleEmailText);
-//    }
+    public void insertInGEmailInput(String email) {
+        driver.findElement(googleEmailInput).sendKeys(email);
+    }
 
-//    public void PressInGoogleNextButton() {
-//        driver.findElement(GoogleNextButton).click();
-//    }
-//
-//    public void InsertInGPasswordInput(String GooglePasswordText) {
-//        driver.findElement(GooglePasswordInput).sendKeys(GooglePasswordText);
-//    }
-//
-//    public void PressInGoogleButton() {
-//        driver.findElement(GoogleEnterLoginButton).click();
-//    }
+    public void pressInGoogleNextButton() {
+        driver.findElement(googleNextButton).click();
+    }
+
+    public void insertInGPasswordInput(String password) {
+        driver.findElement(googlePasswordInput).sendKeys(password);
+    }
+
+    public void pressInGoogleButton() {
+        driver.findElement(googleEnterLoginButton).click();
+    }
 
 
     public void facebookAuthorisation(String textInEmail, String textInPassword) {
@@ -130,11 +133,13 @@ public class SocialNetworksAuthorisationTest {
     }
 
     public void vkAuthorisation(String textInEmail, String textInPassword) {
+        methods = new AdditionalMethods(driver);
         pressInLoginButton();
 
         String parentWindowId = driver.getWindowHandle();
         final Set <String> oldWindowsSet = driver.getWindowHandles();
 
+        methods.Wait(300);
         pressInVkLoginButton();
 
         String newWindos = (new WebDriverWait(driver, 10)).until(new ExpectedCondition<String>() {
@@ -151,37 +156,39 @@ public class SocialNetworksAuthorisationTest {
 
         insertEmailLoginInVkInput(textInEmail);
         insertPasswordInVkInput(textInPassword);
-        PressInVkButton();
+        pressInVkButton();
         driver.switchTo().window(parentWindowId);
     }
 
 
-//    public void GoogleAuthorisation(String strGEmailInput, String strGPasswordInput) {
-//        PressInLoginButton();
-//
-//        String parentWindowId = driver.getWindowHandle();
-//        final Set <String> oldWindowsSet = driver.getWindowHandles();
-//
-//        PressInGoogleLoginButton();
-//
-//        String newWindos = (new WebDriverWait(driver, 10)).until(new ExpectedCondition<String>() {
-//            @Override
-//            public String apply(WebDriver webDriver) {
-//                Set<String> newWindosSet = webDriver.getWindowHandles();
-//                newWindosSet.removeAll(oldWindowsSet);
-//                return newWindosSet.size() > 0 ?
-//                        newWindosSet.iterator().next() : null;
-//            }
-//        });
-//
-//        driver.switchTo().window(newWindos);
-//
-//        InsertInGEmailInput(strGEmailInput);
-//        PressInGoogleNextButton();
-//        InsertInGPasswordInput(strGPasswordInput);
-//        PressInGoogleButton();
-//        driver.switchTo().window(parentWindowId);
-//    }
+    public void googleAuthorisation(String email, String password) {
+        methods = new AdditionalMethods(driver);
+        pressInLoginButton();
+
+        String parentWindowId = driver.getWindowHandle();
+        final Set <String> oldWindowsSet = driver.getWindowHandles();
+
+        pressInGoogleLoginButton();
+
+        String newWindos = (new WebDriverWait(driver, 10)).until(new ExpectedCondition<String>() {
+            @Override
+            public String apply(WebDriver webDriver) {
+                Set<String> newWindosSet = webDriver.getWindowHandles();
+                newWindosSet.removeAll(oldWindowsSet);
+                return newWindosSet.size() > 0 ?
+                        newWindosSet.iterator().next() : null;
+            }
+        });
+
+        driver.switchTo().window(newWindos);
+
+        insertInGEmailInput(email);
+        pressInGoogleNextButton();
+        insertInGPasswordInput(password);
+        methods.Wait(1000);
+        pressInGoogleButton();
+        driver.switchTo().window(parentWindowId);
+    }
 
     public String getHomePageDashboardName()
     {

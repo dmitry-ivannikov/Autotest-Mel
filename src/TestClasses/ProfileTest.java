@@ -227,6 +227,5 @@ public class ProfileTest {
         driver.findElement(twitterInput).sendKeys(twitterText);
         driver.findElement(saveButtonInSocialNetworksTab).click();
     }
-
 }
 

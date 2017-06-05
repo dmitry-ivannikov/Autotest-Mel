@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class DirectiveTest {
     WebDriver driver;
 
-    public By siteMapText = By.cssSelector(".header > span");
+    public By siteMapText = By.cssSelector(".html-attribute-value");
     public By robotTxtText = By.cssSelector("pre");
     public By rssText = By.cssSelector("pre");
 

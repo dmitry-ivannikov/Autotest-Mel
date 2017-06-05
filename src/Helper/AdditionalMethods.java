@@ -26,12 +26,14 @@ public class AdditionalMethods {
             Thread.sleep(millis);
         } catch (InterruptedException e) {
             e.printStackTrace();
+
         }
     }
     // function logout
     public void exit() {
         logout = new LogoutTest(driver);
         logout.exitFromAccount();
+        Wait(1000);
     }
 
     public void outputFromAnAccountSocialLogin() {

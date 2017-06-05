@@ -5,7 +5,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class AdminPublicationFrontPageTest {
+public class AdminFrontPageTest {
     WebDriver driver;
 
     private By frontPageButton = By.cssSelector(".b-header__menu > div > div:nth-child(2)");
@@ -14,7 +14,7 @@ public class AdminPublicationFrontPageTest {
     private By publicationToAdd = By.cssSelector(".b-order-manager__switcher-list-container > div > div:nth-child(1) > div > div.b-switcher__title");
     private By frontPageSaveButton = By.cssSelector(".i-layout__save-button > div");
 
-    public AdminPublicationFrontPageTest(WebDriver driver) {
+    public AdminFrontPageTest(WebDriver driver) {
         this.driver = driver;
     }
 

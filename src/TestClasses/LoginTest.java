@@ -33,11 +33,6 @@ public class LoginTest {
 
     public void authorisation(String dataInEmailInputString, String dataInPasswordInputString) {
         driver.findElement(headerLoginButton).click();
-        try {
-            Thread.sleep(4000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         driver.findElement(emailLoginButton).click();
         // Insert text in email input
         insertEmailInLoginWindow(dataInEmailInputString);

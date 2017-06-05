@@ -47,7 +47,7 @@ public class AdminAddingUserTest {
         driver.findElement(mailEmailInput).sendKeys(email);
         driver.findElement(mailPasswordInput).sendKeys(password);
         driver.findElement(mailEnterButton).click();
-        methods.Wait(4000);
+        methods.Wait(300);
         driver.findElement(mailBoxLetter).click();
     }
 

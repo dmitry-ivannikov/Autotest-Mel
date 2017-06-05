@@ -30,4 +30,8 @@ public class GetUrl {
     public void driverGetCurrentAdminUrl(String str){
         driver.get("http://admin.pablo-mel.qa.lan/" + str);
     }
+
+    public void getExternalUrl(){
+        driver.get("http://qa.mel.fm/");
+    }
 }

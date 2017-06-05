@@ -15,7 +15,7 @@ public class AdminBlogs {
     private By dropdownMenu = By.cssSelector(".g-dropdown__opener");
 
     private By postFutureButton = By.cssSelector(".g-dropdown__content > div > div:nth-child(1) > div");
-    private By postBlockingButton = By.cssSelector(".g-dropdown__content > div > div:nth-child(2) > div");
+    public By postBlockingButton = By.cssSelector(".g-dropdown__content > div > div:nth-child(2) > div");
     private By postFeedbackButton = By.cssSelector(".g-dropdown__content > div > div:nth-child(3) > a > div");
 
     public By flagAddToFrontPage = By.cssSelector(".b-post__status-icon-container > div > div");

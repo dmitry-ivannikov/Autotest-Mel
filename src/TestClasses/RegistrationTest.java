@@ -1,11 +1,13 @@
 package TestClasses;
 
+import Helper.AdditionalMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import java.lang.*;
 
 public class RegistrationTest {
     private WebDriver driver;
+    AdditionalMethods methods;
 
     public By headerLoginButton = By.cssSelector(".b-header__login-button");
     private By emailLoginButton = By.cssSelector(".g-auth-social__email-button");
@@ -53,12 +55,10 @@ public class RegistrationTest {
 
     // Registration of the user with enter button
     public void firstUserRegistration(String firstName, String lastName, String email, String password) {
+        methods = new AdditionalMethods(driver);
+
         driver.findElement(headerLoginButton).click();
-        try {
-            Thread.sleep(4000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        methods.Wait(100);
         driver.findElement(emailLoginButton).click();
         driver.findElement(registrationWindow).click();
         insertFirstNameRegistration(firstName);

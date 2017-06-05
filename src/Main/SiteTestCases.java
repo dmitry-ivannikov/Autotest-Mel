@@ -63,16 +63,14 @@ public class SiteTestCases {
         methods = new AdditionalMethods(driver);
         getUrl = new GetUrl(driver);
         autoLogin = new LoginTest(driver);
+        logout = new LogoutTest(driver);
+
         getUrl.driverGet();
         autoLogin.authorisation("estendr@gmail.com", "12345678");
-        try {
-            Thread.sleep(4000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        methods.Wait(300);
         Assert.assertEquals(autoLogin.getHomePageDashboardName(), "Vladimir Petrov");
-        //Assert.assertEquals(logout.CheckEnterButton(), "ВХОД");
-
+        methods.exit();
+        Assert.assertEquals(logout.checkEnterButton(), "ВХОД");
     }
 
     @Test
@@ -80,8 +78,9 @@ public class SiteTestCases {
         methods = new AdditionalMethods(driver);
         getUrl = new GetUrl(driver);
         registration = new RegistrationTest(driver);
-        getUrl.driverGet();
+        logout = new LogoutTest(driver);
 
+        getUrl.driverGet();
         //Invalid registration
         registration.firstUserRegistration("!#$%&'*+-/=?^_`{|}~", "LastName", methods.generateStr(), "12345678");
         registration.pressInRegistrationButton();
@@ -90,11 +89,10 @@ public class SiteTestCases {
 
         // Valid registration
         registration.registrationWithValidData("FirstName", "LastName", methods.generateStr(), "12345678");
-        methods.Wait(4000);
+        methods.Wait(1500);
         Assert.assertEquals(registration.getHeaderUserName(), "FirstName LastName");
         methods.exit();
-        //Assert.assertEquals(logout.CheckEnterButton(), "ВХОД");
-        //methods.getBrowserLogs();
+        Assert.assertEquals(logout.checkEnterButton(), "ВХОД");
     }
 
     @Test
@@ -103,18 +101,16 @@ public class SiteTestCases {
         getUrl = new GetUrl(driver);
         comment = new AddCommentTest(driver);
         autoLogin = new LoginTest(driver);
+        logout = new LogoutTest(driver);
 
         getUrl.driverGet();
         autoLogin.authorisation("estendr@gmail.com", "12345678");
-        methods.Wait(4000);
+        methods.Wait(1000);
         Assert.assertEquals(autoLogin.getHomePageDashboardName(), "Vladimir Petrov");
-        //driver.get("http://pablo-mel.qa.lan/olimpiady/2790854-sirius");
-        comment.insertAndAddComment("TestComment", "TestAnswer");
+        comment.insertAndAddComment("TestComment");
         comment.deleteComment();
-        methods.Wait(4000);
         methods.exit();
-        // Assert.assertEquals(logout.CheckEnterButton(), "ВХОД");
-        //methods.getBrowserLogs();
+        Assert.assertEquals(logout.checkEnterButton(), "ВХОД");
     }
 
     @Test
@@ -126,37 +122,22 @@ public class SiteTestCases {
         getUrl.driverGet();
         //Facebook
         authorisationSocial.facebookAuthorisation("easy2rider2@gmail.com", "knock705b");
-        methods.Wait(4000);
         Assert.assertEquals(authorisationSocial.getHomePageDashboardName(), "Eero Ettala");
         methods.outputFromAnAccountSocialLogin();
+
+        methods.Wait(100);
         //Vk
-        methods.Wait(4000);
         authorisationSocial.vkAuthorisation("89164948378", "123qwe");
         Assert.assertEquals(authorisationSocial.getHomePageDashboardName(), "Ваня");
-        methods.Wait(4000);
         methods.outputFromAnAccountSocialLogin();
-        methods.Wait(4000);
+
         // Assert.assertEquals(logout.CheckEnterButton(), "ВХОД");
         // Google+
-        //        driver.get("http://qa.mel.fm/");
-        //        // Wait();
-        //        loginGoogleToAutho("test153153153", "test153123qwe");
-        //        secondaryFunctions.Wait();
-        //        try {
-        //            Assert.assertEquals(getHomePageDashboardName(), "???");
-        //        } catch (Exception e) {
-        //            secondaryFunctions.text("На странице не найден авторизованный пользователь через Google+\n");
-        //        }
-        //        secondaryFunctions.Wait();
-        //       // Screenshot("Авторизация-соц-сети-гугл_");
-        //       // Wait();
-        //        try {
-        //            logout.ExitToAuto();
-        //        } catch (Exception e) {
-        //            secondaryFunctions.text("\nНе удалось выполнить выход из аккаунта Google+");
-        //        }
-        //        secondaryFunctions.Wait();
-        //methods.getBrowserLogs();
+        getUrl.getExternalUrl();
+        authorisationSocial.googleAuthorisation("test153153153", "test153123qwe");
+        methods.Wait(2000);
+        Assert.assertEquals(authorisationSocial.getHomePageDashboardName(), "Heikki Sorsa");
+        methods.outputFromAnAccountSocialLogin();
     }
 
     @Test
@@ -174,7 +155,6 @@ public class SiteTestCases {
 
         for(int i=0; i<articles.size(); i++) {
             article.pressInArticleMore();
-            methods.Wait(4000);
             article.pressInArticle((By) articles.get(i));
             Assert.assertTrue(driver.findElement(article.articles).isDisplayed());
             driver.navigate().back();
@@ -191,15 +171,14 @@ public class SiteTestCases {
 
         getUrl.driverGet();
         registration.firstUserRegistration("FirstName", "LastName", methods.generateStr(), "12345678");
-        methods.Wait(4000);
-        message.enterBlogText("FirstMessage", "SecondMessage", "ThirdMessage", "TTextMessage", "TagMessage");
+        methods.Wait(1500);
+        message.enterBlogText("FirstMessage", "SecondMessage", "ThirdMessage", " TextMessage", "TagMessage");
         Assert.assertEquals(message.getTitleText(), "FirstMessage");
         Assert.assertEquals(message.getSubtitleText(), "SecondMessage");
         Assert.assertEquals(message.getText(), "TextMessage");
 
         message.checkImage();
         Assert.assertEquals(message.getImageClass(), "img");
-        methods.Wait(4000);
         methods.exit();
        // methods.getBrowserLogs();
     }
@@ -272,7 +251,6 @@ public class SiteTestCases {
         getUrl = new GetUrl(driver);
 
         getUrl.driverGet();
-        methods.Wait(4000);
         footer.checkFooterRubric(getUrl.driverGetStr()+"rubric/school",
                                  getUrl.driverGetStr()+"rubric/highschool",
                                  getUrl.driverGetStr()+"rubric/fun",
@@ -373,7 +351,7 @@ public class SiteTestCases {
 
         getUrl.driverGetCurrentUrl("sitemap");
         Assert.assertTrue(driver.findElement(directiveTest.siteMapText).isDisplayed());
-        Assert.assertEquals(directiveTest.getSiteMapText(), "This XML file does not appear to have any style information associated with it. The document tree is shown below.");
+        Assert.assertEquals(directiveTest.getSiteMapText(), "http://www.sitemaps.org/schemas/sitemap/0.9");
 
         getUrl.driverGetCurrentUrl("rss/default-all");
         Assert.assertTrue(driver.findElement(directiveTest.rssText).isDisplayed());
@@ -431,18 +409,18 @@ public class SiteTestCases {
         methods = new AdditionalMethods(driver);
         tagSubscribe = new TagSubscribeTest(driver);
         getUrl = new GetUrl(driver);
+        registration = new RegistrationTest(driver);
 
         getUrl.driverGet();
         tagSubscribe.subscribeOnTagGuest();
-        registration = new RegistrationTest(driver);
         registration.firstUserRegistration("FirstName", "LastName", methods.generateStr(), "12345678");
-        methods.Wait(4000);
+        methods.Wait(1000);
 
         tagSubscribe.subscribeOnTagUser();
         Assert.assertEquals(tagSubscribe.getTagNameFromMySubscribers(), "Новости");
 
         tagSubscribe.unsubscribeFromTagUser();
-        methods.Wait(4000);
+        methods.Wait(1000);
         Assert.assertEquals(tagSubscribe.getTagNameButton(), "Подписаться");
 
         tagSubscribe.checkUnsubscribe();
@@ -450,10 +428,9 @@ public class SiteTestCases {
 
         String str1 = tagSubscribe.getTextFirstButton();
         tagSubscribe.checkTagUpdate();
-        methods.Wait(4000);
+        methods.Wait(500);
         String str2 = tagSubscribe.getTextSecondButton();
         tagSubscribe.isStringEquals(str1, str2);
         //methods.getBrowserLogs();
     }
-
 }

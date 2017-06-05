@@ -106,69 +106,60 @@ public class SharingArticleTest
        // driver.switchTo().window(parentWindowId);
     }
 
-//    public void TwitterSharing(String strTwitterEmailInput, String strTwitterPasswordInput) {
-//        String parentWindowId = driver.getWindowHandle();
-//        final Set<String> oldWindowsSet = driver.getWindowHandles();
-//
-//        driver.findElement(TwitterSharing).click();
-//
-//        String newWindos = (new WebDriverWait(driver, 10)).until(new ExpectedCondition<String>()
-//        {
-//            @Override
-//            public String apply(WebDriver webDriver) {
-//                Set<String> newWindosSet = webDriver.getWindowHandles();
-//                newWindosSet.removeAll(oldWindowsSet);
-//                return newWindosSet.size() > 0 ?
-//                        newWindosSet.iterator().next() : null;
-//            }
-//        });
-//        driver.switchTo().window(newWindos);
-//        driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
-//        driver.findElement(TwitterEmailInput).click();
-//        driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
-//        driver.findElement(TwitterEmailInput).sendKeys(Keys.SHIFT);
-//        driver.findElement(TwitterEmailInput).sendKeys(strTwitterEmailInput);
-//        driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
-//        driver.findElement(TwitterPasswordInput).sendKeys(strTwitterPasswordInput);
-//        driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
-//        driver.findElement(TwitterEnterButton).click();
-//        driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
-//        driver.switchTo().window(parentWindowId);
-//    }
-//
-//    public void OkSharing(String strOkEmailInput, String strOkPasswordInput) {
-//        String parentWindowId = driver.getWindowHandle();
-//        final Set<String> oldWindowsSet = driver.getWindowHandles();
-//
-//        driver.findElement(OkSharing).click();
-//
-//        String newWindos = (new WebDriverWait(driver, 10)).until(new ExpectedCondition<String>()
-//        {
-//            @Override
-//            public String apply(WebDriver webDriver) {
-//                Set<String> newWindosSet = webDriver.getWindowHandles();
-//                newWindosSet.removeAll(oldWindowsSet);
-//                return newWindosSet.size() > 0 ?
-//                        newWindosSet.iterator().next() : null;
-//            }
-//        });
-//
-//        driver.switchTo().window(newWindos);
-//        driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
-//        driver.findElement(OkEmailInput).click();
-//        driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
-//        driver.findElement(OkEmailInput).sendKeys(strOkEmailInput);
-//        driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
-//        driver.findElement(OkPasswordInput).click();
-//        driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
-//        driver.findElement(OkPasswordInput).sendKeys(strOkPasswordInput);
-//        driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
-//        driver.findElement(OkEnterButton).click();
-//        driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
-//        driver.findElement(OkPublicButton).click();
-//        driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
-//        driver.switchTo().window(parentWindowId);
-//    }
+/*
+    public void TwitterSharing(String strTwitterEmailInput, String strTwitterPasswordInput) {
+        String parentWindowId = driver.getWindowHandle();
+        final Set<String> oldWindowsSet = driver.getWindowHandles();
+
+        driver.findElement(TwitterSharing).click();
+
+        String newWindos = (new WebDriverWait(driver, 10)).until(new ExpectedCondition<String>()
+        {
+            @Override
+            public String apply(WebDriver webDriver) {
+                Set<String> newWindosSet = webDriver.getWindowHandles();
+                newWindosSet.removeAll(oldWindowsSet);
+                return newWindosSet.size() > 0 ?
+                        newWindosSet.iterator().next() : null;
+            }
+        });
+        driver.switchTo().window(newWindos);
+        driver.findElement(TwitterEmailInput).click();
+
+        driver.findElement(TwitterEmailInput).sendKeys(Keys.SHIFT);
+        driver.findElement(TwitterEmailInput).sendKeys(strTwitterEmailInput);
+        driver.findElement(TwitterPasswordInput).sendKeys(strTwitterPasswordInput);
+        driver.findElement(TwitterEnterButton).click();
+        driver.switchTo().window(parentWindowId);
+    }
+
+    public void OkSharing(String strOkEmailInput, String strOkPasswordInput) {
+        String parentWindowId = driver.getWindowHandle();
+        final Set<String> oldWindowsSet = driver.getWindowHandles();
+
+        driver.findElement(OkSharing).click();
+
+        String newWindos = (new WebDriverWait(driver, 10)).until(new ExpectedCondition<String>()
+        {
+            @Override
+            public String apply(WebDriver webDriver) {
+                Set<String> newWindosSet = webDriver.getWindowHandles();
+                newWindosSet.removeAll(oldWindowsSet);
+                return newWindosSet.size() > 0 ?
+                        newWindosSet.iterator().next() : null;
+            }
+        });
+
+        driver.switchTo().window(newWindos);
+        driver.findElement(OkEmailInput).click();
+        driver.findElement(OkEmailInput).sendKeys(strOkEmailInput);
+        driver.findElement(OkPasswordInput).click();
+        driver.findElement(OkPasswordInput).sendKeys(strOkPasswordInput);
+        driver.findElement(OkEnterButton).click();
+        driver.findElement(OkPublicButton).click();
+        driver.switchTo().window(parentWindowId);
+    }
+*/
 
     public String getTextFb() {
         String str = driver.findElement(textFb).getText();

@@ -7,11 +7,13 @@ import TestClasses.PagePublishing;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -27,8 +29,9 @@ public class AdminTestCases {
     private AdminSearchTest search;
     private PagePublishing publishing;
     private AdminAutosaveTest autosave;
-    private AdminPublicationFrontPageTest frontPage;
+    private AdminFrontPageTest frontPage;
     private AdminBlogs blogs;
+    private AdminAddingAuthorTest author;
 
     public void setup() throws IOException {
         System.setProperty("webdriver.chrome.driver" , "C:\\chromedriver.exe");
@@ -64,7 +67,7 @@ public class AdminTestCases {
         final Set<String> oldWindowsSet = driver.getWindowHandles();
         addingUser.registrateUser();
         methods.moveFocucToTheNewWindow(oldWindowsSet);
-        methods.Wait(4000);
+        methods.Wait(100);
 
         Assert.assertEquals(addingUser.getRegistrationName(), "Name");
         Assert.assertEquals(addingUser.getRegistrationSurname(), "SurName");
@@ -72,7 +75,7 @@ public class AdminTestCases {
         Assert.assertEquals(driver.getTitle(), "Регистрация пользователя");
 
         addingUser.enterPasswordAndConfirm("12345678","12345678");
-        methods.Wait(4000);
+        methods.Wait(500);
         Assert.assertEquals(driver.getTitle(), "Публикации");
         //methods.getBrowserLogs();
     }
@@ -86,7 +89,7 @@ public class AdminTestCases {
         search = new AdminSearchTest(driver);
         publishing = new PagePublishing(driver);
         autosave = new AdminAutosaveTest(driver);
-        frontPage = new AdminPublicationFrontPageTest(driver);
+        frontPage = new AdminFrontPageTest(driver);
 
         int a = 0; // initial range
         int b = 10000; // the final value of the range
@@ -100,10 +103,11 @@ public class AdminTestCases {
         methods.Wait(4000);
         String firstTime = autosave.getPublicationSaveTime();
         addingPublication.fillingFields(title, "Subtitle", "The Question", "Annoucement", "Covertag","Addingtag","TText in block");
+        methods.Wait(4000);
         Assert.assertEquals(driver.getTitle(), "Новая публикация");
         String draftUrl = driver.getCurrentUrl();
         addingPublication.addingCovers();
-
+        methods.Wait(4000);
         // Draft page
         driver.get(draftUrl);
         Assert.assertEquals(addingPublication.getDraftTitle(), title);
@@ -124,11 +128,23 @@ public class AdminTestCases {
         driver.switchTo().window(parentWindowId);
 
         autosave.clickInPublicationSaveButton();
-        methods.Wait(4000);
+        methods.Wait(200);
         String secondTime = autosave.getPublicationSaveTime();
         autosave.comparisonPublicationTime(firstTime,secondTime);
+        addingPublication.clickInPublicButton();
+        addingPublication.clickInConfirmPublicButtons();
+//        methods.Wait(5000);
+//        JavascriptExecutor jse1 = (JavascriptExecutor) driver;
+//        jse1.executeScript("scroll(0,700)", "");
+//        methods.Wait(200);
+//        driver.findElement(addingPublication.publicationCoverAdditionalFormats).click();
+//        methods.Wait(5000);
+//        methods.imgageDownload();
+//
+//        addingPublication.clickInPublicButton();
+//        methods.Wait(5000);
+//        addingPublication.clickInConfirmPublicButtons();
 
-        addingPublication.clickInPublicButtons();
         search.insertText(title);
         search.clickInPublication();
         addingPublication.clickInPublicationSettings();
@@ -147,11 +163,11 @@ public class AdminTestCases {
         driver.get("http://admin.pablo-mel.qa.lan/frontpage");
         String addingPublication = frontPage.getTitlePublicationToAdd();
         String mainPublication = frontPage.getTitleMainPublication();
-        methods.Wait(4000);
+        //methods.Wait(4000);
         frontPage.comprasionPublicationsInFrontPage(addingPublication, mainPublication);
 
         frontPage.clickInPublicationSwitcher();
-        methods.Wait(4000);
+        //methods.Wait(4000);
         frontPage.clickInFrontPageSaveButton();
         methods.Wait(4000);
         getUrl.driverGet();
@@ -163,7 +179,7 @@ public class AdminTestCases {
     }
 
     @Test
-    public void Rubricator() throws IOException {
+    public void rubricator() throws IOException {
         methods = new AdditionalMethods(driver);
         rubricator = new AdminRubricatorTest(driver);
         getUrl = new GetUrl(driver);
@@ -232,12 +248,14 @@ public class AdminTestCases {
     }
 
     @Test
-    public void CheckBlogs() {
+    public void checkBlogs() {
         methods = new AdditionalMethods(driver);
         blogs = new AdminBlogs(driver);
         getUrl = new GetUrl(driver);
         adminLogin = new AdminLoginTest(driver);
         search = new AdminSearchTest(driver);
+        frontPage = new AdminFrontPageTest(driver);
+        publishing = new PagePublishing(driver);
 
         getUrl.driverGetAdminUrl();
         adminLogin.adminAuthorisation("test@example.com", "123qwe");
@@ -247,21 +265,110 @@ public class AdminTestCases {
         final Set<String> oldWindowsSet = driver.getWindowHandles();
         String blogInAdmin = blogs.getPostTitleInAdmin();
         blogs.clickInOpenAtSiteButton();
-        methods.Wait(4000);
         methods.moveFocucToTheNewWindow(oldWindowsSet);
         String blogInSite = blogs.getPostTitleInSite();
         blogs.comprasionTitleBlogs(blogInAdmin,blogInSite);
         driver.switchTo().window(parentWindowId);
-        blogs.clickInDropDownMenu();
-        blogs.clickInPostFutureButton();
-        Assert.assertTrue(driver.findElement(blogs.flagAddToFrontPage).isDisplayed());
-        blogs.clickInDropDownMenu();
-        blogs.clickInPostFutureButton();
 
         blogs.clickInDropDownMenu();
+        methods.Wait(1000);
         blogs.clickInPostBlockingButton();
+        methods.Wait(1000);
         Assert.assertTrue(driver.findElement(blogs.iconImgHiddenBlog).isDisplayed());
+        blogs.clickInDropDownMenu();
+        driver.findElement(blogs.postBlockingButton).click();
+        methods.Wait(500);
+        blogs.clickInDropDownMenu();
+        methods.Wait(500);
+        blogs.clickInPostFutureButton();
+        methods.Wait(500);
+        Assert.assertTrue(driver.findElement(blogs.flagAddToFrontPage).isDisplayed());
+
+        driver.get("http://admin.pablo-mel.qa.lan/frontpage");
+        frontPage.clickInPublicationSwitcher();
+        frontPage.clickInFrontPageSaveButton();
+        getUrl.driverGet();
+        methods.Wait(1500);
+        Assert.assertEquals(publishing.getMainPagePublicationTitle(), "FirstMessage");
+        Assert.assertEquals(publishing.getMainPagePublicationSubtitle(), "SecondMessage");
+        Assert.assertEquals(publishing.getMainPagePublicationTagOnTheCover(), "БЛОГИ");
     }
 
+    @Test
+    public void addingAuthor(){
+        methods = new AdditionalMethods(driver);
+        getUrl = new GetUrl(driver);
+        adminLogin = new AdminLoginTest(driver);
+        author = new AdminAddingAuthorTest(driver);
+        adminLogin = new AdminLoginTest(driver);
 
+        int a = 0; // initial range
+        int b = 10000; // the final value of the range
+        int firstrandomNumber = a + (int) (Math.random() * b);
+        String firstSurname = "яяяяя"+firstrandomNumber;
+        int secondrandomNumber = a + (int) (Math.random() * b);
+        String secondSurname = "яяяяя"+secondrandomNumber;
+
+        String email = methods.generateStr();
+        String firstNameOfTheAuthor = "firstName";
+        String secondNameOfTheAuthor = "secondName";
+        String aboutAuthor = "AboutAuthor";
+
+        getUrl.driverGetAdminUrl();
+        adminLogin.adminAuthorisation("test@example.com", "123qwe");
+        author.addingNewAuthor(firstNameOfTheAuthor,firstSurname,email,aboutAuthor);
+        methods.Wait(100);
+        author.clickInSortArrowButton();
+
+        String nameAndSurnameAuthor = firstSurname + firstNameOfTheAuthor;
+        String secondAuthor = author.getTextFromTheAuthorField(author.secondAuthor);
+        String thirdAuthor = author.getTextFromTheAuthorField(author.thirdAuthor);
+
+        String authors[]= {nameAndSurnameAuthor,secondAuthor,thirdAuthor};
+        author.compareAuthorsAfterSort(authors);
+        author.editAuthor(secondNameOfTheAuthor, secondSurname);
+
+        if(nameAndSurnameAuthor.equals(author.getAuthorNameAndSurname())){
+            Assert.fail("Not editing works of the author");
+        }
+
+        String parentWindowId = driver.getWindowHandle();
+        final Set<String> oldWindowsSet = driver.getWindowHandles();
+        author.clickInSortArrowButton();
+        methods.Wait(200);
+
+        author.clickInOpenInNewPageButton();
+        methods.moveFocucToTheNewWindow(oldWindowsSet);
+        methods.Wait(200);
+        Assert.assertEquals(driver.getTitle(), secondNameOfTheAuthor + " " + secondSurname + " | Мел");
+        Assert.assertEquals(author.getAuthorNameAndSurnameInSite(), secondNameOfTheAuthor + " " + secondSurname);
+        Assert.assertEquals(author.getAboutAuthorInSite(), aboutAuthor);
+        driver.switchTo().window(parentWindowId);
+
+        author.clickInsortingPublicationButton();
+
+        int firstNumberPublication = author.convertSelectorToNumber(author.firstPublicationCount);
+        int secondNumberPublication = author.convertSelectorToNumber(author.secondPublicationcount);
+        author.compareTheNumbers(firstNumberPublication,secondNumberPublication);
+
+        author.clickInsortingSubscribersButton();
+        int firstNumberSubscribers = author.convertSelectorToNumber(author.firstSubscribersCount);
+        int secondNumberSubscribers = author.convertSelectorToNumber(author.secondSubscribersCount);
+        author.compareTheNumbers(firstNumberSubscribers,secondNumberSubscribers);
+
+        methods.Wait(200);
+        author.clickInSortArrowButton();
+        methods.Wait(200);
+        author.clickInSortArrowButton();
+        methods.Wait(200);
+        author.clickIndropdownButton();
+        methods.Wait(100);
+        author.clickInDeleteButtons();
+        methods.Wait(200);
+        author.clickInSortArrowButton();
+
+        if(author.getAuthorNameAndSurname().equals(secondSurname + secondNameOfTheAuthor)){
+            org.junit.Assert.fail("Sorting not working");
+        }
+    }
 }

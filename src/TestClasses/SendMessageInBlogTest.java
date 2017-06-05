@@ -66,19 +66,7 @@ public class SendMessageInBlogTest {
         insertTextInAnnouncement(Announcement);
         driver.findElement(image).click();
 
-        try {
-            Thread.sleep(4000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         methods.imgageDownload();
-
-        try {
-            Thread.sleep(4000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
 
         textEnter(Text);
         insertTextInTagField(Tag);

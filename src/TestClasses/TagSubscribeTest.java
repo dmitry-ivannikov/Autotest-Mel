@@ -1,6 +1,7 @@
 package TestClasses;
 
 import Helper.AdditionalMethods;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -35,16 +36,6 @@ public class TagSubscribeTest {
         driver.findElement(tagSubscribeButtonOff).click();
     }
 
-    /*
-       public void ThreadSleep()
-        {
-            try {
-                Thread.sleep(5000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-    */
     public String getTagNameFromMySubscribers() {
         String str = driver.findElement(mySubscribersTagName).getText();
         return str;
@@ -71,9 +62,9 @@ public class TagSubscribeTest {
     }
 
     //function to compare text between two tag buttons
-    public void isStringEquals(String str1, String str2) {
-        if (str1 == str2) {
-            driver.quit();
+    public void isStringEquals(String firstString, String lastString) {
+        if (firstString.equals(lastString)) {
+            Assert.fail("text between two tag buttons equal");
         }
     }
 
@@ -81,7 +72,7 @@ public class TagSubscribeTest {
         methods = new AdditionalMethods(driver);
         driver.findElement(newsButton).click();
         clickOnSubscribeButtonOff();
-        methods.Wait(4000);
+        methods.Wait(1000);
         driver.findElement(socialModalCloseButton).click();
     }
 
@@ -102,7 +93,6 @@ public class TagSubscribeTest {
     public void checkTagUpdate() {
         methods = new AdditionalMethods(driver);
         getTextFirstButton();
-        methods.Wait(4000);
         driver.findElement(moreTags).click();
         getTextSecondButton();
     }
