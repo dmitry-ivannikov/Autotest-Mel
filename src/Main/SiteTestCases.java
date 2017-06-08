@@ -67,7 +67,7 @@ public class SiteTestCases {
 
         getUrl.driverGet();
         autoLogin.authorisation("estendr@gmail.com", "12345678");
-        methods.Wait(300);
+        methods.Wait(1000);
         Assert.assertEquals(autoLogin.getHomePageDashboardName(), "Vladimir Petrov");
         methods.exit();
         Assert.assertEquals(logout.checkEnterButton(), "ВХОД");
@@ -89,7 +89,7 @@ public class SiteTestCases {
 
         // Valid registration
         registration.registrationWithValidData("FirstName", "LastName", methods.generateStr(), "12345678");
-        methods.Wait(1500);
+        methods.Wait(3000);
         Assert.assertEquals(registration.getHeaderUserName(), "FirstName LastName");
         methods.exit();
         Assert.assertEquals(logout.checkEnterButton(), "ВХОД");
@@ -120,12 +120,13 @@ public class SiteTestCases {
         getUrl = new GetUrl(driver);
 
         getUrl.driverGet();
+        methods.Wait(1000);
         //Facebook
         authorisationSocial.facebookAuthorisation("easy2rider2@gmail.com", "knock705b");
         Assert.assertEquals(authorisationSocial.getHomePageDashboardName(), "Eero Ettala");
         methods.outputFromAnAccountSocialLogin();
 
-        methods.Wait(100);
+        methods.Wait(1000);
         //Vk
         authorisationSocial.vkAuthorisation("89164948378", "123qwe");
         Assert.assertEquals(authorisationSocial.getHomePageDashboardName(), "Ваня");
@@ -178,6 +179,7 @@ public class SiteTestCases {
         Assert.assertEquals(message.getText(), "TextMessage");
 
         message.checkImage();
+        methods.Wait(3500);
         Assert.assertEquals(message.getImageClass(), "img");
         methods.exit();
        // methods.getBrowserLogs();
@@ -414,9 +416,10 @@ public class SiteTestCases {
         getUrl.driverGet();
         tagSubscribe.subscribeOnTagGuest();
         registration.firstUserRegistration("FirstName", "LastName", methods.generateStr(), "12345678");
-        methods.Wait(1000);
+        methods.Wait(3000);
 
         tagSubscribe.subscribeOnTagUser();
+        methods.Wait(3000);
         Assert.assertEquals(tagSubscribe.getTagNameFromMySubscribers(), "Новости");
 
         tagSubscribe.unsubscribeFromTagUser();

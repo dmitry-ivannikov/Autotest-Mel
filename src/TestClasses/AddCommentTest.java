@@ -35,6 +35,7 @@ public class AddCommentTest {
         methods = new AdditionalMethods(driver);
         driver.findElement(headerMainButton).click();
         driver.findElement(article).click();
+        methods.Wait(4000);
         insertComment(comment);
         driver.findElement(commentPublicButton).click();
         driver.findElement(answerButton).click();

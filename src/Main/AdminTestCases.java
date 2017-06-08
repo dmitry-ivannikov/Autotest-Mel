@@ -63,7 +63,7 @@ public class AdminTestCases {
         addingUser.addingNewUser("Name", "SurName",UserEmail);
         driver.get("https://mail.ru/");
         addingUser.emailAuthorisation("test153153153@mail.ru", "Qa123_000");
-
+        methods.Wait(1000);
         final Set<String> oldWindowsSet = driver.getWindowHandles();
         addingUser.registrateUser();
         methods.moveFocucToTheNewWindow(oldWindowsSet);
@@ -144,7 +144,7 @@ public class AdminTestCases {
 //        addingPublication.clickInPublicButton();
 //        methods.Wait(5000);
 //        addingPublication.clickInConfirmPublicButtons();
-
+        methods.Wait(5000);
         search.insertText(title);
         search.clickInPublication();
         addingPublication.clickInPublicationSettings();
@@ -269,7 +269,7 @@ public class AdminTestCases {
         String blogInSite = blogs.getPostTitleInSite();
         blogs.comprasionTitleBlogs(blogInAdmin,blogInSite);
         driver.switchTo().window(parentWindowId);
-
+        methods.Wait(1000);
         blogs.clickInDropDownMenu();
         methods.Wait(1000);
         blogs.clickInPostBlockingButton();
@@ -285,10 +285,12 @@ public class AdminTestCases {
         Assert.assertTrue(driver.findElement(blogs.flagAddToFrontPage).isDisplayed());
 
         driver.get("http://admin.pablo-mel.qa.lan/frontpage");
+        methods.Wait(5000);
         frontPage.clickInPublicationSwitcher();
+        methods.Wait(5000);
         frontPage.clickInFrontPageSaveButton();
+        methods.Wait(5000);
         getUrl.driverGet();
-        methods.Wait(1500);
         Assert.assertEquals(publishing.getMainPagePublicationTitle(), "FirstMessage");
         Assert.assertEquals(publishing.getMainPagePublicationSubtitle(), "SecondMessage");
         Assert.assertEquals(publishing.getMainPagePublicationTagOnTheCover(), "БЛОГИ");
@@ -317,7 +319,7 @@ public class AdminTestCases {
         getUrl.driverGetAdminUrl();
         adminLogin.adminAuthorisation("test@example.com", "123qwe");
         author.addingNewAuthor(firstNameOfTheAuthor,firstSurname,email,aboutAuthor);
-        methods.Wait(100);
+        methods.Wait(1000);
         author.clickInSortArrowButton();
 
         String nameAndSurnameAuthor = firstSurname + firstNameOfTheAuthor;
@@ -335,7 +337,7 @@ public class AdminTestCases {
         String parentWindowId = driver.getWindowHandle();
         final Set<String> oldWindowsSet = driver.getWindowHandles();
         author.clickInSortArrowButton();
-        methods.Wait(200);
+        methods.Wait(2000);
 
         author.clickInOpenInNewPageButton();
         methods.moveFocucToTheNewWindow(oldWindowsSet);
@@ -360,9 +362,9 @@ public class AdminTestCases {
         author.clickInSortArrowButton();
         methods.Wait(200);
         author.clickInSortArrowButton();
-        methods.Wait(200);
+        methods.Wait(1000);
         author.clickIndropdownButton();
-        methods.Wait(100);
+        methods.Wait(1000);
         author.clickInDeleteButtons();
         methods.Wait(200);
         author.clickInSortArrowButton();

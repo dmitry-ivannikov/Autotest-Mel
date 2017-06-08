@@ -167,7 +167,7 @@ public class SocialNetworksAuthorisationTest {
 
         String parentWindowId = driver.getWindowHandle();
         final Set <String> oldWindowsSet = driver.getWindowHandles();
-
+        methods.Wait(2000);
         pressInGoogleLoginButton();
 
         String newWindos = (new WebDriverWait(driver, 10)).until(new ExpectedCondition<String>() {

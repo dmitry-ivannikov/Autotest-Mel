@@ -65,9 +65,9 @@ public class SendMessageInBlogTest {
         insertTextInSubTitle(SubTitle);
         insertTextInAnnouncement(Announcement);
         driver.findElement(image).click();
-
+        methods.Wait(1000);
         methods.imgageDownload();
-
+        methods.Wait(1000);
         textEnter(Text);
         insertTextInTagField(Tag);
         pressInPublicButton();

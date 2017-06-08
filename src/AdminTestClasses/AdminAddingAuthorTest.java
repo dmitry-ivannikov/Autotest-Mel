@@ -51,13 +51,13 @@ public class AdminAddingAuthorTest {
         driver.findElement(blogsButton).click();
         driver.findElement(newAuthorButton).click();
         driver.findElement(downloadPhotoButton).click();
-        methods.Wait(200);
+        methods.Wait(500);
         methods.imgageDownload();
-        methods.Wait(200);
+        methods.Wait(500);
         driver.findElement(downloadCoverButton).click();
-        methods.Wait(100);
+        methods.Wait(500);
         methods.imgageDownload();
-        methods.Wait(100);
+        methods.Wait(500);
         driver.findElement(nameField).sendKeys(name);
         driver.findElement(surnameField).sendKeys(surname);
         driver.findElement(emailField).sendKeys(email);
@@ -129,7 +129,7 @@ public class AdminAddingAuthorTest {
 
     public void clickInDeleteButtons(){
         driver.findElement(deleteButtonInDropdown).click();
-        methods.Wait(100);
+        methods.Wait(1000);
         driver.findElement(confirmDeleteAuthorButton).click();
     }
 

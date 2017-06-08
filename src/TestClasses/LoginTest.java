@@ -1,5 +1,6 @@
 package TestClasses;
 
+import Helper.AdditionalMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -7,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 public class LoginTest {
     private WebDriver driver;
+    private AdditionalMethods methods;
 
     private By headerLoginButton = By.cssSelector(".b-header__login-button");
     private By emailLoginButton = By.cssSelector(".g-auth-social__email-button");
@@ -32,7 +34,9 @@ public class LoginTest {
     }
 
     public void authorisation(String dataInEmailInputString, String dataInPasswordInputString) {
+        methods = new AdditionalMethods(driver);
         driver.findElement(headerLoginButton).click();
+        methods.Wait(1000);
         driver.findElement(emailLoginButton).click();
         // Insert text in email input
         insertEmailInLoginWindow(dataInEmailInputString);
