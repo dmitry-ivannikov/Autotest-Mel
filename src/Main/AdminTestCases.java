@@ -110,6 +110,7 @@ public class AdminTestCases {
         methods.Wait(4000);
         // Draft page
         driver.get(draftUrl);
+        methods.Wait(4000);
         Assert.assertEquals(addingPublication.getDraftTitle(), title);
         Assert.assertEquals(addingPublication.getDraftSubtitle(), "Subtitle");
 
@@ -160,7 +161,7 @@ public class AdminTestCases {
         Assert.assertTrue(driver.findElement(publishing.publicationImage).isDisplayed());
 
         // check front page
-        driver.get("http://admin.pablo-mel.qa.lan/frontpage");
+        getUrl.driverGetCurrentAdminUrl("frontpage");
         String addingPublication = frontPage.getTitlePublicationToAdd();
         String mainPublication = frontPage.getTitleMainPublication();
         //methods.Wait(4000);
@@ -284,7 +285,7 @@ public class AdminTestCases {
         methods.Wait(500);
         Assert.assertTrue(driver.findElement(blogs.flagAddToFrontPage).isDisplayed());
 
-        driver.get("http://admin.pablo-mel.qa.lan/frontpage");
+        getUrl.driverGetCurrentAdminUrl("frontpage");
         methods.Wait(5000);
         frontPage.clickInPublicationSwitcher();
         methods.Wait(5000);

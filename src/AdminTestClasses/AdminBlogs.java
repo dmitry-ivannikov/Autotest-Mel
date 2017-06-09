@@ -10,19 +10,19 @@ public class AdminBlogs {
     AdditionalMethods methods;
 
     private By blogsButton = By.cssSelector(".i-layout__menu > div > div:nth-child(5)");
-    private By openAtSiteButton = By.cssSelector(".b-post__button-open-at-site-container > div > div");
+    private By openAtSiteButton = By.cssSelector(".b-post__button-open-at-site-container");
     private By blogTitleInSite = By.cssSelector(".b-pb-article__body > div.b-pb-article__header > h1");
     private By dropdownMenu = By.cssSelector(".g-dropdown__opener");
 
-    private By postFutureButton = By.cssSelector(".g-dropdown__content > div > div:nth-child(1) > div");
-    public By postBlockingButton = By.cssSelector(".g-dropdown__content > div > div:nth-child(2) > div");
-    private By postFeedbackButton = By.cssSelector(".g-dropdown__content > div > div:nth-child(3) > a > div");
+    private By postFutureButton = By.cssSelector(".g-dropdown__content > div > div:nth-child(1)");
+    public By postBlockingButton = By.cssSelector(".g-dropdown__content > div > div:nth-child(2)");
+    private By postFeedbackButton = By.cssSelector(".g-dropdown__content > div > div:nth-child(3)");
 
-    public By flagAddToFrontPage = By.cssSelector(".b-post__status-icon-container > div > div");
-    private By postBlockedModalConfirmButton = By.cssSelector(".g-modal__content > div.b-post-blocked-modal__confirm-button > div");
-    public By iconImgHiddenBlog = By.cssSelector(".b-post__status-icon-container > div > div");
+    public By flagAddToFrontPage = By.cssSelector(".b-post__status-icon-container");
+    private By postBlockedModalConfirmButton = By.cssSelector(".b-post-blocked-modal__confirm-button");
+    public By iconImgHiddenBlog = By.cssSelector(".b-post__status-icon-container");
 
-    private By blogTitleInAdmin = By.cssSelector(".i-layout__search-post-list > div:nth-child(2) > div.b-post__clickable-area > a > div.b-post__title");
+    private By blogTitleInAdmin = By.cssSelector(".b-post__title");
 
 
     public AdminBlogs(WebDriver driver) {

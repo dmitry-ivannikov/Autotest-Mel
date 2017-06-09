@@ -9,9 +9,9 @@ public class AdminFrontPageTest {
     WebDriver driver;
 
     private By frontPageButton = By.cssSelector(".b-header__menu > div > div:nth-child(2)");
-    private By pageSwitcherIcon = By.cssSelector(".b-order-manager__switcher-list-container > div > div:nth-child(1) > div > div.b-switcher__icon > div");
+    private By pageSwitcherIcon = By.cssSelector(".b-switcher__icon > div");
     private By titleMainPublication = By.cssSelector(".b-pb-cover__content > div > div.b-pb-cover__title");
-    private By publicationToAdd = By.cssSelector(".b-order-manager__switcher-list-container > div > div:nth-child(1) > div > div.b-switcher__title");
+    private By publicationToAdd = By.cssSelector(".b-switcher__title");
     private By frontPageSaveButton = By.cssSelector(".i-layout__save-button > div");
 
     public AdminFrontPageTest(WebDriver driver) {
