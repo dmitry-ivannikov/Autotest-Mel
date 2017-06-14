@@ -8,7 +8,7 @@ public class DownloadArticlesTest {
 
     private By moreArticleButton = By.cssSelector(".b-pb-frontpage__more-publications-button_scope_mobile > div");
     // Random article
-    public By article1 = By.cssSelector(".b-pb-frontpage__grid > div:nth-child(73)");
+    public By article1 = By.cssSelector(".b-pb-frontpage__grid > div:nth-child(74)");
     public By article2 = By.cssSelector(".b-pb-frontpage__grid > div:nth-child(76)");
     public By article3 = By.cssSelector(".b-pb-frontpage__grid > div:nth-child(80)");
     public By article4 = By.cssSelector(".b-pb-frontpage__grid > div:nth-child(87)");
