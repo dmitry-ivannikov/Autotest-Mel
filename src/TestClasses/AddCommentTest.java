@@ -2,6 +2,7 @@ package TestClasses;
 
 import Helper.AdditionalMethods;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 public class AddCommentTest {
@@ -26,6 +27,8 @@ public class AddCommentTest {
     }
 
     private void insertComment(String comment) {
+        JavascriptExecutor jse1 = (JavascriptExecutor) driver;
+        jse1.executeScript("scroll(0,700)", "");
         driver.findElement(fieldForComment).click();
         methods.Wait(500);
         driver.findElement(fieldForComment).sendKeys(comment);

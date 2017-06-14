@@ -21,6 +21,7 @@ public class AdditionalMethods {
         this.driver = driver;
     }
 
+    // метод, который ждет наступления какого-то события, прежде чем продолжит выполнение команд
     public void Wait(int millis) {
         try {
             Thread.sleep(millis);
@@ -29,7 +30,7 @@ public class AdditionalMethods {
 
         }
     }
-    // function logout
+
     public void exit() {
         logout = new LogoutTest(driver);
         logout.exitFromAccount();
@@ -41,12 +42,13 @@ public class AdditionalMethods {
         logout.exitToAuthorisationSocial();
     }
 
+    // получение рандомной строки
     public String generateStr(){
         String str1 = "testpablo";
         String str2 = "@rootfest.net";
 
-        int a = 0; // initial range
-        int b = 1000; // the final value of the range
+        int a = 0;
+        int b = 1000;
         int FirstRandomNumber = a + (int) (Math.random() * b);
         int SecondRandomNumber = a + (int) (Math.random() * b);
 
@@ -54,6 +56,7 @@ public class AdditionalMethods {
         return str3;
     }
 
+    // загрузка картинки по абсолютному пути
     public void imgageDownload() {
         Robot r = null;
         try {
@@ -85,6 +88,7 @@ public class AdditionalMethods {
         }
     }
 
+    // изменение фокуса с одной страницы на вторую
     public void moveFocucToTheNewWindow(final Set<String> oldWindowsSet){
         String newWindos = (new WebDriverWait(driver, 10)).until(new ExpectedCondition<String>()
         {
@@ -99,6 +103,7 @@ public class AdditionalMethods {
         driver.switchTo().window(newWindos);
     }
 
+    // обработка консольных ошибок
     public void getBrowserLogs(){
         for (LogEntry logEntry : driver.manage().logs().get("browser").filter(Level.SEVERE)) {
             System.out.println(logEntry);

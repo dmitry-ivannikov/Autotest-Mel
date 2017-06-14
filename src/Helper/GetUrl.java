@@ -11,7 +11,7 @@ public class GetUrl {
     }
 
     public String choiceStand() {
-        int stand = 2; // in this line indicate stand for testing
+        int stand = 1; // число - номер стенда
 
         if (stand == 2) {
             String str = String.valueOf(stand);

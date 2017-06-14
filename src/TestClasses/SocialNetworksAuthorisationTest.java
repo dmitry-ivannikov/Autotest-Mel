@@ -106,11 +106,12 @@ public class SocialNetworksAuthorisationTest {
 
 
     public void facebookAuthorisation(String textInEmail, String textInPassword) {
+        methods = new AdditionalMethods(driver);
         pressInLoginButton();
 
         String parentWindowId = driver.getWindowHandle();
         final Set<String> oldWindowsSet = driver.getWindowHandles();
-
+        methods.Wait(2000);
         pressInFbLoginButton();
 
         String newWindos = (new WebDriverWait(driver, 10)).until(new ExpectedCondition<String>()

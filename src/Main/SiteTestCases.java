@@ -9,7 +9,6 @@ import org.junit.Before;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.logging.LogEntry;
 import org.testng.Assert;
 import org.junit.Test;
 
@@ -17,7 +16,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
 
 import static org.testng.AssertJUnit.assertEquals;
 
@@ -40,6 +38,7 @@ public class SiteTestCases {
     private SearchTest search;
     private TagSubscribeTest tagSubscribe;
     private GetUrl getUrl;
+    private LandingHasbro hasbro;
 
     public void setup() throws IOException {
         System.setProperty("webdriver.chrome.driver" , "C:\\chromedriver.exe");
@@ -81,13 +80,13 @@ public class SiteTestCases {
         logout = new LogoutTest(driver);
 
         getUrl.driverGet();
-        //Invalid registration
+        // регистрация с нажатием кнопки "Вход"
         registration.firstUserRegistration("!#$%&'*+-/=?^_`{|}~", "LastName", methods.generateStr(), "12345678");
         registration.pressInRegistrationButton();
+        // регистрация с невалидными данными
         registration.registrationWithInvalidData("FirstName", "!#$%&'*+-/=?^_`{|}~", methods.generateStr(), "12345678");
         registration.registrationWithInvalidData("FirstName", "LastName", "ab(c)d,e:f;g<h>i[jk]l@example.com", "12345678");
-
-        // Valid registration
+        // регистрация с валидными данными
         registration.registrationWithValidData("FirstName", "LastName", methods.generateStr(), "12345678");
         methods.Wait(3000);
         Assert.assertEquals(registration.getHeaderUserName(), "FirstName LastName");
@@ -247,7 +246,7 @@ public class SiteTestCases {
     }
 
     @Test
-    public void Footer() throws IOException {
+    public void footer() throws IOException {
         methods = new AdditionalMethods(driver);
         footer = new FooterTest(driver);
         getUrl = new GetUrl(driver);
@@ -275,7 +274,7 @@ public class SiteTestCases {
     }
 
     @Test
-    public void Profile() throws IOException {
+    public void profile() throws IOException {
         methods = new AdditionalMethods(driver);
         getUrl = new GetUrl(driver);
 
@@ -346,7 +345,7 @@ public class SiteTestCases {
     }
 
     @Test
-    public void DirectiveTest(){
+    public void directiveTest(){
         directiveTest = new DirectiveTest(driver);
         methods = new AdditionalMethods(driver);
         getUrl = new GetUrl(driver);
@@ -385,7 +384,7 @@ public class SiteTestCases {
     }
 
     @Test
-    public void Search() throws IOException {
+    public void search() throws IOException {
         methods = new AdditionalMethods(driver);
         search = new SearchTest(driver);
         getUrl = new GetUrl(driver);
@@ -407,7 +406,7 @@ public class SiteTestCases {
     }
 
     @Test
-    public void TagSubscribe() throws IOException {
+    public void tagSubscribe() throws IOException {
         methods = new AdditionalMethods(driver);
         tagSubscribe = new TagSubscribeTest(driver);
         getUrl = new GetUrl(driver);
@@ -435,5 +434,30 @@ public class SiteTestCases {
         String str2 = tagSubscribe.getTextSecondButton();
         tagSubscribe.isStringEquals(str1, str2);
         //methods.getBrowserLogs();
+    }
+
+    @Test
+    public void landingHasbro(){
+        hasbro = new LandingHasbro(driver);
+        methods = new AdditionalMethods(driver);
+        getUrl = new GetUrl(driver);
+
+        getUrl.driverGetCurrentUrl("hasbro/");
+        Assert.assertEquals(driver.getTitle(),"Hasbro");
+
+        ArrayList<String> expectedResult = new ArrayList();
+        expectedResult.add("Hasbro Gaming - Главная");
+        expectedResult.add("Мел");
+        expectedResult.add("Hasbro Gaming - Игры");
+        expectedResult.add("Hasbro Gaming - Монополия: Россия");
+        expectedResult.add("Hasbro Gaming - Главная");
+        expectedResult.add("Hasbro Gaming - Пирог в лицо – Игры Hasbro");
+        expectedResult.add("Hasbro Gaming - Игры");
+        expectedResult.add("Игрушки Hasbro - купить игры и игрушки Хасбро, цены в интернет-магазине игрушек Hasbro - Детский мир");
+        expectedResult.add("Hasbro Игры | ВКонтакте");
+        expectedResult.add("Страница не найдена | Facebook");
+        expectedResult.add("Hasbro Gaming - Главная");
+
+        hasbro.checkButtons(expectedResult);
     }
 }

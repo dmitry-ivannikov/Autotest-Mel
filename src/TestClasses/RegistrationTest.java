@@ -69,14 +69,6 @@ public class RegistrationTest {
         pressEmailRegistratinButton();
     }
 
-    // Method for clear fields
-    private void clearRegistrationInputFields() {
-        driver.findElement(registrationFirstNameInput).clear();
-        driver.findElement(registrationLastNameInput).clear();
-        driver.findElement(registrationEmailInput).clear();
-        driver.findElement(registrationPasswordInput).clear();
-    }
-
     // Method for registration with valid data
     public void registrationWithValidData(String firstName, String lastName, String email, String password) {
         insertFirstNameRegistration(firstName);

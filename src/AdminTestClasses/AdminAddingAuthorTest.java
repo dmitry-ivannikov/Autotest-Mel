@@ -120,7 +120,7 @@ public class AdminAddingAuthorTest {
         int number = Integer.parseInt(str);
         return number;
     }
-
+    // сравнение чисел для сортировки
     public void compareTheNumbers(int firstNumber, int lastNumber){
         if(firstNumber < lastNumber){
             Assert.fail("Sorting not working");
@@ -132,10 +132,12 @@ public class AdminAddingAuthorTest {
         methods.Wait(1000);
         driver.findElement(confirmDeleteAuthorButton).click();
     }
-
+    // сравнение двух строк
     public void compareAuthorsAfterSort(String arr[]) {
         for (int j = 0; j < arr.length; j++) {
             for (int i = j + 1; i < arr.length; i++) {
+                // если целое значение, возвращенное методом, отрицательно, то строка,
+                // с которой был вызван метод, меньше строки-параметра, если положительно — больше.
                 if (arr[i].compareTo(arr[j]) > 0) {
                     Assert.fail("Sorting authors not works");
                 }

@@ -32,7 +32,11 @@ public class AdminTestCases {
     private AdminFrontPageTest frontPage;
     private AdminBlogs blogs;
     private AdminAddingAuthorTest author;
+    private AdminLogoutTest logout;
 
+    public AdminTestCases(){
+
+    }
     public void setup() throws IOException {
         System.setProperty("webdriver.chrome.driver" , "C:\\chromedriver.exe");
         driver = new ChromeDriver();
@@ -51,31 +55,53 @@ public class AdminTestCases {
     }
 
     @Test
+    public void authorisationAndLogout(){
+        methods = new AdditionalMethods(driver);
+        getUrl = new GetUrl(driver);
+        adminLogin = new AdminLoginTest(driver);
+        logout = new AdminLogoutTest(driver);
+        getUrl.driverGetAdminUrl();
+        adminLogin.adminAuthorisation("test@example.com", "123qwe");
+        logout.adminLogout();
+        methods.Wait(100);
+        Assert.assertEquals(driver.getTitle(), "Вход");
+    }
+
+    @Test
     public void addingAdminUser(){
         methods = new AdditionalMethods(driver);
         getUrl = new GetUrl(driver);
         addingUser = new AdminAddingUserTest(driver);
         adminLogin = new AdminLoginTest(driver);
 
+        // получение рандомной почты для регистрируемого пользователя
         String UserEmail = methods.generateStr();
         getUrl.driverGetAdminUrl();
         adminLogin.adminAuthorisation("test@example.com", "123qwe");
+        // заполнение полей регистрируемого пользователя
         addingUser.addingNewUser("Name", "SurName",UserEmail);
         driver.get("https://mail.ru/");
+        // авторизация на mail.ru
         addingUser.emailAuthorisation("test153153153@mail.ru", "Qa123_000");
         methods.Wait(1000);
+        // сохранение значений текущего окна
         final Set<String> oldWindowsSet = driver.getWindowHandles();
+        // переход по ссылке для окончания регистрации
         addingUser.registrateUser();
+        // перенос фокуса на первое окно
         methods.moveFocucToTheNewWindow(oldWindowsSet);
         methods.Wait(100);
 
+        // сравнение полей, вводимых при первичной регистрации
         Assert.assertEquals(addingUser.getRegistrationName(), "Name");
         Assert.assertEquals(addingUser.getRegistrationSurname(), "SurName");
         Assert.assertEquals(addingUser.getRegistrationEmail(), UserEmail);
         Assert.assertEquals(driver.getTitle(), "Регистрация пользователя");
 
+        // ввод пароля и нажатие на кнопку регистрации
         addingUser.enterPasswordAndConfirm("12345678","12345678");
         methods.Wait(500);
+        // проверка перехода на страницу публикаций после окончания регистрации
         Assert.assertEquals(driver.getTitle(), "Публикации");
         //methods.getBrowserLogs();
     }
@@ -91,8 +117,9 @@ public class AdminTestCases {
         autosave = new AdminAutosaveTest(driver);
         frontPage = new AdminFrontPageTest(driver);
 
-        int a = 0; // initial range
-        int b = 10000; // the final value of the range
+        // получение рандомной строки для заголовка публикации
+        int a = 0;
+        int b = 10000;
         int randomNumber = a + (int) (Math.random() * b);
         String title = "Title"+randomNumber;
 
@@ -101,36 +128,43 @@ public class AdminTestCases {
         addingPublication.clickInNewPublication();
         autosave.clickInPublicationSaveButton();
         methods.Wait(4000);
+        // запись в строку времени при нажатии на кнопку сохранения
         String firstTime = autosave.getPublicationSaveTime();
+        // заполнения полей при создании публикации
         addingPublication.fillingFields(title, "Subtitle", "The Question", "Annoucement", "Covertag","Addingtag","TText in block");
         methods.Wait(4000);
         Assert.assertEquals(driver.getTitle(), "Новая публикация");
+        // запись в строку текущего url на странице заполнения обложек
         String draftUrl = driver.getCurrentUrl();
+        // заполнение обложек
         addingPublication.addingCovers();
         methods.Wait(4000);
-        // Draft page
+        // переход по url для создаваемого черновика
         driver.get(draftUrl);
         methods.Wait(4000);
+        // проверка на соответствие данных при создании публикации и перехода в черновик
         Assert.assertEquals(addingPublication.getDraftTitle(), title);
         Assert.assertEquals(addingPublication.getDraftSubtitle(), "Subtitle");
 
         String parentWindowId = driver.getWindowHandle();
         final Set<String> oldWindowsSet = driver.getWindowHandles();
+        // нажатие на кнопку просмотра превью публикации
         addingPublication.showPreviewPublication();
         methods.moveFocucToTheNewWindow(oldWindowsSet);
-
-        // Preview page
+        // проверка соответствия данных при создании публикации и в превью
         Assert.assertEquals(addingPublication.getPublicationPreviewTitle(), title);
         Assert.assertEquals(addingPublication.getPublicationPreviewSubtitle(), "Subtitle");
         Assert.assertEquals(addingPublication.getPublicationPreviewText(), "Text in block");
         //Assert.assertEquals(addingPublication.getPublicationPreviewAddingTag(), "Addingtag");
 
-        // Publication of the article
+        // переход на окно создания публикации
         driver.switchTo().window(parentWindowId);
-
+        // нажатие второй раз на кнопку сохранения
         autosave.clickInPublicationSaveButton();
         methods.Wait(200);
+        // запись в строку второго времени при нажатии на кнопку сохранения
         String secondTime = autosave.getPublicationSaveTime();
+        // проверка на то, что время отличается при первом и втором нажатии на кнопку сохранения
         autosave.comparisonPublicationTime(firstTime,secondTime);
         addingPublication.clickInPublicButton();
         addingPublication.clickInConfirmPublicButtons();
@@ -146,13 +180,14 @@ public class AdminTestCases {
 //        methods.Wait(5000);
 //        addingPublication.clickInConfirmPublicButtons();
         methods.Wait(5000);
+        // на странице публикаций поиск созданной и опубликованной статьи
         search.insertText(title);
         search.clickInPublication();
         addingPublication.clickInPublicationSettings();
-
+        // получение url публикации для сайта
         String publicationUrl = getUrl.driverGetStr()+addingPublication.getPublicationUrl()+"title";
         driver.get(publicationUrl);
-        // Page publishing
+        // проверка соответствия данных созданной публикации и публикации на сайте
         Assert.assertEquals(publishing.getPublicationTitle(), title);
         Assert.assertEquals(publishing.getPublicationSubtitle(), "Subtitle");
         Assert.assertEquals(publishing.getPublicationTagOnTheCover(), "COVERTAG");
@@ -160,19 +195,20 @@ public class AdminTestCases {
         Assert.assertEquals(publishing.getPublicationText(), "Text in block");
         Assert.assertTrue(driver.findElement(publishing.publicationImage).isDisplayed());
 
-        // check front page
+        // переход на страницу первой полосы
         getUrl.driverGetCurrentAdminUrl("frontpage");
         String addingPublication = frontPage.getTitlePublicationToAdd();
         String mainPublication = frontPage.getTitleMainPublication();
-        //methods.Wait(4000);
+        // сравнение заголовка двух публикаций до нажатия на кнопку добавления на первую полосу
         frontPage.comprasionPublicationsInFrontPage(addingPublication, mainPublication);
-
+        // нажатие на кнопку добавления на первую полосу
         frontPage.clickInPublicationSwitcher();
-        //methods.Wait(4000);
+        // нажатие на кнопку сохранения изменений
         frontPage.clickInFrontPageSaveButton();
         methods.Wait(4000);
         getUrl.driverGet();
         methods.Wait(4000);
+        // сравенение на соответствия созданной публикации и первой публикации, отображающейся на сайте
         Assert.assertEquals(publishing.getMainPagePublicationTitle(), title);
         Assert.assertEquals(publishing.getMainPagePublicationSubtitle(), "Subtitle");
         Assert.assertEquals(publishing.getMainPagePublicationTagOnTheCover(), "COVERTAG");
@@ -261,37 +297,52 @@ public class AdminTestCases {
         getUrl.driverGetAdminUrl();
         adminLogin.adminAuthorisation("test@example.com", "123qwe");
         blogs.clickInBlogsButton();
+        // поиск публикации по названию
         search.insertText("FirstMessage");
         String parentWindowId = driver.getWindowHandle();
         final Set<String> oldWindowsSet = driver.getWindowHandles();
+        // запись в строку заголовка блога в админке
         String blogInAdmin = blogs.getPostTitleInAdmin();
+        // нажатие на кнопку открытия на сайте публикации
         blogs.clickInOpenAtSiteButton();
         methods.moveFocucToTheNewWindow(oldWindowsSet);
+        // запись в строку заголовка блога на сайте
         String blogInSite = blogs.getPostTitleInSite();
+        // сравнение заголовков
         blogs.comprasionTitleBlogs(blogInAdmin,blogInSite);
+        // переход на окно в адмикне
         driver.switchTo().window(parentWindowId);
         methods.Wait(1000);
+        // нажатие на выпадающее меню
         blogs.clickInDropDownMenu();
         methods.Wait(1000);
+        // нажатие на кнопку блокировки публикации
         blogs.clickInPostBlockingButton();
         methods.Wait(1000);
+        // проверка отображения значка блорировки
         Assert.assertTrue(driver.findElement(blogs.iconImgHiddenBlog).isDisplayed());
         blogs.clickInDropDownMenu();
+        // разблокировка публикации
         driver.findElement(blogs.postBlockingButton).click();
         methods.Wait(500);
         blogs.clickInDropDownMenu();
         methods.Wait(500);
+        // нажатие на кнокпку добавление на первую полосу
         blogs.clickInPostFutureButton();
         methods.Wait(500);
+        // проверка отображения флага
         Assert.assertTrue(driver.findElement(blogs.flagAddToFrontPage).isDisplayed());
 
         getUrl.driverGetCurrentAdminUrl("frontpage");
         methods.Wait(5000);
+        // нажатие на кнопку добавления блога на первую полосу3
         frontPage.clickInPublicationSwitcher();
         methods.Wait(5000);
+        // нажатие на кнопку сохранения изменений
         frontPage.clickInFrontPageSaveButton();
         methods.Wait(5000);
         getUrl.driverGet();
+        // проверка на соответствия данных созданного блога и блога, отображающегося на сайте
         Assert.assertEquals(publishing.getMainPagePublicationTitle(), "FirstMessage");
         Assert.assertEquals(publishing.getMainPagePublicationSubtitle(), "SecondMessage");
         Assert.assertEquals(publishing.getMainPagePublicationTagOnTheCover(), "БЛОГИ");
@@ -305,32 +356,40 @@ public class AdminTestCases {
         author = new AdminAddingAuthorTest(driver);
         adminLogin = new AdminLoginTest(driver);
 
-        int a = 0; // initial range
-        int b = 10000; // the final value of the range
+        // получение рандомной строки для двух фамилий
+        int a = 0;
+        int b = 10000;
         int firstrandomNumber = a + (int) (Math.random() * b);
         String firstSurname = "яяяяя"+firstrandomNumber;
         int secondrandomNumber = a + (int) (Math.random() * b);
         String secondSurname = "яяяяя"+secondrandomNumber;
-
+        // запись в строку рандомного email
         String email = methods.generateStr();
+        // два имени автора
         String firstNameOfTheAuthor = "firstName";
         String secondNameOfTheAuthor = "secondName";
+
         String aboutAuthor = "AboutAuthor";
 
         getUrl.driverGetAdminUrl();
         adminLogin.adminAuthorisation("test@example.com", "123qwe");
+        // создание автора
         author.addingNewAuthor(firstNameOfTheAuthor,firstSurname,email,aboutAuthor);
         methods.Wait(1000);
+        // нажатие на кнопку сортировки по фамилии и имени в обратном порядке
         author.clickInSortArrowButton();
-
+        // запись в строку имени и фамилии автора
         String nameAndSurnameAuthor = firstSurname + firstNameOfTheAuthor;
+        // запись в строку второго и третьего автора по сортированному списку
         String secondAuthor = author.getTextFromTheAuthorField(author.secondAuthor);
         String thirdAuthor = author.getTextFromTheAuthorField(author.thirdAuthor);
-
+        // добавление авторов в массив
         String authors[]= {nameAndSurnameAuthor,secondAuthor,thirdAuthor};
+        // проверка на правильность сортировки по фамилии и имени
         author.compareAuthorsAfterSort(authors);
+        // редактирование автора с изменением имени и фамилии
         author.editAuthor(secondNameOfTheAuthor, secondSurname);
-
+        // сравнение ожидаемого и фактического имени автора
         if(nameAndSurnameAuthor.equals(author.getAuthorNameAndSurname())){
             Assert.fail("Not editing works of the author");
         }
@@ -343,22 +402,26 @@ public class AdminTestCases {
         author.clickInOpenInNewPageButton();
         methods.moveFocucToTheNewWindow(oldWindowsSet);
         methods.Wait(200);
+        // проверка созданного автора в админке и фактического результата на сайте
         Assert.assertEquals(driver.getTitle(), secondNameOfTheAuthor + " " + secondSurname + " | Мел");
         Assert.assertEquals(author.getAuthorNameAndSurnameInSite(), secondNameOfTheAuthor + " " + secondSurname);
         Assert.assertEquals(author.getAboutAuthorInSite(), aboutAuthor);
         driver.switchTo().window(parentWindowId);
-
+        // нажатие на кнопку сортировки по публикациям
         author.clickInsortingPublicationButton();
-
+        // запись количества публикаций для сравнения
         int firstNumberPublication = author.convertSelectorToNumber(author.firstPublicationCount);
         int secondNumberPublication = author.convertSelectorToNumber(author.secondPublicationcount);
+        // проверка на сортировку по публикациям
         author.compareTheNumbers(firstNumberPublication,secondNumberPublication);
-
+        // нажатие на кнопку сортировки по подписчикам
         author.clickInsortingSubscribersButton();
+        // запись количества подписчиков
         int firstNumberSubscribers = author.convertSelectorToNumber(author.firstSubscribersCount);
         int secondNumberSubscribers = author.convertSelectorToNumber(author.secondSubscribersCount);
+        // проверка на сортировку по числу подписчиков
         author.compareTheNumbers(firstNumberSubscribers,secondNumberSubscribers);
-
+        // нахождение и удаление блоггера
         methods.Wait(200);
         author.clickInSortArrowButton();
         methods.Wait(200);
@@ -369,7 +432,7 @@ public class AdminTestCases {
         author.clickInDeleteButtons();
         methods.Wait(200);
         author.clickInSortArrowButton();
-
+        // проврека на наличие блогера после удаления
         if(author.getAuthorNameAndSurname().equals(secondSurname + secondNameOfTheAuthor)){
             org.junit.Assert.fail("Sorting not working");
         }

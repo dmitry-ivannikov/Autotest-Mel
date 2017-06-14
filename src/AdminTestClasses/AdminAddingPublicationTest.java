@@ -11,7 +11,6 @@ public class AdminAddingPublicationTest {
     WebDriver driver;
     private AdditionalMethods methods;
 
-    // Main tab
     private By newPublicationButton = By.cssSelector(".i-layout__new-publication-button");
     private By publicationTitle = By.cssSelector(".b-main-tab__title-textarea > div > textarea");
     private By publicationSubtitle = By.cssSelector(".b-main-tab__subtitle-textarea > div > textarea");
@@ -21,20 +20,20 @@ public class AdminAddingPublicationTest {
     private By publicationTagOnTheCover = By.cssSelector(".b-main-tab__main-tag-select > div > div.b-pb-suggest__emitter > div > input");
     private By publicationAddingTag = By.cssSelector(".b-main-tab__tag-select > div > div.b-pb-suggest__emitter > div > input");
     private By publicationTextBlock = By.cssSelector("#cke_1_contents > iframe");
-    // Tab covers
+
     private By publicationCovers = By.cssSelector(".g-tab__tabs > div:nth-child(2)");
     private By publicationCoverInArticle = By.cssSelector(".b-cover-uploader__content");
     private By publicationCoverOnTheMainPage = By.cssSelector(".b-tile__click-receiver");
     public By publicationCoverAdditionalFormats = By.cssSelector(".b-cover-manager__format-preview > div > div.b-cover-uploader__content");
     private By publicationShowPreviewButton = By.cssSelector(".b-control-panel-draft__middle-column");
-    // Preview page
+
     private By publicationPreviewTitle = By.cssSelector(".b-pb-cover__content > div > h1");
     private By publicationPreviewSubtitle = By.cssSelector(".b-pb-cover__subtitle");
     private By publicationPreviewText = By.cssSelector(".b-pb-publication-body_pablo > p");
-    // Publication buttons
+
     private By publicationButtion = By.cssSelector(".b-control-panel-draft__publish-button > div");
     private By publicationConfirmButton = By.cssSelector(".b-confirm-modal__confirm-button");
-    // Tab Settings
+
     private By publicationSettings = By.cssSelector(".g-tab__tabs > div:nth-child(3)");
     private By publicationUrl = By.cssSelector(".b-publication-settings__address-site-input > div > span");
 
@@ -71,6 +70,7 @@ public class AdminAddingPublicationTest {
     public void addingCovers() {
         methods = new AdditionalMethods(driver);
         JavascriptExecutor jse1 = (JavascriptExecutor) driver;
+        // скролл страницы
         jse1.executeScript("scroll(0,-550)", "");
         driver.findElement(publicationCovers).click();
         //methods.Wait(4000);
@@ -93,7 +93,6 @@ public class AdminAddingPublicationTest {
         methods.Wait(4000);
     }
 
-    // Compare selectors on the preview page
     public String getPublicationPreviewTitle() {
         String str = driver.findElement(publicationPreviewTitle).getText();
         return str;
@@ -131,6 +130,7 @@ public class AdminAddingPublicationTest {
         driver.findElement(publicationSettings).click();
     }
 
+    // получение строки из url и удаление из неё первых шести символов
     public String getPublicationUrl() {
         StringBuffer str = new StringBuffer(driver.findElement(publicationUrl).getText());
         str.delete(0,6);
