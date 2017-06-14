@@ -21,18 +21,18 @@ public class FooterTest {
     private By rubricGames = By.cssSelector(".i-layout__footer > div > div:nth-child(1) > div > a:nth-child(5)");
     private By rubricBlogs = By.cssSelector(".i-layout__footer > div > div:nth-child(1) > div > a:nth-child(6)");
     private By rubricAfisha = By.cssSelector(".i-layout > div.i-layout__footer > div > div:nth-child(1) > div > a:nth-child(7)");
-    private By linkContacts = By.cssSelector(".i-layout__footer > div >div:nth-child(2) > ul > li:nth-child(2)");
+    private By linkContacts = By.cssSelector(".b-footer__services > a:nth-child(2)");
     private By titleContacts = By.cssSelector(".l-contacts__content > h1");
-    private By linkAdvertising = By.cssSelector(".i-layout__footer > div > div:nth-child(2) > ul > li:nth-child(3)");
+    private By linkAdvertising = By.cssSelector(".b-footer__services > a:nth-child(3)");
     private By titleAdvertising = By.cssSelector(".l-advertising-proposal__content > h1");
     private By mediakitButton = By.cssSelector(".l-advertising-proposal__download-mediakit-button");
     private By pricelistButton = By.cssSelector(".l-advertising-proposal__download-pricelist-button");
-    private By linkTermsOfUse = By.cssSelector(".i-layout__footer > div > div:nth-child(2) > ul > li:nth-child(4)");
+    private By linkTermsOfUse = By.cssSelector(".b-footer__services > a:nth-child(4)");
     private By titleTermsOfUse = By.cssSelector(".b-terms-of-use__title");
-    private By fbButton = By.cssSelector(".b-footer__content-row_buttons > ul > li:nth-child(1)");
-    private By vkButton = By.cssSelector(".b-footer__content-row_buttons > ul > li:nth-child(2)");
-    private By twitterButton = By.cssSelector(".b-footer__content-row_buttons > ul > li:nth-child(3)");
-    private By okButton = By.cssSelector(".b-footer__content-row_buttons > ul > li:nth-child(4)");
+    private By fbButton = By.cssSelector(".b-footer__socials > div:nth-child(1)");
+    private By vkButton = By.cssSelector(".b-footer__socials > div:nth-child(2)");
+    private By twitterButton = By.cssSelector(".b-footer__socials > div:nth-child(3)");
+    private By okButton = By.cssSelector(".b-footer__socials > div:nth-child(4)");
 
 
     public FooterTest(WebDriver driver) {

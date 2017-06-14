@@ -89,7 +89,7 @@ public class AdminTestCases {
         // переход по ссылке для окончания регистрации
         addingUser.registrateUser();
         // перенос фокуса на первое окно
-        methods.moveFocucToTheNewWindow(oldWindowsSet);
+        methods.moveFocusToTheNewWindow(oldWindowsSet);
         methods.Wait(100);
 
         // сравнение полей, вводимых при первичной регистрации
@@ -150,7 +150,7 @@ public class AdminTestCases {
         final Set<String> oldWindowsSet = driver.getWindowHandles();
         // нажатие на кнопку просмотра превью публикации
         addingPublication.showPreviewPublication();
-        methods.moveFocucToTheNewWindow(oldWindowsSet);
+        methods.moveFocusToTheNewWindow(oldWindowsSet);
         // проверка соответствия данных при создании публикации и в превью
         Assert.assertEquals(addingPublication.getPublicationPreviewTitle(), title);
         Assert.assertEquals(addingPublication.getPublicationPreviewSubtitle(), "Subtitle");
@@ -237,8 +237,8 @@ public class AdminTestCases {
         rubricator.checkNewRubricOnWebsite();
 
         Assert.assertEquals(driver.getCurrentUrl(), getUrl.driverGetStr()+"rubric/test");
-        Assert.assertEquals(driver.getTitle(),"Test | Мел");
-        Assert.assertEquals(rubricator.metaNameSeoTitleRubric(),"Test | Мел");
+        Assert.assertEquals(driver.getTitle(),"Test | Образовательный портал Мел.ФМ. Статьи о школе и обучении в России и по всему миру");
+        Assert.assertEquals(rubricator.metaNameSeoTitleRubric(),"Test | Образовательный портал Мел.ФМ. Статьи о школе и обучении в России и по всему миру");
 
         getUrl.driverGetAdminUrl();
         rubricator.checkNewRubricOnAddPublicationPage();
@@ -305,7 +305,7 @@ public class AdminTestCases {
         String blogInAdmin = blogs.getPostTitleInAdmin();
         // нажатие на кнопку открытия на сайте публикации
         blogs.clickInOpenAtSiteButton();
-        methods.moveFocucToTheNewWindow(oldWindowsSet);
+        methods.moveFocusToTheNewWindow(oldWindowsSet);
         // запись в строку заголовка блога на сайте
         String blogInSite = blogs.getPostTitleInSite();
         // сравнение заголовков
@@ -400,7 +400,7 @@ public class AdminTestCases {
         methods.Wait(2000);
 
         author.clickInOpenInNewPageButton();
-        methods.moveFocucToTheNewWindow(oldWindowsSet);
+        methods.moveFocusToTheNewWindow(oldWindowsSet);
         methods.Wait(200);
         // проверка созданного автора в админке и фактического результата на сайте
         Assert.assertEquals(driver.getTitle(), secondNameOfTheAuthor + " " + secondSurname + " | Мел");

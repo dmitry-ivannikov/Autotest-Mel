@@ -326,6 +326,7 @@ public class SiteTestCases {
         Assert.assertEquals(profile.getGenderInput(),"Женский");
 
         profile.downloadAvatar();
+        methods.Wait(2000);
         Assert.assertEquals(profile.getImageClass(), "img");
         profile.deleteAvatar();
         methods.Wait(4000);
@@ -447,7 +448,7 @@ public class SiteTestCases {
 
         ArrayList<String> expectedResult = new ArrayList();
         expectedResult.add("Hasbro Gaming - Главная");
-        expectedResult.add("Мел");
+        expectedResult.add("Образовательный портал Мел.ФМ. Статьи о школе и обучении в России и по всему миру");
         expectedResult.add("Hasbro Gaming - Игры");
         expectedResult.add("Hasbro Gaming - Монополия: Россия");
         expectedResult.add("Hasbro Gaming - Главная");

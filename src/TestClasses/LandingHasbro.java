@@ -52,7 +52,7 @@ public class LandingHasbro extends SiteTestCases{
             methods.Wait(200);
             driver.findElement((By)buttons.get(i)).click();
             methods.Wait(200);
-            methods.moveFocucToTheNewWindow(oldWindowsSet);
+            methods.moveFocusToTheNewWindow(oldWindowsSet);
             Assert.assertEquals(driver.getTitle(), expectedResult.get(i));
             driver.close();
             driver.switchTo().window(parentWindowId);

@@ -89,7 +89,7 @@ public class AdditionalMethods {
     }
 
     // изменение фокуса с одной страницы на вторую
-    public void moveFocucToTheNewWindow(final Set<String> oldWindowsSet){
+    public void moveFocusToTheNewWindow(final Set<String> oldWindowsSet){
         String newWindos = (new WebDriverWait(driver, 10)).until(new ExpectedCondition<String>()
         {
             @Override

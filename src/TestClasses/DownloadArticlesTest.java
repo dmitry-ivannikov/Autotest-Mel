@@ -11,7 +11,7 @@ public class DownloadArticlesTest {
     public By article1 = By.cssSelector(".b-pb-frontpage__grid > div:nth-child(73)");
     public By article2 = By.cssSelector(".b-pb-frontpage__grid > div:nth-child(76)");
     public By article3 = By.cssSelector(".b-pb-frontpage__grid > div:nth-child(80)");
-    public By article4 = By.cssSelector(".b-pb-frontpage__grid > div:nth-child(86)");
+    public By article4 = By.cssSelector(".b-pb-frontpage__grid > div:nth-child(87)");
     public By articles = By.cssSelector(".i-layout__content");
 
     public DownloadArticlesTest(WebDriver driver) {

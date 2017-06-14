@@ -24,7 +24,6 @@ public class AdminBlogs {
 
     private By blogTitleInAdmin = By.cssSelector(".b-post__title");
 
-
     public AdminBlogs(WebDriver driver) {
         this.driver = driver;
     }
