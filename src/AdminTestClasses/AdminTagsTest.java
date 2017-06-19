@@ -68,6 +68,7 @@ public class AdminTagsTest {
         String str = driver.findElement(firstTagInList).getText();
         return str;
     }
+
     public String getSecondTagTitle() {
         String str = driver.findElement(secondTagInList).getText();
         return str;
@@ -76,38 +77,47 @@ public class AdminTagsTest {
         String str = driver.findElement(firstTagPublicationsCount).getText();
         return str;
     }
+
     public String getSecondTagPublicationsCount() {
         String str = driver.findElement(secondTagPublicationsCount).getText();
         return str;
     }
+
     public String getFirstTagPostsCount() {
         String str = driver.findElement(firstTagPostsCount).getText();
         return str;
     }
+
     public String getSecondTagPostsCount() {
         String str = driver.findElement(secondTagPostsCount).getText();
         return str;
     }
+
     public String getFirstTagSubscriptionsCount() {
         String str = driver.findElement(firstTagSubscriptionsCount).getText();
         return str;
     }
+
     public String getSecondTagSubscriptionsCount() {
         String str = driver.findElement(secondTagSubscriptionsCount).getText();
         return str;
     }
+
     public String getSeoTitleOnSite() {
         String str = driver.findElement(seoTitleTagOnSite).getAttribute("content");
         return str;
     }
+
     public String getSeoDescriptionOnSite() {
         String str = driver.findElement(seoDescriptionTagOnSite).getAttribute("content");
         return str;
     }
+
     public String getDescriptionTagOnSite() {
         String str = driver.findElement(descriptionTagOnSite).getText();
         return str;
     }
+
     public String getUrlTagInAdmin() {
         StringBuffer str = new StringBuffer(driver.findElement(tagUrlInAdmin).getText());
         str.delete(0,14);
@@ -119,8 +129,8 @@ public class AdminTagsTest {
             Assert.fail("Не работает сортировака по названию тегов");
         }
     }
-    public void tagsCompare(int x, int y ) {
-        if ( x < y ) {
+    public void tagsCompare(int firstNumber, int lastNubmer ) {
+        if ( firstNumber < lastNubmer ) {
             Assert.fail("Не работает сортировка тегов по количеству постов/публикаций/подписчиков");
         }
     }
@@ -129,9 +139,11 @@ public class AdminTagsTest {
             Assert.fail("Не увеличился счетчик постов/публикаций/подписчиков у тега");
         }
     }
+
     public void openTagsTab(){
         driver.findElement(tagsTab).click();
     }
+
     public void addNewTag(String titleTag, String url, String descriptionTag,String seoTitle, String seoDescription ) {
         driver.findElement(addNewTag).click();
         driver.findElement(titleTagInput).sendKeys(titleTag);
@@ -141,36 +153,46 @@ public class AdminTagsTest {
         driver.findElement(seoDescriptionTag).sendKeys(seoDescription);
         driver.findElement(saveButtonInPopup).click();
     }
+
     public void sortTagsByName(){
         driver.findElement(sortByNameButton).click();
     }
+
     public void sortTagsByPublications(){
         driver.findElement(sortByPublicationsButton).click();
     }
+
     public void sortTagsByPosts(){
         driver.findElement(sortByPostsButton).click();
     }
+
     public void sortTagsBySubscriptions() {
         driver.findElement(sortBySubscriptionsButton).click();
     }
+
     public void openTagOnSite(){
         driver.findElement(openingTagOnSiteButton).click();
     }
+
     public void openPopupEditingTag(){
         driver.findElement(editTagDropdownButton).click();
         driver.findElement(editTagButton).click();
     }
+
     public void closePopupEditTag(){
         driver.findElement(closePopupEditTagButton).click();
     }
+
     public void editTag(String tagDescription ){
         driver.findElement(descriptionInput).clear();
         driver.findElement(descriptionInput).sendKeys(tagDescription);
         driver.findElement(saveButtonInPopup).click();
     }
+
     public void subscribeOnTag(){
         driver.findElement(subscribeOnTagButton).click();
     }
+
     public void addNewTagInPost(String titleTag){
         methods = new AdditionalMethods(driver);
         driver.findElement(titleTagInputInPost).sendKeys(titleTag);
@@ -178,12 +200,14 @@ public class AdminTagsTest {
         methods.Wait(1000);
         driver.findElement(savePostButton).click();
     }
+
     public void addNewTagInPublication(String titleTagInPublication){
         driver.findElement(addingTagInputInPublication).sendKeys(titleTagInPublication);
         driver.findElement(addingTagInputInPublication).sendKeys(Keys.ENTER);
         driver.findElement(savePublicationButton).click();
         driver.findElement(savePublicationButtonInPopup).click();
     }
+
     public void deleteNewTagInPublication(){
         methods = new AdditionalMethods(driver);
         driver.findElement(deleteTagInPublicationButton).click();
@@ -191,9 +215,9 @@ public class AdminTagsTest {
         methods.Wait(1000);
         driver.findElement(savePublicationButtonInPopup).click();
     }
+
     public void deleteNewTagInPost(){
         driver.findElement(deleteTagInPostButton).click();
         driver.findElement(savePostButton).click();
     }
-
 }

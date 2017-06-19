@@ -52,12 +52,12 @@ public class AdminTestCases {
         setup();
     }
 
-/*    @After
+    @After
     public void afterTests(){
         driver.quit();
-    }*/
+    }
 
-   /* @Test
+    @Test
     public void authorisationAndLogout(){
         methods = new AdditionalMethods(driver);
         getUrl = new GetUrl(driver);
@@ -439,17 +439,19 @@ public class AdminTestCases {
         if(author.getAuthorNameAndSurname().equals(secondSurname + secondNameOfTheAuthor)){
             org.junit.Assert.fail("Sorting not working");
         }
-    }*/
+    }
     @Test
-    public void Tags() {
+    public void tags() {
         methods = new AdditionalMethods(driver);
         tags = new AdminTagsTest(driver);
         getUrl = new GetUrl(driver);
         adminLogin = new AdminLoginTest(driver);
+        registration = new RegistrationTest(driver);
+
         getUrl.driverGetAdminUrl();
         adminLogin.adminAuthorisation("test@example.com", "123qwe");
-        int a = 0; // initial range
-        int b = 10000; // the final value of the range
+        int a = 0;
+        int b = 10000;
         int FirstRandomNumber = a + (int) (Math.random() * b);
         int SecondRandomNumber = a + (int) (Math.random() * b);
         int randomNumber = FirstRandomNumber + SecondRandomNumber;
@@ -523,7 +525,6 @@ public class AdminTestCases {
         //Сравнение url тега в админке с url тега на сайте
         Assert.assertEquals(driver.getCurrentUrl(), urlTagInAdmin);
         //Регистрация и подписка на тег
-        registration = new RegistrationTest(driver);
         registration.firstUserRegistration("testname", "testlastname", methods.generateStr() , "12345678");
         methods.Wait(1500);
         tags.subscribeOnTag();
@@ -548,12 +549,12 @@ public class AdminTestCases {
         tags.openTagsTab();
         tags.sortTagsByPublications();
         methods.Wait(500);
-        String newCountPublications = tags.getTagPublicationsCount();
+      /*  String newCountPublications = tags.getTagPublicationsCount();
         String newCountPosts = tags.getFirstTagPostsCount();
-        String newCountSubscriptions = tags.getFirstTagSubscriptionsCount();
-        tags.isStringEquals(countPublications, newCountPublications);
-        tags.isStringEquals(countPosts, newCountPosts);
-        tags.isStringEquals(countSubscriptions, newCountSubscriptions);
+        String newCountSubscriptions = tags.getFirstTagSubscriptionsCount();*/
+        tags.isStringEquals(countPublications, tags.getTagPublicationsCount());
+        tags.isStringEquals(countPosts, tags.getFirstTagPostsCount());
+        tags.isStringEquals(countSubscriptions, tags.getFirstTagSubscriptionsCount());
         //Удалениее тега у поста и публикации
         getUrl.driverGetCurrentAdminUrl("publication/edit/1035");
         tags.deleteNewTagInPublication();

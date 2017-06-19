@@ -132,6 +132,12 @@ public class SocialNetworksAuthorisationTest {
         pressInFbButton();
         driver.switchTo().window(parentWindowId);
     }
+    public void facebookEnterLoginAndPassword(String textInEmail, String textInPassword){
+        insertEmailLoginInFbInput(textInEmail);
+        insertPasswordInFbInput(textInPassword);
+        pressInFbButton();
+    }
+
 
     public void vkAuthorisation(String textInEmail, String textInPassword) {
         methods = new AdditionalMethods(driver);
@@ -161,7 +167,11 @@ public class SocialNetworksAuthorisationTest {
         driver.switchTo().window(parentWindowId);
     }
 
-
+    public void vkEnterLoginAndPassword(String textInEmail, String textInPassword){
+        insertEmailLoginInVkInput(textInEmail);
+        insertPasswordInVkInput(textInPassword);
+        pressInVkButton();
+    }
     public void googleAuthorisation(String email, String password) {
         methods = new AdditionalMethods(driver);
         pressInLoginButton();
