@@ -4,6 +4,7 @@ import AdminTestClasses.*;
 import Helper.AdditionalMethods;
 import Helper.GetUrl;
 import TestClasses.PagePublishing;
+import TestClasses.RegistrationTest;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -33,6 +34,8 @@ public class AdminTestCases {
     private AdminBlogs blogs;
     private AdminAddingAuthorTest author;
     private AdminLogoutTest logout;
+    private AdminTagsTest tags;
+    private RegistrationTest registration;
 
     public AdminTestCases(){
 
@@ -49,12 +52,12 @@ public class AdminTestCases {
         setup();
     }
 
-    @After
+/*    @After
     public void afterTests(){
         driver.quit();
-    }
+    }*/
 
-    @Test
+   /* @Test
     public void authorisationAndLogout(){
         methods = new AdditionalMethods(driver);
         getUrl = new GetUrl(driver);
@@ -436,5 +439,126 @@ public class AdminTestCases {
         if(author.getAuthorNameAndSurname().equals(secondSurname + secondNameOfTheAuthor)){
             org.junit.Assert.fail("Sorting not working");
         }
+    }*/
+    @Test
+    public void Tags() {
+        methods = new AdditionalMethods(driver);
+        tags = new AdminTagsTest(driver);
+        getUrl = new GetUrl(driver);
+        adminLogin = new AdminLoginTest(driver);
+        getUrl.driverGetAdminUrl();
+        adminLogin.adminAuthorisation("test@example.com", "123qwe");
+        int a = 0; // initial range
+        int b = 10000; // the final value of the range
+        int FirstRandomNumber = a + (int) (Math.random() * b);
+        int SecondRandomNumber = a + (int) (Math.random() * b);
+        int randomNumber = FirstRandomNumber + SecondRandomNumber;
+        String tagName = Integer.toString(randomNumber);
+        String tagUrl = Integer.toString(randomNumber);
+        tags.openTagsTab();
+        tags.addNewTag(tagName, tagUrl,"Description","SeoTitleTag","SeoDescriptionTag");
+        methods.Wait(500);
+        //Сортировка тегов по названию
+        String titleFirstTag = tags.getTagTitle();
+        methods.Wait(500);
+        tags.sortTagsByName();
+        methods.Wait(500);
+        String titleSecondTag = tags.getSecondTagTitle();
+        tags.tagsCompareByName(titleFirstTag, titleSecondTag);
+        methods.Wait(500);
+        //Сортировака тегов по количеству постов
+        tags.sortTagsByPosts();
+        methods.Wait(500);
+        String countPostsFirstTag = tags.getFirstTagPostsCount();
+        //Преобразование строки в число
+        int FirstTagPostsCount = Integer.parseInt(countPostsFirstTag.replace(" ",""),10);
+        String countPostsSecondTag = tags.getSecondTagPostsCount();
+        //Преобразование строки в число
+        int SecondTagPostsCount = Integer.parseInt(countPostsSecondTag.replace(" ",""),10 );
+        tags.tagsCompare(FirstTagPostsCount,SecondTagPostsCount);
+        //Сортировка тегов по количеству подписчиков
+        tags.sortTagsBySubscriptions();
+        methods.Wait(500);
+        String countSubscriptionFirstTag = tags.getFirstTagSubscriptionsCount();
+        int FirstTagSubscriptionsCount = Integer.parseInt(countSubscriptionFirstTag.replace(" ",""),10);
+        String countSubscriptionSecondTag = tags.getSecondTagSubscriptionsCount();
+        int SecondTagSubscriptionsCount = Integer.parseInt(countSubscriptionSecondTag.replace(" ",""),10 );
+        tags.tagsCompare(FirstTagSubscriptionsCount,SecondTagSubscriptionsCount);
+        //Сортировка тегов по количеству публикаций
+        tags.sortTagsByPublications();
+        methods.Wait(500);
+        String countPublicationsFirstTag = tags.getTagPublicationsCount();
+        int FirstTagPublicationsCount = Integer.parseInt( countPublicationsFirstTag.replace(" ",""),10);
+        String countPublicationsSecondTag = tags.getSecondTagPublicationsCount();
+        int SecondTagPublicationsCount = Integer.parseInt(countPublicationsSecondTag.replace(" ",""),10 );
+        tags.tagsCompare(FirstTagPublicationsCount,SecondTagPublicationsCount);
+        methods.Wait(500);
+        //Проверка закрытия попапа по крестику
+        tags.openPopupEditingTag();
+        methods.Wait(500);
+        tags.closePopupEditTag();
+        methods.Wait(500);
+        //Проверка редактирования тега
+        tags.openPopupEditingTag();
+        methods.Wait(100);
+        //Преобразование селектора url тега в строку
+        String urlTagInAdmin = getUrl.driverGetStr() + tags.getUrlTagInAdmin();
+        methods.Wait(500);
+        tags.editTag("Test");
+        methods.Wait(500);
+        //Сохранение названия тега
+        String titleTag = tags.getTagTitle();
+        methods.Wait(500);
+        //Сохранение значений кол-ва постов, подписчиков, публикаций для проверки их изменения
+        String countPublications = tags.getTagPublicationsCount();
+        String countPosts = tags.getFirstTagPostsCount();
+        String countSubscriptions = tags.getFirstTagSubscriptionsCount();
+        String parentWindow = driver.getWindowHandle();
+        final Set<String> oldWindows = driver.getWindowHandles();
+        tags.openTagOnSite();
+        methods.moveFocusToTheNewWindow(oldWindows);
+        methods.Wait(1000);
+        //Проверка изменения описания тега после редактирования
+        Assert.assertEquals(tags.getDescriptionTagOnSite(), "Test");
+        //Сравнение url тега в админке с url тега на сайте
+        Assert.assertEquals(driver.getCurrentUrl(), urlTagInAdmin);
+        //Регистрация и подписка на тег
+        registration = new RegistrationTest(driver);
+        registration.firstUserRegistration("testname", "testlastname", methods.generateStr() , "12345678");
+        methods.Wait(1500);
+        tags.subscribeOnTag();
+        methods.Wait(500);
+        //Добавление тега в пост
+        getUrl.driverGetCurrentUrl("post/2269/editor");
+        tags.addNewTagInPost(titleTag);
+        methods.Wait(1000);
+        //Проверка отображения нового тега на сайте
+        getUrl.driverGetCurrentUrl(tagUrl);
+        //Проверка отображения seo нового тега на сайте
+        Assert.assertEquals(driver.getTitle(), "SeoTitleTag");
+        Assert.assertEquals(tags.getSeoTitleOnSite(), "SeoTitleTag");
+        Assert.assertEquals(tags.getSeoDescriptionOnSite(), "SeoDescriptionTag");
+        driver.close();
+        driver.switchTo().window(parentWindow);
+        //Добавление тега в публикацию
+        getUrl.driverGetCurrentAdminUrl("publication/edit/1035");
+        tags.addNewTagInPublication(titleTag);
+        methods.Wait(1500);
+        //Проверка изменения значений кол-ва постов, подписчиков, публикаций у тега
+        tags.openTagsTab();
+        tags.sortTagsByPublications();
+        methods.Wait(500);
+        String newCountPublications = tags.getTagPublicationsCount();
+        String newCountPosts = tags.getFirstTagPostsCount();
+        String newCountSubscriptions = tags.getFirstTagSubscriptionsCount();
+        tags.isStringEquals(countPublications, newCountPublications);
+        tags.isStringEquals(countPosts, newCountPosts);
+        tags.isStringEquals(countSubscriptions, newCountSubscriptions);
+        //Удалениее тега у поста и публикации
+        getUrl.driverGetCurrentAdminUrl("publication/edit/1035");
+        tags.deleteNewTagInPublication();
+        methods.Wait(1500);
+        getUrl.driverGetCurrentUrl("post/2269/editor");
+        tags.deleteNewTagInPost();
     }
 }
