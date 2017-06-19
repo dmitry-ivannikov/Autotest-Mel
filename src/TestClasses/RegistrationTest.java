@@ -58,7 +58,7 @@ public class RegistrationTest {
         methods = new AdditionalMethods(driver);
 
         driver.findElement(headerLoginButton).click();
-        methods.Wait(100);
+        methods.Wait(1000);
         driver.findElement(emailLoginButton).click();
         driver.findElement(registrationWindow).click();
         insertFirstNameRegistration(firstName);

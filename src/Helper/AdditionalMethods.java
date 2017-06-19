@@ -90,17 +90,17 @@ public class AdditionalMethods {
 
     // изменение фокуса с одной страницы на вторую
     public void moveFocusToTheNewWindow(final Set<String> oldWindowsSet){
-        String newWindos = (new WebDriverWait(driver, 10)).until(new ExpectedCondition<String>()
+        String newWindows = (new WebDriverWait(driver, 10)).until(new ExpectedCondition<String>()
         {
             @Override
             public String apply(WebDriver webDriver) {
-                Set<String> newWindosSet = webDriver.getWindowHandles();
-                newWindosSet.removeAll(oldWindowsSet);
-                return newWindosSet.size() > 0 ?
-                        newWindosSet.iterator().next() : null;
+                Set<String> newWindowsSet = webDriver.getWindowHandles();
+                newWindowsSet.removeAll(oldWindowsSet);
+                return newWindowsSet.size() > 0 ?
+                        newWindowsSet.iterator().next() : null;
             }
         });
-        driver.switchTo().window(newWindos);
+        driver.switchTo().window(newWindows);
     }
 
     // обработка консольных ошибок

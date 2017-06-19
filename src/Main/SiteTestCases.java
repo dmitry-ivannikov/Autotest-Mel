@@ -52,10 +52,10 @@ public class SiteTestCases {
         setup();
     }
 
-    @After
+ /*   @After
     public void afterTests(){
         driver.quit();
-    }
+    }*/
 
     @Test
     public void authorisation() throws IOException {
@@ -206,7 +206,7 @@ public class SiteTestCases {
         getUrl = new GetUrl(driver);
 
         getUrl.driverGet();
-        methods.Wait(4000);
+        methods.Wait(500);
 
         String str1 = "testpablo";
         String str2 = "@binka.me";
@@ -214,35 +214,32 @@ public class SiteTestCases {
         int q = r.nextInt(1111) - 100;
         Random r1 = new Random(System.currentTimeMillis());
         int w = r1.nextInt(111) - 10;
-        String str3 = w + str1 + q + str2;
-        String str4 = w + str1 + q;
+        String email = w + str1 + q + str2;
+        String email2 = w + str1 + q;
 
-        subscribeNewsLetter.subscribe(str3);
-        assertEquals(driver.getTitle(), "Рассылка mel.fm");
+        subscribeNewsLetter.subscribe(email);
+        Assert.assertEquals(driver.getTitle(), "Рассылка mel.fm");
         subscribeNewsLetter.pressInReturnButton();
-        methods.Wait(4000);
-        org.testng.Assert.assertEquals(driver.getCurrentUrl(), "http://mel.fm/");
-        methods.Wait(4000);
+        methods.Wait(500);
+        Assert.assertEquals(driver.getCurrentUrl(), "http://mel.fm/");
         driver.get("https://temp-mail.ru/option/change");
-        methods.Wait(1000);
-        subscribeNewsLetter.confirmSubscribe(str4);
-        methods.Wait(4000);
-        org.testng.Assert.assertEquals(subscribeNewsLetter.getSubjectName(), "Рассылка mel.fm: Подтверждение подписки");
-        org.testng.Assert.assertEquals(subscribeNewsLetter.getTitleName(), "Рассылка mel.fm");
-        methods.Wait(4000);
+        methods.Wait(500);
+        subscribeNewsLetter.confirmSubscribe(email2);
+        Assert.assertEquals(subscribeNewsLetter.getSubjectName(), "Рассылка mel.fm: Подтверждение подписки");
+        Assert.assertEquals(subscribeNewsLetter.getTitleName(), "Рассылка mel.fm");
+        methods.Wait(500);
         subscribeNewsLetter.confirm();
-        methods.Wait(4000);
+        methods.Wait(500);
         String parentHandle = driver.getWindowHandle();
         for (String childHandle : driver.getWindowHandles()) {
             if (!childHandle.equals(parentHandle)) {
                 driver.switchTo().window(childHandle);
             }
         }
-        methods.Wait(4000);
-        org.testng.Assert.assertEquals(subscribeNewsLetter.getConfirmPageName(), "Рассылка mel.fm");
+        methods.Wait(500);
+        Assert.assertEquals(subscribeNewsLetter.getConfirmPageName(), "Рассылка mel.fm");
         subscribeNewsLetter.pressInContinueButton();
-        org.testng.Assert.assertEquals(driver.getCurrentUrl(), "http://mel.fm/");
-       // methods.getBrowserLogs();
+        Assert.assertEquals(driver.getCurrentUrl(), "http://mel.fm/");
     }
 
     @Test
@@ -277,26 +274,26 @@ public class SiteTestCases {
     public void profile() throws IOException {
         methods = new AdditionalMethods(driver);
         getUrl = new GetUrl(driver);
+        profile = new ProfileTest(driver);
 
         getUrl.driverGet();
         registration = new RegistrationTest(driver);
         registration.firstUserRegistration("testname", "testlastname", methods.generateStr() , "12345678");
-        profile = new ProfileTest(driver);
-        methods.Wait(4000);
+        methods.Wait(1500);
         profile.openProfile();
         Assert.assertEquals(profile.getFirstname(),"testname");
         Assert.assertEquals(profile.getLastname(),"testlastname");
         profile.editFirstnameLastname("newtestname", "newtestlastname");
-        methods.Wait(4000);
+        methods.Wait(500);
         Assert.assertEquals(profile.getFirstname(),"newtestname");
         Assert.assertEquals(profile.getLastname(),"newtestlastname");
-        methods.Wait(4000);
+        methods.Wait(500);
         Assert.assertEquals(profile.getHeaderUserName(),"newtestname newtestlastname");
         profile.openBlog();
         Assert.assertEquals(profile.getAuthorNameInBlog(),"newtestname newtestlastname");
         profile.openProfile();
         profile.editUserNameAndAbout("username","Люблю читать мел");
-        methods.Wait(4000);
+        methods.Wait(500);
         Assert.assertEquals(profile.getHeaderUserName(),"username");
         profile.openBlog();
         Assert.assertEquals(profile.getAuthorNameInBlog(),"username");
@@ -306,35 +303,35 @@ public class SiteTestCases {
         String str5 = profile.getEmail();
         profile.changeEmail(methods.generateStr());
         String str6 = profile.getEmail();
-        methods.Wait(4000);
+        methods.Wait(500);
         profile.logout();
         autoLogin = new LoginTest(driver);
-        methods.Wait(4000);
+        methods.Wait(500);
         autoLogin.authorisation(str5,"12345678");
         profile.clickOnCloseButton();
         autoLogin.authorisation(str6, "12345678");
-        methods.Wait(4000);
+        methods.Wait(500);
         profile.openProfile();
 
         profile.editPhoneAndBirthdate("89165554433","01.01.1990");
         Assert.assertEquals(profile.getPhone(),"89165554433");
         Assert.assertEquals(profile.getBirthdate(),"01.01.1990");
-        methods.Wait(4000);
+        methods.Wait(500);
         profile.selectRoleAndGender();
-        methods.Wait(4000);
+        methods.Wait(500);
         Assert.assertEquals(profile.getRoleInput(),"Учитель");
         Assert.assertEquals(profile.getGenderInput(),"Женский");
 
         profile.downloadAvatar();
-        methods.Wait(2000);
+        methods.Wait(1000);
         Assert.assertEquals(profile.getImageClass(), "img");
         profile.deleteAvatar();
-        methods.Wait(4000);
+        methods.Wait(2000);
         Assert.assertEquals(profile.checkDeleteAvatar(),"Загрузить фото");
 
-        methods.Wait(4000);
+        methods.Wait(500);
         profile.addLinkInProfile("mel.fm","facebook.com","vk.com","twitter.com");
-        methods.Wait(4000);
+        methods.Wait(500);
         profile.openBlog();
 
         Assert.assertEquals(profile.getSiteUrl(),"mel.fm");
@@ -361,25 +358,25 @@ public class SiteTestCases {
         getUrl.driverGetCurrentUrl("robots.txt");
         Assert.assertTrue(driver.findElement(directiveTest.robotTxtText).isDisplayed());
         Assert.assertEquals(directiveTest.getRobotTxtText(), "User-agent: Yandex\n" +
-                "Disallow: /*?amp\n" +
-                "Disallow: /*?nomr\n" +
-                "Disallow: /*?ext\n" +
-                "Disallow: /*&amp\n" +
-                "Disallow: /*&nomr\n" +
-                "Disallow: /*&ext\n" +
-                "Disallow: /*?ogimage\n" +
+                "Disallow: ?amp\n" +
+                "Disallow: ?nomr\n" +
+                "Disallow: ?ext\n" +
+                "Disallow: &amp\n" +
+                "Disallow: &nomr\n" +
+                "Disallow: &ext\n" +
+                "Disallow: ?ogimage\n" +
                 "Clean-param: #!\n" +
                 "Crawl-delay: 1\n" +
                 "Host: mel.fm\n" +
                 "\n" +
                 "User-agent:*\n" +
-                "Disallow: /*?amp\n" +
-                "Disallow: /*?nomr\n" +
-                "Disallow: /*?ext\n" +
-                "Disallow: /*&amp\n" +
-                "Disallow: /*&nomr\n" +
-                "Disallow: /*&ext\n" +
-                "Disallow: /*?ogimage\n" +
+                "Disallow: ?amp\n" +
+                "Disallow: ?nomr\n" +
+                "Disallow: ?ext\n" +
+                "Disallow: &amp\n" +
+                "Disallow: &nomr\n" +
+                "Disallow: &ext\n" +
+                "Disallow: ?ogimage\n" +
                 "Sitemap: http://mel.fm/sitemap");
        // methods.getBrowserLogs();
     }
