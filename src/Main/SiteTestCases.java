@@ -52,10 +52,10 @@ public class SiteTestCases {
         setup();
     }
 
- /*   @After
+    @After
     public void afterTests(){
         driver.quit();
-    }*/
+    }
 
     @Test
     public void authorisation() throws IOException {
@@ -189,14 +189,29 @@ public class SiteTestCases {
         methods = new AdditionalMethods(driver);
         sharingArticle = new SharingArticleTest(driver);
         getUrl = new GetUrl(driver);
-
+        ArrayList<String> expectedResult = new ArrayList();
+        expectedResult.add("easy2rider2@gmail.com");
+        expectedResult.add("knock705b");
+        expectedResult.add("9 фраз, которые мы напрасно не говорим детям");
+        expectedResult.add("89164948378");
+        expectedResult.add("123qwe");
+        expectedResult.add("89161604481");
+        
         //Sharing Fb
         driver.get(getUrl.driverGetStr()+"2016/04/26/9_phrase");
-        sharingArticle.fbSharing("easy2rider2@gmail.com", "knock705b","9 фраз, которые мы напрасно не говорим детям");
+        sharingArticle.sharingFb(expectedResult);
 
         // Sharing Vk
-        driver.get(getUrl.driverGetStr()+"2016/04/26/9_phrase");
-        sharingArticle.vkSharing("89164948378", "123qwe","9 фраз, которые мы напрасно не говорим детям");
+        driver.navigate().refresh();
+        sharingArticle.sharingVk(expectedResult);
+
+        // Sharing Ok
+        driver.navigate().refresh();
+        sharingArticle.sharingOk(expectedResult);
+
+        // Sharing twitter
+        driver.navigate().refresh();
+        sharingArticle.twitterSharing(expectedResult);
     }
 
     @Test
